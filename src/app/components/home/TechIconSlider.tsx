@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type TechSliderProps = {
   slideData: string[];
   direction?: "reverse";
@@ -25,9 +27,11 @@ const TechIconSlider = ({ slideData, direction }: TechSliderProps) => {
             key={index}
             className="w-20 h-20 flex items-center justify-center overflow-hidden"
           >
-            <img
+            <Image
               src={icon}
               alt={`tech-icon-${index}`}
+              width={80}
+              height={80}
               className="w-full h-full object-contain"
             />
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import { FiFolder } from "react-icons/fi";
 import { useEffect, useRef } from "react";
@@ -104,7 +104,7 @@ const HomeBanner = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white font-['Poppins']">
-                Hi, I'm <span className="text-green-300">Ritesh Gharti</span>
+                 {"Hi, I'm "} <span className="text-green-300">Ritesh Gharti</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold text-green-200 mt-2">
                 Full Stack Developer
