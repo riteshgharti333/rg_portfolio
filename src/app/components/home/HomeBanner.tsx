@@ -4,7 +4,6 @@ import { motion, useAnimation } from "framer-motion";
 import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
 import { FiFolder } from "react-icons/fi";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { homeIcons1, homeIcons2, homeIcons3 } from "@/constants/data";
 import TechIconSlider from "./TechIconSlider";
 
@@ -19,8 +18,6 @@ interface Particle {
 
 const HomeBanner = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const controls = useAnimation();
-
   // Initialize particles
   useEffect(() => {
     const canvas = canvasRef.current;

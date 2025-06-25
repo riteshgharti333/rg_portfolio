@@ -1,20 +1,9 @@
 'use client';
-import React, { useRef, useEffect, useCallback, useMemo } from "react";
+import React, { useRef, useEffect, useCallback } from "react";
 import { gsap } from "gsap";
 import { InertiaPlugin } from "gsap/InertiaPlugin";
 
 gsap.registerPlugin(InertiaPlugin);
-
-const throttle = (func: (...args: any[]) => void, limit: number) => {
-  let lastCall = 0;
-  return function (this: any, ...args: any[]) {
-    const now = performance.now();
-    if (now - lastCall >= limit) {
-      lastCall = now;
-      func.apply(this, args);
-    }
-  };
-};
 
 interface Particle {
   x: number;
@@ -38,8 +27,6 @@ export interface ParticleBackgroundProps {
 
 const ParticleBackground: React.FC<ParticleBackgroundProps> = ({
   particleCount = 100,
-  baseColor = "#22c55e", // Green-500
-  activeColor = "#16a34a", // Green-600
   proximity = 150,
   className = "",
 }) => {
