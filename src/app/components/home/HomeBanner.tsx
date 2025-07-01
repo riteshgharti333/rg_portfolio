@@ -6,6 +6,7 @@ import { FiFolder } from "react-icons/fi";
 import { useEffect, useRef } from "react";
 import { homeIcons1, homeIcons2, homeIcons3 } from "@/constants/data";
 import TechIconSlider from "./TechIconSlider";
+import { IoMdDownload } from "react-icons/io";
 
 interface Particle {
   x: number;
@@ -17,81 +18,9 @@ interface Particle {
 }
 
 const HomeBanner = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  // Initialize particles
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const particles: Particle[] = [];
-    const colors = [
-      "rgba(74, 222, 128, 0.3)",
-      "rgba(34, 197, 94, 0.4)",
-      "rgba(22, 163, 74, 0.5)",
-    ];
-
-    // Create particles
-    for (let i = 0; i < 80; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 3 + 1,
-        speedX: Math.random() * 1 - 0.5,
-        speedY: Math.random() * 1 - 0.5,
-        color: colors[Math.floor(Math.random() * colors.length)],
-      });
-    }
-
-    // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((particle) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
-
-        // Reset particles that go off screen
-        if (
-          particle.x < 0 ||
-          particle.x > canvas.width ||
-          particle.y < 0 ||
-          particle.y > canvas.height
-        ) {
-          particle.x = Math.random() * canvas.width;
-          particle.y = Math.random() * canvas.height;
-        }
-
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = particle.color;
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section className="relative h-[100vh] flex items-center justify-center overflow-hidden bg-gradient-to-br ">
       {/* Particle background canvas */}
-     
 
       {/* Content container */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 py-24">
@@ -104,7 +33,8 @@ const HomeBanner = () => {
               transition={{ duration: 0.6 }}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white font-['Poppins']">
-                 {"Hi, I'm "} <span className="text-green-300">Ritesh Gharti</span>
+                {"Hi, I'm "}{" "}
+                <span className="text-green-300">Ritesh Gharti</span>
               </h1>
               <h2 className="text-2xl md:text-3xl font-semibold text-green-200 mt-2">
                 Full Stack Developer
@@ -117,9 +47,9 @@ const HomeBanner = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-green-100 max-w-2xl"
             >
-              I craft exceptional digital experiences with modern technologies.
-              Specializing in React, Next.js, Node.js, and cloud solutions, I
-              build performant, scalable applications with beautiful interfaces.
+              I'm a Full Stack Developer with 1+ years of experience building
+              fast, SEO-friendly, responsive web apps using modern tech —
+              delivering robust solutions and great user experience.
             </motion.p>
 
             <motion.div
@@ -133,7 +63,7 @@ const HomeBanner = () => {
                 download
                 className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
               >
-                <FaFileDownload /> Download Resume
+                <IoMdDownload /> Download Resume
               </a>
               <a
                 href="#projects"
@@ -171,28 +101,13 @@ const HomeBanner = () => {
 
           <div className=" md:w-1/2 flex justify-center">
             <div className="flex gap-10">
-              <TechIconSlider slideData={homeIcons1}  />
-              <TechIconSlider slideData={homeIcons2}  direction="reverse" />
+              <TechIconSlider slideData={homeIcons1} />
+              <TechIconSlider slideData={homeIcons2} direction="reverse" />
               <TechIconSlider slideData={homeIcons3} />
             </div>
           </div>
         </div>
       </div>
-
-      {/* Scrolling indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="w-6 h-10 border-2 border-green-400 rounded-full flex justify-center">
-          <motion.div
-            className="w-1 h-2 bg-green-400 rounded-full mt-2"
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </div>
-      </motion.div>
     </section>
   );
 };

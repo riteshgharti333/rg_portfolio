@@ -82,55 +82,96 @@ export const homeIcons3: string[] = [
 
 ///////////////////
 
+import img from "../assets/images/download.jpg";
 
-export const  projects = [
+export const projects = [
   {
     title: "E-Commerce Platform",
-    image: "/projects/ecommerce.jpg",
+    image: img,
     desc: "A full-featured online store with cart, checkout, and payment integration.",
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
     liveLink: "#",
-    codeLink: "#"
+    codeLink: "#",
+    slug: "netflix-clone",
   },
   {
     title: "Task Management App",
-    image: "/projects/taskapp.jpg",
+    image: img,
     desc: "Productivity application with drag-and-drop task organization and team collaboration.",
     tech: ["Next.js", "TypeScript", "Firebase", "Tailwind"],
     liveLink: "#",
-    codeLink: "#"
+    codeLink: "#",
   },
   {
     title: "Social Media Dashboard",
-    image: "/projects/social.jpg",
+    image: img,
     desc: "Analytics dashboard for tracking social media metrics and engagement.",
     tech: ["React", "D3.js", "Express", "PostgreSQL"],
     liveLink: "#",
-    codeLink: "#"
+    codeLink: "#",
   },
   {
     title: "AI Image Generator",
-    image: "/projects/ai-image.jpg",
+    image: img,
     desc: "Web app that generates custom images using AI based on text prompts.",
     tech: ["Next.js", "OpenAI", "Cloudinary", "Tailwind"],
     liveLink: "#",
-    codeLink: "#"
+    codeLink: "#",
   },
   {
     title: "Fitness Tracker",
-    image: "/projects/fitness.jpg",
+    image: img,
     desc: "Mobile-first application for tracking workouts and nutrition with progress charts.",
     tech: ["React Native", "GraphQL", "MongoDB", "Expo"],
     liveLink: "#",
-    codeLink: "#"
+    codeLink: "#",
   },
   {
     title: "Real Estate Portal",
-    image: "/projects/realestate.jpg",
+    image: img,
     desc: "Property listing platform with advanced filters and virtual tours.",
     tech: ["Next.js", "Mapbox", "Node.js", "PostgreSQL"],
     liveLink: "#",
-    codeLink: "#"
-  }
+    codeLink: "#",
+  },
 ];
 
+/////////////
+
+import cloudinary from "@/assets/images/download.jpg";
+
+export const skills = {
+  languages: [
+    { name: "C++", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" },
+    { name: "JavaScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" },
+    { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" },
+    { name: "HTML5", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" },
+    { name: "CSS3", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" },
+    { name: "Sass", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg" }
+  ],
+  frameworks: [
+    { name: "React.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" },
+    { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" },
+    { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg" },
+    { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg" },
+    { name: "Redux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg" },
+    { name: "Material UI", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg" },
+    { name: "Tailwind CSS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" }
+  ],
+  tools: [
+    { name: "Git", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
+    { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
+    { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
+    { name: "Postman", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" },
+    { name: "NPM", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" },
+    { name: "Nodemon", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg" }
+  ],
+  databases: [
+    { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
+    { name: "Mongoose", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original.svg" },
+    { name: "Firebase", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" },
+    { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" },
+    { name: "Cloudinary", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg" },
+     { name: "Prisma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg" }
+  ]
+};

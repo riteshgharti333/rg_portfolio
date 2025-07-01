@@ -2,11 +2,13 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
 import ParticleBackground from "./components/layout/DotGrid";
+import Footer from "./components/layout/Footer";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-poppins",
+  variable: '--font-poppins',
 });
 
 export const metadata = {
@@ -29,10 +31,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} font-sans antialiased h-full relative`}>
-        {/* DotGrid Background - fixed to viewport */}
+      
         <div className="fixed inset-0 -z-10 overflow-hidden">
           <ParticleBackground
-          
           />
         </div>
 
@@ -40,7 +41,9 @@ export default function RootLayout({
         <div className="relative z-10 min-h-full">
           <Navbar />
           {children}
+          <Footer />
         </div>
+      
       </body>
     </html>
   );
