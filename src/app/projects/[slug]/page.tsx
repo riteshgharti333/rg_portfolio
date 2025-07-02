@@ -148,30 +148,82 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Links */}
-        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-          <motion.a
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
-          >
-            <FiGithub className="text-lg" />
-            <span>View Code</span>
-          </motion.a>
-          <motion.a
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
-          >
-            <FiExternalLink className="text-lg" />
-            <span>Live Demo</span>
-          </motion.a>
-        </div>
+
+        {project.isFullStack ? (
+          <div className="">
+            <div className="flex gap-4">
+              {project.fullStackCodeLink.map((item, index) => {
+                const link =
+                  "codeLink" in item
+                    ? item.codeLink
+                    : "githubLink" in item
+                    ? item.githubLink
+                    : "liveLink" in item
+                    ? item.liveLink
+                    : "#";
+                return (
+                  <motion.a
+                    key={index}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
+                  >
+                    <FiGithub className="text-lg" />
+                    <span>{item.name}</span>
+                  </motion.a>
+                );
+              })}
+            </div>
+            <div className="flex gap-4 mt-3">
+              {project.fullStackLiveLink.map((item, index) => (
+                <motion.a
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={item.liveLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
+                >
+                  <FiExternalLink className="text-lg" />
+                  <span>{item.name}</span>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            {project.githubLink && (
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
+              >
+                <FiGithub className="text-lg" />
+                <span>View Code</span>
+              </motion.a>
+            )}
+
+            {project.liveLink && (
+              <motion.a
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
+              >
+                <FiExternalLink className="text-lg" />
+                <span>Live Demo</span>
+              </motion.a>
+            )}
+          </div>
+        )}
       </div>
     </motion.div>
   );

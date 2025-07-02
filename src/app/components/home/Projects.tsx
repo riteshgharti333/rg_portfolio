@@ -1,10 +1,10 @@
 "use client";
 
-import { projectData } from "@/constants/projectData";
+import { homeProjectData, projectData } from "@/constants/projectData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiExternalLink, FiGithub, FiSearch } from "react-icons/fi";
 
 const Projects = () => {
   return (
@@ -50,7 +50,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectData.map((project, index) => (
+          {homeProjectData.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
@@ -124,7 +124,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
           </Link>
 
           <p className="text-gray-300 mb-6 flex-1 line-clamp-3">
-            {project.description[0]}
+            {project.description}
           </p>
 
           {/* Tech Stack */}
@@ -136,7 +136,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
                   key={i}
                   className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full group-hover:bg-gray-700 group-hover:text-green-400 transition-all"
                 >
-                  {tech.name}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -144,24 +144,23 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 
           {/* Buttons */}
           <div className="flex gap-3 mt-auto">
+             <Link
+              href={`/projects/${project.slug}`}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all"
+            >
+              <FiSearch className="text-lg" />{" "}
+              <span>Explore More</span>
+            </Link>
             <a
               href={project.liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
+              className="flex-1 flex items-center cursor-pointer justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
             >
               <FiExternalLink className="text-lg" />
               <span>Live Demo</span>
             </a>
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all"
-            >
-              <FiGithub className="text-lg" />
-              <span>Code</span>
-            </a>
+           
           </div>
         </div>
       </div>
