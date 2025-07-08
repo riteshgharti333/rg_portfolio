@@ -6,15 +6,6 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projectData } from "@/constants/projectData";
 
-interface PageProps {
-  params: {
-    slug: string;
-  };
-}
-
-
-
-
 const BoldableText = ({ text }: { text: string }) => {
   const parts = text.split(/\*\*(.*?)\*\*/g);
 
@@ -33,7 +24,7 @@ const BoldableText = ({ text }: { text: string }) => {
   );
 };
 
-export default function ProjectPage({ params }: PageProps) {
+export default function ProjectPage({ params }: { params: { slug: string } }) {
   const project = projectData.find((proj) => proj.slug === params.slug);
   if (!project) return notFound();
 
@@ -64,7 +55,7 @@ export default function ProjectPage({ params }: PageProps) {
         {project.isFullStack ? (
           <div className="">
             <div className="flex gap-4">
-              {project.fullStackCodeLink?.map((item, index) => {
+              {project.fullStackCodeLink.map((item, index) => {
                 return (
                   <motion.a
                     key={index}
@@ -82,7 +73,7 @@ export default function ProjectPage({ params }: PageProps) {
               })}
             </div>
             <div className="flex gap-4 mt-3">
-              {project.fullStackLiveLink?.map((item, index) => (
+              {project.fullStackLiveLink.map((item, index) => (
                 <motion.a
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -224,6 +215,8 @@ export default function ProjectPage({ params }: PageProps) {
             ))}
           </div>
         </div>
+
+        {/* Links */}
       </div>
     </motion.div>
   );
