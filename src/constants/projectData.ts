@@ -7,13 +7,11 @@ const img3 =
 const img4 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg";
 
-("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg");
 const img7 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg";
 const img9 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg";
 
-("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg");
 const img14 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg";
 const img15 =
