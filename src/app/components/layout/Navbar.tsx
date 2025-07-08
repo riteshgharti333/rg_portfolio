@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(true);
@@ -68,7 +67,6 @@ const Navbar = () => {
       }, 1500);
     };
 
-    // Add passive scroll listener for better performance
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
@@ -80,18 +78,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: 0 }}
-      animate={{
-        y: visible ? 0 : -100,
-        opacity: visible ? 1 : 0,
-      }}
-      transition={{
-        type: "spring",
-        damping: 20,
-        stiffness: 300,
-      }}
-      className={`fixed w-full  z-50 transition-all duration-300 ease-out ${
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 ease-out ${
+        !visible ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+      } ${
         scrolled
           ? "bg-black-900/90 backdrop-blur-md py-4 shadow-xl"
           : "bg-transparent py-4"
@@ -101,15 +91,12 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-white tracking-tight"
-            >
+            <span className="text-2xl font-bold text-white tracking-tight transition-transform duration-200 hover:scale-105">
               RG.
               <span className="text-green-300 group-hover:text-green-200 transition-colors duration-300">
                 Dev
               </span>
-            </motion.span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -126,9 +113,8 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="md:hidden text-white focus:outline-none z-50"
+          <button
+            className="md:hidden text-white focus:outline-none z-50 active:scale-90 transition-transform"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -154,40 +140,33 @@ const Navbar = () => {
                 />
               )}
             </svg>
-          </motion.button>
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden overflow-hidden"
-            >
-              <div className="pt-4 pb-6 space-y-3">
-                {navItems.map((item) => (
-                  <MobileNavLink
-                    key={item.path}
-                    href={item.path}
-                    isActive={pathname === item.path}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </MobileNavLink>
-                ))}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="pt-4 pb-6 space-y-3 rounded-2xl">
+            {navItems.map((item) => (
+              <MobileNavLink
+                key={item.path}
+                href={item.path}
+                isActive={pathname === item.path}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.name}
+              </MobileNavLink>
+            ))}
+          </div>
+        </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
-// NavLink component remains the same as previous example
 const NavLink = ({
   href,
   children,
@@ -199,11 +178,7 @@ const NavLink = ({
 }) => {
   return (
     <Link href={href} passHref>
-      <motion.div
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="relative group px-2 py-1"
-      >
+      <div className="relative group px-2 py-1 hover:scale-105 active:scale-95 transition-transform">
         <span
           className={`relative z-10 font-medium transition-colors duration-300 ${
             isActive ? "text-green-300" : "text-white hover:text-green-200"
@@ -212,23 +187,16 @@ const NavLink = ({
           {children}
         </span>
         {isActive && (
-          <motion.span
-            layoutId="navActive"
-            className="absolute left-0 bottom-0 w-full h-[2px] bg-green-300"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.3, type: "spring" }}
-          />
+          <span className="absolute left-0 bottom-0 w-full h-[2px] bg-green-300 scale-x-100 transition-transform duration-300" />
         )}
         {!isActive && (
-          <motion.span className="absolute left-0 bottom-0 w-0 h-[2px] bg-green-300 group-hover:w-full transition-all duration-300" />
+          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-green-300 group-hover:w-full transition-all duration-300" />
         )}
-      </motion.div>
+      </div>
     </Link>
   );
 };
 
-// MobileNavLink component remains the same as previous example
 const MobileNavLink = ({
   href,
   children,
@@ -242,33 +210,21 @@ const MobileNavLink = ({
 }) => {
   return (
     <Link href={href} passHref>
-      <motion.div
-        whileTap={{ scale: 0.95 }}
+      <div
         onClick={onClick}
-        className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
+        className={`block px-4 py-3 font-medium transition-all active:scale-95 ${
           isActive
             ? "bg-green-700 text-white"
-            : "bg-green-800/30 text-white hover:bg-green-700/50"
+            : "bg-black text-white hover:bg-green-700/50"
         }`}
       >
-        <motion.div
-          initial={{ x: -10 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.2 }}
-          className="flex items-center"
-        >
+        <div className="flex items-center">
           {isActive && (
-            <motion.div
-              layoutId="mobileActive"
-              className="w-1 h-6 bg-green-300 rounded-full mr-3"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
+            <div className="w-1 h-6 bg-green-300 rounded-full mr-3" />
           )}
           <span>{children}</span>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </Link>
   );
 };

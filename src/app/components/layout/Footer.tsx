@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import {
   FiGithub,
   FiLinkedin,
@@ -8,9 +7,15 @@ import {
   FiExternalLink,
 } from "react-icons/fi";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import {
+  githubLink,
+  linkedinLink,
+  mailLink,
+  phoneNo,
+} from "@/constants/linksData";
 
 const Footer = () => {
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   const FooterLink = ({
     href,
@@ -19,16 +24,15 @@ const Footer = () => {
     href: string;
     children: React.ReactNode;
   }) => (
-    <motion.a
-      whileHover={{ x: 5 }}
+    <Link
       href={href}
-      className="block py-2 text-gray-400 hover:text-white transition-colors duration-300"
+      className="block py-2 text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300"
     >
       <span className="flex items-center gap-2">
         <span className="text-cyan-400 text-xs">›</span>
         {children}
       </span>
-    </motion.a>
+    </Link>
   );
 
   const SocialButton = ({
@@ -45,8 +49,6 @@ const Footer = () => {
       whileTap={{ scale: 0.95 }}
       href={href}
       target="_blank"
-      onMouseEnter={() => setHoveredItem(label)}
-      onMouseLeave={() => setHoveredItem(null)}
       className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 border border-gray-700 flex items-center justify-center text-gray-300 hover:text-white transition-all duration-300"
       aria-label={label}
     >
@@ -64,13 +66,11 @@ const Footer = () => {
               Navigation
             </h3>
             <div className="space-y-2">
-              {["Home", "Experience", "Skills", "About", "Contact"].map(
-                (item) => (
-                  <FooterLink key={item} href={`#${item.toLowerCase()}`}>
-                    {item}
-                  </FooterLink>
-                )
-              )}
+              {["Home", "Experience", "About", "Projects"].map((item) => (
+                <FooterLink key={item} href={`${item.toLowerCase()}`}>
+                  {item}
+                </FooterLink>
+              ))}
             </div>
           </div>
 
@@ -85,14 +85,14 @@ const Footer = () => {
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300"
               >
                 <FiMail className="text-cyan-400 flex-shrink-0" />
-                contact@example.com
+                {mailLink}
               </a>
               <a
                 href="tel:+1234567890"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300"
               >
                 <FiPhone className="text-cyan-400 flex-shrink-0" />
-                +1 (234) 567-8900
+                {phoneNo}
               </a>
             </div>
           </div>
@@ -101,20 +101,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
             <div className="flex gap-3">
-              <SocialButton
-                icon={FiGithub}
-                href="https://github.com"
-                label="GitHub"
-              />
+              <SocialButton icon={FiGithub} href={githubLink} label="GitHub" />
               <SocialButton
                 icon={FiLinkedin}
-                href="https://linkedin.com"
+                href={linkedinLink}
                 label="LinkedIn"
-              />
-              <SocialButton
-                icon={FiMail}
-                href="mailto:contact@example.com"
-                label="Email"
               />
             </div>
           </div>
@@ -126,7 +117,9 @@ const Footer = () => {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Your Name. All rights reserved.
+            Built with <span className="text-white font-medium">Next.js</span>,{" "}
+            <span className="text-white font-medium">TypeScript</span> &{" "}
+            <span className="text-white font-medium">Tailwind CSS</span>
           </p>
 
           <motion.a

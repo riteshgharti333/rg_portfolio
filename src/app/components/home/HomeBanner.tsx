@@ -1,21 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaFileDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiFolder } from "react-icons/fi";
-import { useEffect, useRef } from "react";
 import { homeIcons1, homeIcons2, homeIcons3 } from "@/constants/data";
 import TechIconSlider from "./TechIconSlider";
 import { IoMdDownload } from "react-icons/io";
+import Link from "next/link";
+import { githubLink, linkedinLink } from "@/constants/linksData";
 
-interface Particle {
-  x: number;
-  y: number;
-  size: number;
-  speedX: number;
-  speedY: number;
-  color: string;
-}
+
 
 const HomeBanner = () => {
   return (
@@ -47,9 +41,9 @@ const HomeBanner = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg text-green-100 max-w-2xl"
             >
-              I'm a Full Stack Developer with 1+ years of experience building
-              fast, SEO-friendly, responsive web apps using modern tech —
-              delivering robust solutions and great user experience.
+              {"I'm"} a Full Stack Developer building fast, SEO-friendly, responsive
+              web apps using modern tech — delivering robust solutions and great
+              user experience.
             </motion.p>
 
             <motion.div
@@ -59,18 +53,18 @@ const HomeBanner = () => {
               className="flex flex-wrap gap-4 justify-center md:justify-start"
             >
               <a
-                href="/resume.pdf"
+                href="/ritesh_resume.pdf"
                 download
                 className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-green-500/20"
               >
                 <IoMdDownload /> Download Resume
               </a>
-              <a
-                href="#projects"
+              <Link
+                href="projects"
                 className="flex items-center gap-2 px-6 py-3 bg-transparent border-2 border-green-500 hover:bg-green-500/10 text-white font-medium rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-green-500/10"
               >
                 <FiFolder /> View Projects
-              </a>
+              </Link>
             </motion.div>
 
             {/* Social links */}
@@ -81,7 +75,7 @@ const HomeBanner = () => {
               className="flex gap-4 justify-center md:justify-start"
             >
               <a
-                href="https://github.com"
+                href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-200 hover:text-white transition-colors duration-300"
@@ -89,7 +83,7 @@ const HomeBanner = () => {
                 <FaGithub className="w-6 h-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={linkedinLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-green-200 hover:text-white transition-colors duration-300"

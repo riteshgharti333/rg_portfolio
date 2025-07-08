@@ -6,24 +6,14 @@ const img3 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg";
 const img4 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg";
-const img5 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg";
-const img6 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg";
+
+("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg");
 const img7 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg";
-const img8 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg";
 const img9 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg";
-const img10 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg";
-const img11 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg";
-const img12 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg";
-const img13 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg";
+
+("https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg");
 const img14 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg";
 const img15 =
@@ -32,20 +22,9 @@ const img16 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg";
 const img17 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg";
-const img18 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
+
 const img19 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg";
-
-const img20 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg";
-
-const img21 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg";
-const img22 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
-const img23 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg";
 
 const img25 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/reactrouter/reactrouter-original.svg";
@@ -64,10 +43,28 @@ const img29 =
 const img30 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg";
 
+import projectImg1 from "../assets/images/projectImgs/abhimanyu.jpeg";
+import projectImg2 from "../assets/images/projectImgs/bk.jpeg";
+import projectImg3 from "../assets/images/projectImgs/bsprinter.jpeg";
+import projectImg4 from "../assets/images/projectImgs/building.jpeg";
+import projectImg5 from "../assets/images/projectImgs/codefeast.jpeg";
+import projectImg6 from "../assets/images/projectImgs/global.jpeg";
+import projectImg7 from "../assets/images/projectImgs/hospital.jpeg";
+import projectImg8 from "../assets/images/projectImgs/invoice.jpeg";
+import projectImg9 from "../assets/images/projectImgs/star.jpeg";
+import projectImg10 from "../assets/images/projectImgs/streamer.jpeg";
+import projectImg11 from "../assets/images/projectImgs/thenad.jpeg";
+import projectImg12 from "../assets/images/projectImgs/tk.jpeg";
+
+import projectImg13 from "../assets/images/projectImgs/trade.jpg";
+
+import projectImg14 from "../assets/images/projectImgs/thinker.png";
+
 export const homeProjectData = [
   {
     slug: "international-academy-of-design",
     title: "International Academy of Design",
+    img: projectImg11,
     description:
       "Full-stack college website with dynamic content control, admin dashboard, and Cloudinary image optimization.",
     techStack: [
@@ -83,6 +80,7 @@ export const homeProjectData = [
   {
     slug: "star-marketing-invoice",
     title: "Star Marketing Invoice",
+    img: projectImg8,
     description:
       "MERN stack invoice management system for businesses with PDF generation and financial reporting.",
     techStack: [
@@ -98,6 +96,7 @@ export const homeProjectData = [
   {
     slug: "star-marketing",
     title: "Star Marketing",
+    img: projectImg9,
     description:
       "Digital agency platform with admin dashboard, JWT auth, and SEO optimization using MERN stack.",
     techStack: [
@@ -114,6 +113,7 @@ export const homeProjectData = [
   {
     slug: "streamer",
     title: "Streamer",
+    img: projectImg10,
     description:
       "Movie streaming platform with Stripe subscriptions, Firebase storage, and role-based admin dashboard.",
     techStack: [
@@ -130,6 +130,7 @@ export const homeProjectData = [
   {
     slug: "tk-production-film",
     title: "TK Production Film",
+    img: projectImg12,
     description:
       "Wedding agency platform with dynamic galleries, drag-and-drop admin, and Cloudinary media storage.",
     techStack: [
@@ -146,6 +147,7 @@ export const homeProjectData = [
   {
     slug: "hospital-management",
     title: "Hospital Management",
+    img: projectImg7,
     description:
       "Ongoing hospital management system with TypeScript backend, Prisma ORM, and React Query.",
     techStack: [
@@ -165,7 +167,7 @@ export const homeProjectData = [
 export const projectData = [
   {
     slug: "international-academy-of-design",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg11,
     title: "International Academy of Design",
     description: [
       "A **full-stack college website** built to showcase institutional offerings with a strong emphasis on **performance**, **simplicity**, and **dynamic content control** — featuring a **minimalist and responsive UI** that ensures a seamless experience across all devices.",
@@ -246,33 +248,33 @@ export const projectData = [
     fullStackCodeLink: [
       {
         name: "Frontend Code",
-        codeLink: "https://github.com/yourusername/bk-welfare-society",
+        codeLink: "https://github.com/riteshgharti333/Collage_project_frontend",
       },
       {
-        name: "Backned Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
+        name: "Backend Code",
+        codeLink: "https://github.com/riteshgharti333/Collage_project_backend",
       },
       {
         name: "Admin Dasboard Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
+        codeLink: "https://github.com/riteshgharti333/Collage-project-admin",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontedn Live",
-        githubLink: "https://github.com/yourusername/bk-welfare-society",
+        name: "Frontend Live Demo",
+        liveLink: "https://inad.in",
       },
       {
         name: "Admin Live Demo",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        liveLink: "https://project6-admin.vercel.app",
       },
     ],
   },
 
   {
     slug: "star-marketing-invoice",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg8,
     title: "Star Marketing Invoice",
     description: [
       "**Star Marketing Invoice** is a **full-stack invoice management platform** built using the **MERN stack (MongoDB, Express, React, Node.js)**, designed for **small to medium businesses** to handle their **complete billing workflow** — from **product management** to **invoice generation** and **report tracking**.",
@@ -349,33 +351,26 @@ export const projectData = [
     fullStackCodeLink: [
       {
         name: "Frontend Code",
-        codeLink: "https://github.com/yourusername/bk-welfare-society",
+        codeLink: "https://github.com/riteshgharti333/star_marketing_invoice",
       },
       {
-        name: "Backned Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
-      },
-      {
-        name: "Admin Dasboard Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
+        name: "Backend Code",
+        codeLink:
+          "https://github.com/riteshgharti333/star_marketing_invoice_backend",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontedn Live",
-        githubLink: "https://github.com/yourusername/bk-welfare-society",
-      },
-      {
-        name: "Admin Live Demo",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        name: "Frontend Live Demo",
+        liveLink: "https://project-7-theta.vercel.app",
       },
     ],
   },
 
   {
     slug: "star-marketing",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg9,
     title: "Star Marketing",
     description: [
       "A **full-stack digital agency platform** developed using the **MERN stack (MongoDB, Express, React, Node.js)**, offering professional services in **marketing**, **web development**, and **UI/UX design** — built with a focus on **performance**, **clean design**, and **business scalability**.",
@@ -451,33 +446,33 @@ export const projectData = [
     fullStackCodeLink: [
       {
         name: "Frontend Code",
-        codeLink: "https://github.com/yourusername/bk-welfare-society",
+        codeLink: "https://github.com/riteshgharti333/star_marketing_frontend",
       },
       {
-        name: "Backned Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
+        name: "Backend Code",
+        codeLink: "https://github.com/riteshgharti333/star_marketing_backend",
       },
       {
         name: "Admin Dasboard Code",
-        codeLink: "https://bk-welfare-society.vercel.app",
+        codeLink: "https://github.com/riteshgharti333/star_marketing_admin",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontedn Live",
-        githubLink: "https://github.com/yourusername/bk-welfare-society",
+        name: "Frontend Live Demo",
+        liveLink: "https://wingstarnarketing.com",
       },
       {
         name: "Admin Live Demo",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        liveLink: "https://project9-admin.vercel.app",
       },
     ],
   },
 
   {
     slug: "streamer",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg10,
     title: "Streamer",
 
     description: [
@@ -563,25 +558,24 @@ export const projectData = [
 
     isFullStack: true,
 
-   
     fullStackCodeLink: [
       {
         name: "Frontend Code",
         codeLink: "https://github.com/riteshgharti333/streamer_frontend",
       },
       {
-        name: "Backned Code",
+        name: "Backend Code",
         codeLink: "https://github.com/riteshgharti333/streamer_backend",
       },
-       {
-        name: "Admin Dashboard Code",
+      {
+        name: "Admin Dasboard Code",
         codeLink: "https://github.com/riteshgharti333/streamer_admin_dashboard",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frotend Live Demo",
+        name: "Frontend Live Demo",
         liveLink: "https://streamer-frontend.vercel.app",
       },
       {
@@ -593,7 +587,7 @@ export const projectData = [
 
   {
     slug: "tk-production-film",
-    bannerImage: "/images/projects/bk-welfare-society.png", // Replace with actual image path
+    bannerImage: projectImg12,
     title: "TK Production Film",
     description: [
       "A **full-stack wedding agency platform** built using the **MERN stack (MongoDB, Express, React, Node.js)**, designed to showcase services like **wedding shoots**, **pre-wedding sessions**, **birthday events**, and more — crafted with a focus on **elegant visuals** and **user-centric design**.",
@@ -672,41 +666,40 @@ export const projectData = [
       "Developing a **secure and user-friendly admin dashboard** capable of handling **complex CRUD operations**.",
     ],
 
-    githubLink: "https://github.com/yourusername/bk-welfare-society",
-    liveLink: "https://bk-welfare-society.vercel.app",
-
     isFullStack: true,
 
     fullStackCodeLink: [
       {
-        name: "Frontedn Code",
-        githubLink: "https://github.com/yourusername/bk-welfare-society",
+        name: "Frontend Code",
+        codeLink:
+          "https://github.com/riteshgharti333/tk_production_film_frontend",
       },
       {
-        name: "Backned Code",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        name: "Backend Code",
+        codeLink:
+          "https://github.com/riteshgharti333/tk_production_film_backend",
       },
       {
         name: "Admin Dasboard Code",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        codeLink: "https://github.com/riteshgharti333/tk_production_film_admin",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontedn Live",
-        githubLink: "https://github.com/yourusername/bk-welfare-society",
+        name: "Frontend Live Demo",
+        liveLink: "https://project3-new-frontend.vercel.app",
       },
       {
         name: "Admin Live Demo",
-        liveLink: "https://bk-welfare-society.vercel.app",
+        liveLink: "https://project-3-admin-xr5l.vercel.app",
       },
     ],
   },
 
   {
     slug: "hospital-management",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg7,
     title: "Hospital Management (Ongoing)",
 
     description: [
@@ -792,14 +785,14 @@ export const projectData = [
         codeLink: "https://github.com/riteshgharti333/hospital_management_app",
       },
       {
-        name: "Backned Code",
+        name: "Backend Code",
         codeLink: "https://github.com/riteshgharti333/hospital_management_app",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Live Demo",
+        name: "Frontend Live Demo",
         liveLink: "https://hospital-management-app-nine.vercel.app",
       },
     ],
@@ -807,7 +800,7 @@ export const projectData = [
 
   {
     slug: "thinker",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg14,
     title: "Thinker",
 
     description: [
@@ -878,22 +871,22 @@ export const projectData = [
         codeLink: "https://github.com/riteshgharti333/thinker_frontend",
       },
       {
-        name: "Backned Code",
+        name: "Backend Code",
         codeLink: "https://github.com/riteshgharti333/thinker_backend",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Live Demo",
-        liveLink: "https://thinker-frontend-pi.vercel.app",
+        name: "Frontend Live Demo",
+        liveLink: "https://thinker-frontend-4jyh.vercel.app",
       },
     ],
   },
 
   {
     slug: "codefeast",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg5,
     title: "Codefeast",
 
     description: [
@@ -944,7 +937,7 @@ export const projectData = [
 
   {
     slug: "trade-dad",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg13,
     title: "Trade Dad",
 
     description: [
@@ -987,7 +980,7 @@ export const projectData = [
 
   {
     slug: "abhimanyu-holidays",
-    bannerImage: "/images/projects/kilaniya-construction.png",
+    bannerImage: projectImg1,
     title: "Abhimanyu Holidays",
     description: [
       "A **modern travel website** built for **Abhimanyu Holidays**, a Jaipur-based tourism company specializing in **One Day Tours** across Rajasthan — offering quick, comfortable, and affordable ways to explore destinations like **Jaipur**, **Pushkar**, **Ajmer**, and more.",
@@ -1057,7 +1050,7 @@ export const projectData = [
   },
   {
     slug: "global-india-travel",
-    bannerImage: "/images/projects/kilaniya-construction.png",
+    bannerImage: projectImg6,
     title: "Global India Travels",
     description: [
       "A **comprehensive tour and travel booking platform** built from scratch using **React**, offering a wide range of services like **taxi booking**, **outstation travel**, **guided tours**, **same-day packages**, and **tempo/bus rentals** — tailored for both **domestic and international travelers**.",
@@ -1133,7 +1126,7 @@ export const projectData = [
 
   {
     slug: "bk-welfare-society",
-    bannerImage: "/images/projects/bk-welfare-society.png", // Replace with actual image path
+    bannerImage: projectImg2,
     title: "BK Welfare Society",
     description: [
       "A **community-centric platform** designed to showcase **individual achievements** and **social contributions**, focused on **accessibility**, **clarity**, and **visual storytelling**.",
@@ -1169,7 +1162,7 @@ export const projectData = [
 
   {
     slug: "bs-printers",
-    bannerImage: "/images/projects/bk-welfare-society.png",
+    bannerImage: projectImg3,
     title: "BS Printers",
     description: [
       "A **modern, visually refined printing platform** built to showcase a curated range of customizable products like **posters**, **t-shirts**, and other printables — with a strong focus on **minimalist design**, **clean layout**, and an **intuitive user journey**.",
@@ -1215,7 +1208,7 @@ export const projectData = [
 
   {
     slug: "kilaniya-construction",
-    bannerImage: "/images/projects/kilaniya-construction.png",
+    bannerImage: projectImg4,
     title: "Kilaniya Building Construction & Design (Incomplete)",
     description: [
       "A **clean, content-focused platform** showcasing architectural projects and construction services — emphasizing **structural clarity**, **material authenticity**, and **project transparency** through minimalist design.",
@@ -1241,5 +1234,172 @@ export const projectData = [
     githubLink:
       "https://github.com/riteshgharti333/Kilaniya-Building-Construction-Design",
     liveLink: "https://project4-five-ashen.vercel.app",
+  },
+];
+
+export const projectSmData = [
+  {
+    slug: "international-academy-of-design",
+    title: "International Academy of Design",
+    bannerImage: projectImg11,
+    desc: "Full-stack college website with admin dashboard and dynamic content control",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+    ],
+  },
+  {
+    slug: "star-marketing-invoice",
+    title: "Star Marketing Invoice",
+    bannerImage: projectImg8,
+    desc: "MERN stack invoice management platform for small businesses",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+    ],
+  },
+  {
+    slug: "star-marketing",
+    title: "Star Marketing",
+    bannerImage: projectImg9,
+    desc: "MERN stack digital agency platform with content management",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Tailwind CSS",
+      "Cloudinary",
+    ],
+  },
+  {
+    slug: "streamer",
+    title: "Streamer",
+    bannerImage: projectImg10,
+    desc: "Full-stack movie platform with Stripe subscriptions and admin dashboard",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Redux",
+      "Firebase",
+    ],
+  },
+  {
+    slug: "tk-production-film",
+    title: "TK Production Film",
+    bannerImage: projectImg12,
+    desc: "Wedding agency platform with dynamic content management",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+      "Swiper",
+    ],
+  },
+  {
+    slug: "hospital-management",
+    title: "Hospital Management",
+    bannerImage: projectImg7,
+    desc: "Ongoing hospital management system with TypeScript backend",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Redux",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    slug: "thinker",
+    title: "Thinker",
+    bannerImage: projectImg14,
+    desc: "Full-stack blog application with JWT authentication",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+    ],
+  },
+  {
+    slug: "codefeast",
+    title: "Codefeast",
+    bannerImage: projectImg5,
+    desc: "Ed-tech platform with payment integration and admin dashboard",
+    techStack: ["React.js", "Sass"],
+  },
+  {
+    slug: "trade-dad",
+    title: "Trade Dad",
+    bannerImage: projectImg13,
+    desc: "Real-time trading app backend with Upstox SDK integration",
+    techStack: ["Express.js", "Node.js", "MongoDB", "mongoose"],
+  },
+  {
+    slug: "abhimanyu-holidays",
+    title: "Abhimanyu Holidays",
+    bannerImage: projectImg1,
+    desc: "Travel website for Rajasthan tours with responsive design",
+    techStack: [
+      "React.js",
+      "Tailwind CSS",
+      "CSS3",
+      "Framer Motion",
+      "React Router",
+    ],
+  },
+  {
+    slug: "global-india-travel",
+    title: "Global India Travels",
+    bannerImage: projectImg6,
+    desc: "Comprehensive travel booking platform with multiple services",
+    techStack: ["React.js", "CSS3", "Sass", "React Router", "Swiper"],
+  },
+  {
+    slug: "bk-welfare-society",
+    title: "BK Welfare Society",
+    bannerImage: projectImg2,
+    desc: "Community platform showcasing achievements and initiatives",
+    techStack: ["React.js", "CSS3", "Sass", "React Router"],
+  },
+  {
+    slug: "bs-printers",
+    title: "BS Printers",
+    bannerImage: projectImg3,
+    desc: "Modern printing platform with product showcase",
+    techStack: ["React.js", "CSS3", "Sass", "React Router"],
+  },
+  {
+    slug: "kilaniya-construction",
+    title: "Kilaniya Building Construction & Design",
+    bannerImage: projectImg4,
+    desc: "In-progress construction company website",
+    techStack: ["React.js", "CSS3", "Sass", "React Router"],
   },
 ];

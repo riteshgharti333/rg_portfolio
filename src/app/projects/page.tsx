@@ -1,10 +1,10 @@
 "use client";
 
-import { projectData } from "@/constants/projectData";
+import { projectSmData } from "@/constants/projectData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
 
 const Projects = () => {
   return (
@@ -19,7 +19,7 @@ const Projects = () => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
+          transition={{ duration: 0.3, type: "spring" }}
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-10"
         >
@@ -52,7 +52,7 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectData.map((project, index) => (
+          {projectSmData.map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
@@ -61,13 +61,7 @@ const Projects = () => {
   );
 };
 
-const ProjectCard = ({
-  project,
-  index,
-}: {
-  project: any;
-  index: number;
-}) => {
+const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 60 }}
@@ -100,20 +94,18 @@ const ProjectCard = ({
           </h3>
         </Link>
 
-        <p className="text-gray-300 mb-6 flex-1 line-clamp-3">
-          {project.description[0]}
-        </p>
+        <p className="text-gray-300 mb-6 flex-1 line-clamp-3">{project.desc}</p>
 
         {/* Tech Stack */}
         <div className="mb-6">
           <div className="text-xs text-gray-400 mb-2">Tech Stack:</div>
           <div className="flex flex-wrap gap-2">
-            {project.techStack.map((tech: any, i: number) => (
+            {project.techStack.map((tech: string, i: number) => (
               <span
                 key={i}
                 className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full group-hover:bg-gray-700 group-hover:text-green-400 transition-all"
               >
-                {tech.name}
+                {tech}
               </span>
             ))}
           </div>
@@ -121,24 +113,12 @@ const ProjectCard = ({
 
         {/* Buttons */}
         <div className="flex gap-3 mt-auto">
-          <a
-            href={project.liveLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href={`projects/${project.slug}`}
             className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
           >
-            <FiExternalLink className="text-lg" />
-            <span>Live Demo</span>
-          </a>
-          <a
-            href={project.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all"
-          >
-            <FiGithub className="text-lg" />
-            <span>Code</span>
-          </a>
+            <FiSearch className="text-lg" /> <span>Explore More</span>
+          </Link>
         </div>
       </div>
 

@@ -1,4 +1,11 @@
 "use client";
+import { experiences } from "@/constants/data";
+import {
+  githubLink,
+  linkedinLink,
+  mailLink,
+  phoneNo,
+} from "@/constants/linksData";
 import { motion } from "framer-motion";
 import {
   FiGithub,
@@ -14,44 +21,13 @@ import {
 
 const About = () => {
   // Experience data for Design 4
-  const experiences = [
-    {
-      role: "Full Stack Developer",
-      company: "Star Marketing",
-      duration: "Jan 2025 – Present",
-      points: [
-        "Built and delivered 9+ production-grade web applications using modern technologies",
-        "Implemented CI/CD workflows using GitHub Actions",
-        "Collaborated closely with clients to deliver projects on schedule",
-      ],
-    },
-    {
-      role: "Software Development Engineer Intern",
-      company: "Codefeast",
-      duration: "Sep 2023 – Oct 2023",
-      points: [
-        "Integrated secure payment system using Instamojo",
-        "Developed internal admin dashboard for course management",
-        "Built 20+ reusable React components",
-      ],
-    },
-    {
-      role: "Full Stack Developer Intern",
-      company: "Future Finders",
-      duration: "Jan 2024 – Jul 2024",
-      points: [
-        "Built full-stack web apps using MERN stack",
-        "Implemented secure authentication and REST APIs",
-        "Enhanced UI/UX with responsive React components",
-      ],
-    },
-  ];
 
   // Technical skills data
   const technicalSkills = {
-    Languages: ["C++", "JavaScript", "TypeScript (Basic)", "HTML/CSS"],
+    Languages: ["C++", "JavaScript", "TypeScript", "HTML/CSS"],
     Frameworks: [
       "React.js",
+      "Next.js",
       "Node.js",
       "Express.js",
       "Redux",
@@ -59,7 +35,7 @@ const About = () => {
       "Tailwind CSS",
     ],
     "Developer Tools": ["Git", "Visual Studio Code", "Postman", "SEO Tools"],
-    Database: ["MongoDB", "Firebase", "Cloudinary", "PostgreSQL (Basic)"],
+    Database: ["MongoDB", "Firebase", "Cloudinary", "PostgreSQL"],
   };
 
   // Education data
@@ -85,7 +61,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -102,24 +78,25 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
           viewport={{ once: true }}
           className="mb-20"
         >
           <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-green-400/30 transition-all duration-300">
             <p className="text-gray-300 text-lg leading-relaxed">
-              I'm a passionate full-stack developer with experience building
-              modern web applications. My expertise spans JavaScript, React,
-              Node.js, and cloud technologies. I specialize in creating
-              performant, accessible digital experiences that solve real-world
-              problems.
+              {"I'm"} a highly dedicated Full-Stack Developer with hands-on
+              experience building modern, scalable, and performance-optimized
+              web applications. Over the years, {"I’ve"} successfully delivered
+              large-scale projects for clients across various industries —
+              always maintaining a 100% satisfaction rate.
             </p>
             <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              Currently focused on architecting scalable solutions with
-              microservices and serverless technologies. I thrive in
-              collaborative environments and enjoy mentoring junior developers.
-              My approach combines technical excellence with user-centered
-              design principles.
+              From intuitive frontend interfaces to powerful backend systems, I
+              specialize in delivering end-to-end solutions using the MERN stack
+              (MongoDB, Express.js, React, Node.js), along with tools like
+              Next.js, TypeScript, and REST APIs. {"I’m"} deeply focused on writing
+              clean, maintainable code and building robust architectures that
+              stand the test of scale and complexity.
             </p>
           </div>
         </motion.div>
@@ -128,7 +105,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
           viewport={{ once: true }}
           className="mb-20"
         >
@@ -168,45 +145,25 @@ const About = () => {
                   <p className="text-green-400 mb-4">{exp.company}</p>
 
                   <ul className="space-y-3">
-                    {exp.points.map((point, i) => {
-                      const techTerms: string[] =
-                        point.match(
-                          /GitHub Actions|MERN stack|React components|Instamojo|REST APIs/g
-                        ) || [];
-                      let parts = [point];
-                      techTerms.forEach((term) => {
-                        parts = parts.flatMap((part) =>
-                          typeof part === "string" ? part.split(term) : part
-                        );
-                        techTerms.forEach((term, i) => {
-                          parts.splice(i * 2 + 1, 0, term);
-                        });
-                      });
-
-                      return (
-                        <motion.li
-                          key={i}
-                          className="flex"
-                          whileHover={{ x: 5 }}
-                        >
-                          <span className="text-green-400 mr-2 mt-1">•</span>
-                          <span className="text-gray-300">
-                            {parts.map((part, j) =>
-                              techTerms.includes(part) ? (
-                                <span
-                                  key={j}
-                                  className="font-medium text-green-300"
-                                >
-                                  {part}
-                                </span>
-                              ) : (
-                                part
-                              )
-                            )}
-                          </span>
-                        </motion.li>
-                      );
-                    })}
+                    {exp.points.map((point, i) => (
+                      <motion.li key={i} className="flex" whileHover={{ x: 5 }}>
+                        <span className="text-green-400 mr-2 mt-1">•</span>
+                        <span className="text-gray-300">
+                          {point.split(/(\*\*.*?\*\*)/g).map((part, j) =>
+                            part.startsWith("**") && part.endsWith("**") ? (
+                              <span
+                                key={j}
+                                className="font-medium text-green-300"
+                              >
+                                {part.replace(/\*\*/g, "")}
+                              </span>
+                            ) : (
+                              <span key={j}>{part}</span>
+                            )
+                          )}
+                        </span>
+                      </motion.li>
+                    ))}
                   </ul>
                 </div>
               </motion.div>
@@ -218,7 +175,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           viewport={{ once: true }}
           className="mb-20"
         >
@@ -257,7 +214,7 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
           viewport={{ once: true }}
           className="mb-20"
         >
@@ -303,12 +260,12 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
           viewport={{ once: true }}
           className="mb-20"
         >
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Let's <span className="text-green-400">Connect</span>
+           {"Let's"} <span className="text-green-400">Connect</span>
           </h3>
 
           <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-green-400/30 transition-all max-w-3xl mx-auto">
@@ -316,7 +273,7 @@ const About = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <motion.a
                 whileHover={{ y: -3 }}
-                href="mailto:youremail@example.com"
+                href={`mailto:${mailLink}`}
                 className="p-4 bg-gray-700/50 rounded-lg flex items-center gap-4 hover:bg-gray-700 transition-colors"
               >
                 <div className="w-12 h-12 rounded-full bg-green-400/10 flex items-center justify-center text-green-400">
@@ -324,13 +281,13 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Email</p>
-                  <p className="text-white">youremail@example.com</p>
+                  <p className="text-white">{mailLink}</p>
                 </div>
               </motion.a>
 
               <motion.a
                 whileHover={{ y: -3 }}
-                href="tel:+1234567890"
+                href={`tel:${phoneNo}`}
                 className="p-4 bg-gray-700/50 rounded-lg flex items-center gap-4 hover:bg-gray-700 transition-colors"
               >
                 <div className="w-12 h-12 rounded-full bg-green-400/10 flex items-center justify-center text-green-400">
@@ -338,7 +295,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="text-gray-400 text-sm">Phone</p>
-                  <p className="text-white">+1 (234) 567-8900</p>
+                  <p className="text-white">{phoneNo}</p>
                 </div>
               </motion.a>
             </div>
@@ -348,7 +305,7 @@ const About = () => {
               <motion.a
                 whileHover={{ y: -5, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://github.com/yourusername"
+                href={githubLink}
                 target="_blank"
                 className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-gray-600 transition-colors"
                 aria-label="GitHub"
@@ -359,7 +316,7 @@ const About = () => {
               <motion.a
                 whileHover={{ y: -5, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://linkedin.com/in/yourusername"
+                href={linkedinLink}
                 target="_blank"
                 className="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white hover:bg-gray-600 transition-colors"
                 aria-label="LinkedIn"
@@ -375,7 +332,7 @@ const About = () => {
               className="text-center"
             >
               <a
-                href="/resume.pdf"
+                href="/ritesh_resume.pdf"
                 download
                 className="inline-flex items-center gap-2 px-6 py-3 bg-green-400/10 hover:bg-green-400/20 border border-green-400/30 text-green-400 rounded-lg transition-all"
               >

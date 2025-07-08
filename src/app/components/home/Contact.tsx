@@ -1,51 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
-import { FiSend, FiUser, FiMail, FiMessageSquare } from "react-icons/fi";
+import { useState } from "react";
+import { FiSend } from "react-icons/fi";
 import { FaCheck, FaSpinner } from "react-icons/fa";
+import { toast } from "sonner";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
 
-    // Simulate API call
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+
+      await fetch("https://formsubmit.co/ajax/riteshgharti333@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formData,
+      });
+
+      form.reset();
       setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setStatus("idle"), 3000);
+      toast.success("Message sent successfully!");
     } catch (error) {
       setStatus("error");
+      console.log(error)
+      toast.error("Failed to send message!");
+    } finally {
       setTimeout(() => setStatus("idle"), 3000);
     }
   };
 
   return (
-    <section  className="relative mb-20 overflow-hidden">
-      {/* Background elements */}
-      <div  id="contact" className="absolute  inset-0 overflow-hidden opacity-10">
+    <section className="relative mb-20 overflow-hidden" id="contact">
+      <div className="absolute inset-0 overflow-hidden opacity-10">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
@@ -81,13 +77,12 @@ const Contact = () => {
             Get In Touch
           </motion.span>
           <motion.h2
-          
             className="mt-4 text-4xl md:text-5xl font-bold text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Contact{' '}
+            Contact{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
               Me
             </span>
@@ -100,7 +95,6 @@ const Contact = () => {
           />
         </motion.div>
 
-        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -109,19 +103,14 @@ const Contact = () => {
           className="max-w-2xl mx-auto"
         >
           <form
-            ref={formRef}
-            
             onSubmit={handleSubmit}
             className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl px-8 py-10 space-y-6 relative"
           >
-            {/* Name */}
             <div className="relative">
               <input
                 type="text"
                 name="name"
                 id="name"
-                value={formData.name}
-                onChange={handleChange}
                 required
                 className="peer w-full bg-transparent border border-gray-600 rounded-lg px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Your Name"
@@ -134,14 +123,11 @@ const Contact = () => {
               </label>
             </div>
 
-            {/* Email */}
             <div className="relative">
               <input
                 type="email"
                 name="email"
                 id="email"
-                value={formData.email}
-                onChange={handleChange}
                 required
                 className="peer w-full bg-transparent border border-gray-600 rounded-lg px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500"
                 placeholder="Email Address"
@@ -154,14 +140,11 @@ const Contact = () => {
               </label>
             </div>
 
-            {/* Message */}
             <div className="relative">
               <textarea
                 name="message"
                 id="message"
                 rows={5}
-                value={formData.message}
-                onChange={handleChange}
                 required
                 className="peer w-full bg-transparent border border-gray-600 rounded-lg px-4 pt-6 pb-2 text-white placeholder-transparent focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
                 placeholder="Your Message"
@@ -174,13 +157,12 @@ const Contact = () => {
               </label>
             </div>
 
-            {/* Submit Button */}
             <motion.button
               type="submit"
               disabled={status === "submitting"}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className={`w-full py-4 rounded-lg text-white font-medium flex items-center justify-center gap-2 transition-all ${
+              className={`w-full py-4 cursor-pointer rounded-lg text-white font-medium flex items-center justify-center gap-2 transition-all ${
                 status === "success"
                   ? "bg-green-600"
                   : status === "error"
@@ -196,10 +178,10 @@ const Contact = () => {
               ) : status === "success" ? (
                 <>
                   <FaCheck />
-                  Sent Successfully
+                  Sent
                 </>
               ) : status === "error" ? (
-                <>Something went wrong</>
+                <>Failed to send</>
               ) : (
                 <>
                   <FiSend />

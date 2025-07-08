@@ -106,7 +106,7 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
         {/* Banner Image */}
         <div className="relative h-56 overflow-hidden">
           <Image
-            src={project.bannerImage}
+            src={project.img}
             alt={project.title}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -144,23 +144,12 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
 
           {/* Buttons */}
           <div className="flex gap-3 mt-auto">
-             <Link
-              href={`/projects/${project.slug}`}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-all"
+            <Link
+              href={`projects/${project.slug}`}
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
             >
-              <FiSearch className="text-lg" />{" "}
-              <span>Explore More</span>
+              <FiSearch className="text-lg" /> <span>Explore More</span>
             </Link>
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 flex items-center cursor-pointer justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
-            >
-              <FiExternalLink className="text-lg" />
-              <span>Live Demo</span>
-            </a>
-           
           </div>
         </div>
       </div>
