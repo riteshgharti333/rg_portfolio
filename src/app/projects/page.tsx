@@ -114,8 +114,7 @@ const Projects = () => {
                   </Link>
                 </div>
               </div>
-
-              {/* Glow on Hover */}
+              
               <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.1)_0%,_transparent_70%)]" />
               </div>
