@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -24,13 +23,11 @@ const BoldableText = ({ text }: { text: string }) => {
   );
 };
 
-interface ProjectPageProps {
-  params: {
-    slug: string;
-  };
-}
-
-export default function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const project = projectData.find((proj) => proj.slug === params.slug);
   if (!project) return notFound();
 
@@ -53,41 +50,40 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           />
         </div>
 
-        {/* Project Title with Gradient */}
+        {/* Project Title */}
         <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
           {project.title}
         </h1>
 
+        {/* Fullstack Links */}
         {project.isFullStack ? (
-          <div className="">
+          <div>
             <div className="flex gap-4">
-              {project.fullStackCodeLink.map((item, index) => {
-                return (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={item.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
-                  >
-                    <FiGithub className="text-lg" />
-                    <span>{item.name}</span>
-                  </motion.a>
-                );
-              })}
+              {project.fullStackCodeLink.map((item, index) => (
+                <motion.a
+                  key={index}
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={item.codeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
+                >
+                  <FiGithub className="text-lg" />
+                  <span>{item.name}</span>
+                </motion.a>
+              ))}
             </div>
             <div className="flex gap-4 mt-3">
               {project.fullStackLiveLink.map((item, index) => (
                 <motion.a
+                  key={index}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={item.liveLink}
-                  key={index}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center cursor-pointer justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
                 >
                   <FiExternalLink className="text-lg" />
                   <span>{item.name}</span>
@@ -110,7 +106,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 <span>View Code</span>
               </motion.a>
             )}
-
             {project.liveLink && (
               <motion.a
                 whileHover={{ y: -2 }}
@@ -138,9 +133,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Features */}
         <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Key Features
-          </h2>
+          <h2 className="text-xl font-semibold text-white mb-4">Key Features</h2>
           <ul className="space-y-3">
             {project.features.map((feature, index) => (
               <motion.li
@@ -178,9 +171,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Challenges */}
         <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Challenges Overcome
-          </h2>
+          <h2 className="text-xl font-semibold text-white mb-4">Challenges Overcome</h2>
           <ul className="space-y-3">
             {project.challenges.map((challenge, index) => (
               <motion.li
