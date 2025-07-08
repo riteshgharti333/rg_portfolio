@@ -6,6 +6,15 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projectData } from "@/constants/projectData";
 
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+
+
+
 const BoldableText = ({ text }: { text: string }) => {
   const parts = text.split(/\*\*(.*?)\*\*/g);
 
@@ -24,7 +33,7 @@ const BoldableText = ({ text }: { text: string }) => {
   );
 };
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({ params }: PageProps) {
   const project = projectData.find((proj) => proj.slug === params.slug);
   if (!project) return notFound();
 
@@ -47,20 +56,15 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           />
         </div>
 
-
-        
-
         {/* Project Title with Gradient */}
         <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
           {project.title}
         </h1>
 
-
- {project.isFullStack ? (
+        {project.isFullStack ? (
           <div className="">
             <div className="flex gap-4">
-              {project.fullStackCodeLink.map((item, index) => {
-              
+              {project.fullStackCodeLink?.map((item, index) => {
                 return (
                   <motion.a
                     key={index}
@@ -78,7 +82,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               })}
             </div>
             <div className="flex gap-4 mt-3">
-              {project.fullStackLiveLink.map((item, index) => (
+              {project.fullStackLiveLink?.map((item, index) => (
                 <motion.a
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -125,7 +129,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             )}
           </div>
         )}
-        
+
         {/* Description */}
         <div className="space-y-4">
           {project.description.map((paragraph, index) => (
@@ -220,10 +224,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
-
-        {/* Links */}
-
-       
       </div>
     </motion.div>
   );
