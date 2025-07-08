@@ -1,9 +1,11 @@
-"use client"
+"use client";
+
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { projectData } from "@/constants/projectData";
+import React from "react";
 
 const BoldableText = ({ text }: { text: string }) => {
   const parts = text.split(/\*\*(.*?)\*\*/g);
@@ -23,12 +25,14 @@ const BoldableText = ({ text }: { text: string }) => {
   );
 };
 
-export default async function ProjectPage({
+export default function ProjectPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const project = projectData.find((proj) => proj.slug === params.slug);
+  const { slug } = React.use(params);
+
+  const project = projectData.find((proj) => proj.slug === slug);
   if (!project) return notFound();
 
   return (
@@ -50,40 +54,41 @@ export default async function ProjectPage({
           />
         </div>
 
-        {/* Project Title */}
+        {/* Project Title with Gradient */}
         <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
           {project.title}
         </h1>
 
-        {/* Fullstack Links */}
         {project.isFullStack ? (
-          <div>
+          <div className="">
             <div className="flex gap-4">
-              {project.fullStackCodeLink.map((item, index) => (
-                <motion.a
-                  key={index}
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={item.codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
-                >
-                  <FiGithub className="text-lg" />
-                  <span>{item.name}</span>
-                </motion.a>
-              ))}
+              {project.fullStackCodeLink.map((item, index) => {
+                return (
+                  <motion.a
+                    key={index}
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    href={item.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
+                  >
+                    <FiGithub className="text-lg" />
+                    <span>{item.name}</span>
+                  </motion.a>
+                );
+              })}
             </div>
             <div className="flex gap-4 mt-3">
               {project.fullStackLiveLink.map((item, index) => (
                 <motion.a
-                  key={index}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   href={item.liveLink}
+                  key={index}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
+                  className="flex items-center cursor-pointer justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
                 >
                   <FiExternalLink className="text-lg" />
                   <span>{item.name}</span>
@@ -106,6 +111,7 @@ export default async function ProjectPage({
                 <span>View Code</span>
               </motion.a>
             )}
+
             {project.liveLink && (
               <motion.a
                 whileHover={{ y: -2 }}
@@ -133,7 +139,9 @@ export default async function ProjectPage({
 
         {/* Features */}
         <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">Key Features</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">
+            Key Features
+          </h2>
           <ul className="space-y-3">
             {project.features.map((feature, index) => (
               <motion.li
@@ -171,7 +179,9 @@ export default async function ProjectPage({
 
         {/* Challenges */}
         <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">Challenges Overcome</h2>
+          <h2 className="text-xl font-semibold text-white mb-4">
+            Challenges Overcome
+          </h2>
           <ul className="space-y-3">
             {project.challenges.map((challenge, index) => (
               <motion.li
@@ -212,6 +222,8 @@ export default async function ProjectPage({
             ))}
           </div>
         </div>
+
+        {/* Links */}
       </div>
     </motion.div>
   );
