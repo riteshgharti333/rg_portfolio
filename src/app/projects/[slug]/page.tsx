@@ -24,7 +24,13 @@ const BoldableText = ({ text }: { text: string }) => {
   );
 };
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+interface ProjectPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default function ProjectPage({ params }: ProjectPageProps) {
   const project = projectData.find((proj) => proj.slug === params.slug);
   if (!project) return notFound();
 
@@ -215,8 +221,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         </div>
-
-        {/* Links */}
       </div>
     </motion.div>
   );
