@@ -12,9 +12,13 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Advanced AI Portfolio",
-  description: "Modern bold portfolio design using Poppins.",
+  title: "Ritesh Gharti Portfolio",
+  description: "Explore the professional portfolio of Ritesh – a full-stack developer passionate about building modern, scalable web applications using the MERN stack. Showcasing real-world projects, production-ready code, and a deep commitment to clean design and performance.",
+  icons: {
+    icon: "/logo.svg"
+  },
 };
+
 
 export default function RootLayout({
   children,

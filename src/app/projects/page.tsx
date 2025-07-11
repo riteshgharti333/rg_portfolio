@@ -63,7 +63,7 @@ const Projects = () => {
                 type: "spring",
               }}
               viewport={{ once: true, margin: "-50px" }}
-              className="relative rounded-2xl overflow-hidden group bg-gray-900/80 backdrop-blur-sm border border-gray-800 hover:border-green-500/30 transition-all duration-300"
+              className="relative rounded-2xl overflow-hidden group bg-gray-900/80 backdrop-blur-sm border border-gray-800 hover:border-green-500/30 transition-all duration-300 flex flex-col h-full"
             >
               {/* Image */}
               <div className="relative h-56 overflow-hidden">
@@ -85,7 +85,7 @@ const Projects = () => {
                   </h3>
                 </Link>
 
-                <p className="text-gray-300 mb-6 flex-1 line-clamp-3">
+                <p className="text-gray-300 mb-6 line-clamp-3">
                   {project.desc}
                 </p>
 
@@ -103,9 +103,11 @@ const Projects = () => {
                     ))}
                   </div>
                 </div>
+              </div>
 
-                {/* Buttons */}
-                <div className="flex gap-3 mt-auto">
+              {/* Buttons - Now fixed at the bottom */}
+              <div className="px-6 pb-6 mt-auto">
+                <div className="flex gap-3">
                   <Link
                     href={`/projects/${project.slug}`}
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
@@ -114,7 +116,7 @@ const Projects = () => {
                   </Link>
                 </div>
               </div>
-              
+
               <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.1)_0%,_transparent_70%)]" />
               </div>
