@@ -160,19 +160,14 @@ const About = () => {
 
               <div className="space-y-6 text-gray-300 mb-8">
                 <p>
-                  Results-driven Full Stack Developer with 1+ years of hands-on
-                  experience creating fast, scalable, and SEO-optimized web
-                  applications using modern technologies like React, Node.js,
-                  and MongoDB. I deliver production-ready solutions with
-                  responsive UI, clean architecture, and full end-to-end
-                  ownership.
+                  Hi, I’m Ritesh Gharti — a Full Stack Developer with practical
+                  experience building production-level web applications using
+                  the MERN stack, Next.js, and PostgreSQL.
                 </p>
                 <p>
-                  I specialize in transforming ideas into robust systems — from
-                  intuitive frontends to scalable backends — with CI/CD
-                  pipelines, zero-downtime deployments (Vercel, Render, cPanel),
-                  and a user-first mindset. Known for rapid delivery, effective
-                  collaboration, and consistently exceeding client expectations.
+                  I’ve developed and delivered full-stack projects including
+                  admin dashboards, invoicing systems, and content platforms —
+                  all focused on scalability, performance, and clean UI/UX.
                 </p>
 
                 <Link

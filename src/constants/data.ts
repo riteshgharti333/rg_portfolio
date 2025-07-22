@@ -257,9 +257,11 @@ export const experiences = [
     company: "Star Marketing",
     duration: "Jan 2025 – Present",
     points: [
-      "Built and delivered **9+** production-grade web applications using **modern technologies**, with a strong focus on **SEO**, **performance**, **responsive UI**, and end-to-end ownership—consistently achieving **100%** client satisfaction.",
-      "Implemented **CI/CD workflows** using **GitHub Actions** and deployed projects seamlessly to platforms such as **Vercel**, **Render**, and **cPanel**, ensuring smooth and zero-downtime production releases.",
-      "Collaborated closely with clients, delivered projects on schedule, and efficiently incorporated feedback to ensure high-quality, **cross-platform** user experiences.",
+      "Delivered **9+ full-stack web apps** using the **MERN stack** with **scalable backend** and clean **UI architecture**.",
+      "Developed multiple **admin dashboards**, each handling **1K+ data records** with **real-time validation** and optimized **CRUD performance**.",
+      "Achieved **100% SEO Lighthouse scores** and **90% client satisfaction** across all live deployments.",
+      "Spearheaded project delivery using **CI/CD (GitHub Actions)** and **image optimization**, enhancing overall **development efficiency**.",
+      "Drove **40–50% revenue growth** in development services through **agile pipelines** and **client-driven enhancements**.",
     ],
   },
   {
@@ -267,8 +269,9 @@ export const experiences = [
     company: "Future Finders",
     duration: "Jan 2024 – Jul 2024",
     points: [
-      "Gained hands-on experience in developing robust web applications using the **MERN stack**. Merged **RESTful APIs**, implemented secure **user authentication**, and managed **MongoDB** databases to ensure optimal data integrity and performance.",
-      "Improved user experience through iterative design improvements, conducting, and analyzing. Enhanced intuitive and responsive interfaces using **React**, **SCSS**, and various **design libraries**, ensuring accessibility for all users.",
+      "Built a **full-stack MERN** app with secure **JWT authentication**, **cookie sessions**, and protected **backend routes**.",
+      "Integrated **TanStack Query** for API handling, enabling **30–40% faster data flow** with **smart caching**.",
+      "Designed **responsive**, **high-performance UIs** using **React.js** and **SCSS**, with seamless **frontend–backend integration**.",
     ],
   },
   {
@@ -276,8 +279,9 @@ export const experiences = [
     company: "Codefeast",
     duration: "Sep 2023 – Oct 2023",
     points: [
-      "Integrated a secure **payment system** using **Instamojo** by collaborating with senior developers, ensuring smooth **frontend-backend communication** and enhancing transactional reliability.",
-      "Developed an internal **admin dashboard** for course management and built **20+ reusable React components**, improving development speed and maintainability.",
+      "Integrated the **Instamojo payment system** on the backend, ensuring **reliable transaction flow** and seamless communication between the **frontend** and **payment gateway**.",
+      "Built a **responsive admin dashboard** for **course management** using **React.js** and **modular architecture**.",
+      "Engineered **20+ reusable components** and integrated **REST APIs** to streamline updates and improve **maintainability**.",
     ],
   },
   {

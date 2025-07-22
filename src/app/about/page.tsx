@@ -84,19 +84,18 @@ const About = () => {
         >
           <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-green-400/30 transition-all duration-300">
             <p className="text-gray-300 text-lg leading-relaxed">
-              {"I'm"} a highly dedicated Full-Stack Developer with hands-on
-              experience building modern, scalable, and performance-optimized
-              web applications. Over the years, {"I’ve"} successfully delivered
-              large-scale projects for clients across various industries —
-              always maintaining a 100% satisfaction rate.
+              Hi, I’m Ritesh Gharti — a Full Stack Developer with practical
+              experience building production-level web applications using the
+              MERN stack, Next.js, and PostgreSQL. I’ve developed and delivered
+              full-stack projects including admin dashboards, invoicing systems,
+              and content platforms — all focused on scalability, performance,
+              and clean UI/UX.
             </p>
-            <p className="text-gray-300 text-lg leading-relaxed mt-4">
-              From intuitive frontend interfaces to powerful backend systems, I
-              specialize in delivering end-to-end solutions using the MERN stack
-              (MongoDB, Express.js, React, Node.js), along with tools like
-              Next.js, TypeScript, and REST APIs. {"I’m"} deeply focused on writing
-              clean, maintainable code and building robust architectures that
-              stand the test of scale and complexity.
+
+            <p className="text-gray-300 text-lg leading-relaxed mt-5">
+              My recent work includes building SEO-optimized websites,
+              integrating authentication, and managing large datasets with a
+              strong focus on reliability and maintainability.
             </p>
           </div>
         </motion.div>
@@ -265,7 +264,7 @@ const About = () => {
           className="mb-20"
         >
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
-           {"Let's"} <span className="text-green-400">Connect</span>
+            {"Let's"} <span className="text-green-400">Connect</span>
           </h3>
 
           <div className="bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-green-400/30 transition-all max-w-3xl mx-auto">
