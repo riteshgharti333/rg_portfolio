@@ -253,7 +253,7 @@ export const projectData = [
         codeLink: "https://github.com/riteshgharti333/Collage_project_backend",
       },
       {
-        name: "Admin Dasboard Code",
+        name: "Admin Dashboard Code",
         codeLink: "https://github.com/riteshgharti333/Collage-project-admin",
       },
     ],
@@ -451,7 +451,7 @@ export const projectData = [
         codeLink: "https://github.com/riteshgharti333/star_marketing_backend",
       },
       {
-        name: "Admin Dasboard Code",
+        name: "Admin Dashboard Code",
         codeLink: "https://github.com/riteshgharti333/star_marketing_admin",
       },
     ],
@@ -566,7 +566,7 @@ export const projectData = [
         codeLink: "https://github.com/riteshgharti333/streamer_backend",
       },
       {
-        name: "Admin Dasboard Code",
+        name: "Admin Dashboard Code",
         codeLink: "https://github.com/riteshgharti333/streamer_admin_dashboard",
       },
     ],
@@ -678,7 +678,7 @@ export const projectData = [
           "https://github.com/riteshgharti333/tk_production_film_backend",
       },
       {
-        name: "Admin Dasboard Code",
+        name: "Admin Dashboard Code",
         codeLink: "https://github.com/riteshgharti333/tk_production_film_admin",
       },
     ],
