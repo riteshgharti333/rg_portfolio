@@ -60,6 +60,24 @@ import projectImg14 from "../assets/images/projectImgs/thinker.png";
 
 export const homeProjectData = [
   {
+    slug: "medi-care",
+    title: "Medi Care",
+    img: projectImg7,
+    description:
+      "Full-stack hospital management platform with RBAC security, high-performance caching, and scalable React data architecture.",
+    techStack: [
+      "Typescript",
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Redux",
+      "Tailwind CSS",
+    ],
+  },
+  {
     slug: "international-academy-of-design",
     title: "International Academy of Design",
     img: projectImg11,
@@ -140,24 +158,6 @@ export const homeProjectData = [
       "Sass",
       "Cloudinary",
       "Swiper",
-    ],
-  },
-  {
-    slug: "hospital-management",
-    title: "Hospital Management",
-    img: projectImg7,
-    description:
-      "Ongoing hospital management system with TypeScript backend, Prisma ORM, and React Query.",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
-      "Supabase",
-      "Redux",
-      "Tailwind CSS",
-      "Cloudinary",
     ],
   },
 ];
@@ -696,14 +696,16 @@ export const projectData = [
   },
 
   {
-    slug: "hospital-management",
+    slug: "medi-care",
     bannerImage: projectImg7,
-    title: "Hospital Management (Ongoing)",
+    title: "Medi Care",
 
     description: [
-      "A **robust hospital management web application** built using a **modern full-stack architecture**, featuring a **TypeScript-powered backend** with **Express.js**, **Prisma ORM**, and **PostgreSQL** — designed to handle **advanced healthcare data workflows** securely and efficiently.",
-      "The frontend is developed using **React** with **Tailwind CSS**, offering a **clean**, **fully responsive**, and **user-friendly UI**, tailored for administrative staff and healthcare professionals to manage **patients**, **appointments**, **departments**, and **medical records**.",
-      "Utilizes **React Query** for **automatic and optimized data fetching**, enabling real-time updates and reducing manual reloads — resulting in a **smooth, high-performance experience** across all user interactions.",
+      "A **scalable hospital management web application** built using a **modern full-stack architecture** with **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to handle **secure healthcare workflows** and large-scale data operations efficiently.",
+
+      "Implements **secure RBAC-based authentication** with **JWT access/refresh tokens**, enabling administrators to control user provisioning and permissions across roles such as **doctors**, **nurses**, and **staff** within the healthcare system.",
+
+      "Features a **high-performance data layer** with **multi-layer caching**, **cursor-based pagination**, and **optimized database queries**, while the **React + React Query frontend** provides **real-time data synchronization**, responsive UI, and centralized API error handling.",
     ],
 
     techStack: [
@@ -716,33 +718,30 @@ export const projectData = [
       { img: img7, name: "Redux" },
 
       { img: img9, name: "Tailwind Css" },
-      { img: img28, name: "Cloudinary" },
     ],
 
     features: [
-      "**Full-stack hospital management system** designed for clinics and hospitals, built using **React**, **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL** — engineered for **security, scalability, and clinical efficiency**.",
+      "**Full-stack hospital management platform** built with **React**, **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to manage **patients, admissions, doctors, billing, and hospital operations** securely and efficiently.",
 
-      "**Advanced monorepo architecture** using workspaces and module aliasing, enabling **shared Zod schemas** between the backend (TypeScript) and frontend (JavaScript) for **type-safe form validation and API communication**.",
+      "**Monorepo architecture** with shared **Zod validation schemas**, enabling **cross-layer type safety** between frontend forms and backend APIs while eliminating duplicated validation logic.",
 
-      "**Zod-based schema validation** across all form submissions (patients, appointments, departments) to enforce **strong runtime and compile-time validation**, improving data quality and developer safety.",
+      "**Secure authentication and RBAC system** using **JWT access/refresh tokens**, allowing administrators to provision staff accounts, control permissions, and revoke access dynamically.",
 
-      "**JWT-based authentication system** with **role-based access control (RBAC)** for admins, doctors, and staff — including support for **secure login**, **password update flows**, and **profile management**.",
+      "**High-performance backend data layer** with **multi-layer caching (memory + Redis)**, **cursor-based pagination**, and optimized database queries to support large hospital datasets.",
 
-      "**Global state management with Redux Toolkit**, handling authentication state, user sessions, and shared application state with **modular, scalable reducers**.",
+      "**Advanced search and filtering system** powered by **PostgreSQL indexing and query optimization**, enabling fast lookup across patients, admissions, and healthcare records.",
 
-      "**Real-time data fetching and caching** using **React Query**, enabling **automatic background updates**, **retry mechanisms**, and **no manual refresh** during patient or appointment updates.",
+      "**React Query data architecture** for **automatic caching, background refetching, and mutation handling**, ensuring consistent real-time UI updates without manual refresh.",
 
-      "**Responsive admin dashboard UI** with **Tailwind CSS**, tailored for both desktop and mobile use, allowing healthcare staff to manage **patient data**, **appointment bookings**, **department lists**, and **medical records** seamlessly.",
+      "**Centralized API communication layer** using **Axios interceptors** for consistent error normalization, authentication handling, and reliable API requests.",
 
-      "**Dynamic content tables** built with **TanStack Table (React Table)**, providing advanced features like **column filtering**, **sorting**, **pagination**, and **editable rows** for managing large hospital datasets efficiently.",
+      "**Dynamic hospital data tables** built with **TanStack Table**, supporting **sorting, filtering, and efficient pagination** for managing large datasets.",
 
-      "**Interactive chart visualizations** using **React ApexCharts** to provide **insightful reports** like patient flow, appointment stats, and department activity — helping hospitals make **data-driven decisions**.",
+      "**Form handling and validation system** using **React Hook Form + Zod**, providing strong client-side validation and improved user input reliability.",
 
-      "**Optimized loading and performance techniques** including **lazy loading**, **code-splitting**, and **image optimization**, ensuring smooth UX even on low bandwidth and large datasets.",
+      "**Modular frontend architecture** with reusable hooks, API layers, and feature-based structure to maintain scalability and clean code organization.",
 
-      "**Cross-platform deployment configured** using **Vercel (frontend)** and **Render (backend)** with automatic CI/CD, environment management, and health checks for production-readiness.",
-
-      "**Minimal yet clean UI/UX** to support rapid access and readability, designed around hospital workflows and optimized for **staff productivity and clinical accuracy**.",
+      "**Production deployment setup** using **Vercel (frontend)** and **Render (backend)** with environment configuration and secure API communication.",
     ],
 
     impact: [
@@ -768,29 +767,30 @@ export const projectData = [
     ],
 
     challenges: [
-      "Architecting an **advanced monorepo structure** using Yarn workspaces and module aliasing to enable **shared Zod validation schemas** across frontend and backend — ensuring **type safety**, reduced duplication, and aligned API contracts.",
+      "Designing a **monorepo architecture with shared Zod schemas** across frontend and backend, ensuring **cross-layer type safety** while avoiding duplicated validation logic and maintaining consistent API contracts.",
 
-      "Overcoming deployment hurdles caused by **monorepo limitations on platforms like Render and Vercel**, which required **custom build scripts**, **environment isolation**, and workspace-specific configuration to deploy the backend (Express/Prisma) and frontend (React/Next) separately and reliably.",
+      "Implementing a **secure RBAC authentication system** with **JWT access/refresh tokens**, handling admin-driven user provisioning, permission enforcement, and runtime access revocation across multiple staff roles.",
 
-      "Maintaining **consistent runtime validation** with Zod across both sides of the application — ensuring that **form inputs, database operations, and API requests** were type-safe, synchronized, and easily extendable without breaking validation flow.",
+      "Building a **high-performance data retrieval layer** with **multi-layer caching and cursor-based pagination**, optimizing queries and reducing database load while maintaining data consistency across large hospital datasets.",
+
+      "Managing **complex frontend server-state synchronization** using **React Query**, including cache invalidation, mutation handling, and consistent UI updates across multiple interconnected modules.",
+
+      "Handling **deployment and environment configuration** for a full-stack monorepo application across **Vercel and Render**, ensuring reliable builds, environment isolation, and secure API communication.",
     ],
 
     isFullStack: true,
 
     fullStackCodeLink: [
-      {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/hospital_management_app",
-      },
-      {
-        name: "Backend Code",
-        codeLink: "https://github.com/riteshgharti333/hospital_management_app",
+       {
+        name: "Project Code",
+        codeLink:
+          "https://github.com/riteshgharti333/hospital_management_app",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontend Live Demo",
+        name: "Live Demo",
         liveLink: "https://hospital-management-app-nine.vercel.app",
       },
     ],
