@@ -41,17 +41,20 @@ const img29 =
 const img30 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg";
 
+const img31 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg";
+
 import projectImg1 from "../assets/images/projectImgs/abhimanyu.jpeg";
 import projectImg2 from "../assets/images/projectImgs/bk.jpeg";
 import projectImg3 from "../assets/images/projectImgs/bsprinter.jpeg";
 import projectImg4 from "../assets/images/projectImgs/building.jpeg";
 import projectImg5 from "../assets/images/projectImgs/codefeast.jpeg";
 import projectImg6 from "../assets/images/projectImgs/global.jpeg";
-import projectImg7 from "../assets/images/projectImgs/hospital.jpeg";
-import projectImg8 from "../assets/images/projectImgs/invoice.jpeg";
+import projectImg7 from "../assets/images/projectImgs/hospital.png";
+import projectImg8 from "../assets/images/projectImgs/invoice.png";
 import projectImg9 from "../assets/images/projectImgs/star.jpeg";
 import projectImg10 from "../assets/images/projectImgs/streamer.jpeg";
-import projectImg11 from "../assets/images/projectImgs/thenad.jpeg";
+import projectImg11 from "../assets/images/projectImgs/thenad.png";
 import projectImg12 from "../assets/images/projectImgs/tk.jpeg";
 
 import projectImg13 from "../assets/images/projectImgs/trade.jpg";
@@ -75,6 +78,7 @@ export const homeProjectData = [
       "Supabase",
       "Redux",
       "Tailwind CSS",
+      "AWS S3"
     ],
   },
   {
@@ -83,22 +87,6 @@ export const homeProjectData = [
     img: projectImg11,
     description:
       "Full-stack college website with dynamic content control, admin dashboard, and Cloudinary image optimization.",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-    ],
-  },
-  {
-    slug: "star-marketing-invoice",
-    title: "Star Marketing Invoice",
-    img: projectImg8,
-    description:
-      "MERN stack invoice management system for businesses with PDF generation and financial reporting.",
     techStack: [
       "React.js",
       "Express.js",
@@ -126,6 +114,23 @@ export const homeProjectData = [
       "Cloudinary",
     ],
   },
+  {
+    slug: "star-marketing-invoice",
+    title: "Star Marketing Invoice",
+    img: projectImg8,
+    description:
+      "MERN stack invoice management system for businesses with PDF generation and financial reporting.",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+    ],
+  },
+
   {
     slug: "streamer",
     title: "Streamer",
@@ -163,6 +168,105 @@ export const homeProjectData = [
 ];
 
 export const projectData = [
+  {
+    slug: "medi-care",
+    bannerImage: projectImg7,
+    title: "Medi Care",
+
+    description: [
+      "A **scalable hospital management web application** built using a **modern full-stack architecture** with **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to handle **secure healthcare workflows** and large-scale data operations efficiently.",
+
+      "Implements **secure RBAC-based authentication** with **JWT access/refresh tokens**, enabling administrators to control user provisioning and permissions across roles such as **doctors**, **nurses**, and **staff** within the healthcare system.",
+
+      "Features a **high-performance data layer** with **multi-layer caching**, **cursor-based pagination**, and **optimized database queries**, while the **React + React Query frontend** provides **real-time data synchronization**, responsive UI, and centralized API error handling.",
+    ],
+
+    techStack: [
+      { img: img3, name: "React.js" },
+      { img: img19, name: "Express.js" },
+      { img: img4, name: "Node.js" },
+      { img: img17, name: "PostgreSQL" },
+      { img: img30, name: "Prisma" },
+      { img: img29, name: "Supabase" },
+      { img: img7, name: "Redux" },
+      { img: img9, name: "Tailwind Css" },
+      { img: img31, name: "AWS S3" },
+    ],
+
+    features: [
+      "**Full-stack hospital management platform** built with **React**, **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to manage **patients, admissions, doctors, billing, and hospital operations** securely and efficiently.",
+
+      "**Monorepo architecture** with shared **Zod validation schemas**, enabling **cross-layer type safety** between frontend forms and backend APIs while eliminating duplicated validation logic.",
+
+      "**Secure authentication and RBAC system** using **JWT access/refresh tokens**, allowing administrators to provision staff accounts, control permissions, and revoke access dynamically.",
+
+      "**High-performance backend data layer** with **multi-layer caching (memory + Redis)**, **cursor-based pagination**, and optimized database queries to support large hospital datasets.",
+
+      "**Advanced search and filtering system** powered by **PostgreSQL indexing and query optimization**, enabling fast lookup across patients, admissions, and healthcare records.",
+
+      "**React Query data architecture** for **automatic caching, background refetching, and mutation handling**, ensuring consistent real-time UI updates without manual refresh.",
+
+      "**Centralized API communication layer** using **Axios interceptors** for consistent error normalization, authentication handling, and reliable API requests.",
+
+      "**Dynamic hospital data tables** built with **TanStack Table**, supporting **sorting, filtering, and efficient pagination** for managing large datasets.",
+
+      "**Form handling and validation system** using **React Hook Form + Zod**, providing strong client-side validation and improved user input reliability.",
+
+      "**Modular frontend architecture** with reusable hooks, API layers, and feature-based structure to maintain scalability and clean code organization.",
+
+      "**Production deployment setup** using **Vercel (frontend)** and **Render (backend)** with environment configuration and secure API communication.",
+    ],
+
+    impact: [
+      "**Improved operational efficiency** in clinical workflows through a **centralized dashboard** where staff can seamlessly manage patients, appointments, departments, and medical records.",
+
+      "**Enhanced data accuracy and integrity** using **Zod-based validation** across all forms, ensuring clean, validated data at both frontend and backend layers.",
+
+      "**Faster decision-making** supported by **interactive data visualizations** (via ApexCharts), enabling hospitals to analyze patient trends, appointment volume, and department performance in real-time.",
+
+      "**Real-time updates and auto-syncing** with **React Query** eliminate manual refreshes and keep patient data and appointment statuses always up-to-date, improving user satisfaction and response time.",
+
+      "**Role-based security** using **JWT authentication and RBAC** provides safe access levels for admins, doctors, and staff — protecting sensitive medical data from unauthorized use.",
+
+      "**Cross-platform deployment pipeline** using **Vercel and Render** with CI/CD ensures a **production-ready and maintainable environment**, minimizing downtime and deployment friction.",
+
+      "**Increased developer productivity** via a **monorepo setup** with **shared type-safe schemas**, reducing bugs and duplication in API validation and improving code maintainability.",
+
+      "**Optimized performance** on low-end systems through **lazy loading**, **code-splitting**, and compressed assets, ensuring smooth usage even with large hospital datasets.",
+
+      "**Highly scalable system architecture** with **Prisma + PostgreSQL** backend and **modular Redux state management**, ready to support multi-department clinics and growing hospital networks.",
+
+      "**User-friendly experience** through a **minimal yet responsive UI**, helping staff navigate quickly and perform tasks efficiently across both desktop and mobile devices.",
+    ],
+
+    challenges: [
+      "Designing a **monorepo architecture with shared Zod schemas** across frontend and backend, ensuring **cross-layer type safety** while avoiding duplicated validation logic and maintaining consistent API contracts.",
+
+      "Implementing a **secure RBAC authentication system** with **JWT access/refresh tokens**, handling admin-driven user provisioning, permission enforcement, and runtime access revocation across multiple staff roles.",
+
+      "Building a **high-performance data retrieval layer** with **multi-layer caching and cursor-based pagination**, optimizing queries and reducing database load while maintaining data consistency across large hospital datasets.",
+
+      "Managing **complex frontend server-state synchronization** using **React Query**, including cache invalidation, mutation handling, and consistent UI updates across multiple interconnected modules.",
+
+      "Handling **deployment and environment configuration** for a full-stack monorepo application across **Vercel and Render**, ensuring reliable builds, environment isolation, and secure API communication.",
+    ],
+
+    isFullStack: true,
+
+    fullStackCodeLink: [
+      {
+        name: "Project Code",
+        codeLink: "https://github.com/riteshgharti333/hospital_management_app",
+      },
+    ],
+
+    fullStackLiveLink: [
+      {
+        name: "Live Demo",
+        liveLink: "https://hospital-management-app-nine.vercel.app",
+      },
+    ],
+  },
   {
     slug: "international-academy-of-design",
     bannerImage: projectImg11,
@@ -261,7 +365,7 @@ export const projectData = [
     fullStackLiveLink: [
       {
         name: "Frontend Live Demo",
-        liveLink: "https://inad.in",
+        liveLink: "https://project-6-eta.vercel.app",
       },
       {
         name: "Admin Live Demo",
@@ -459,7 +563,7 @@ export const projectData = [
     fullStackLiveLink: [
       {
         name: "Frontend Live Demo",
-        liveLink: "https://wingstarnarketing.com",
+        liveLink: "https://star-marketing-site-88e8.vercel.app",
       },
       {
         name: "Admin Live Demo",
@@ -691,107 +795,6 @@ export const projectData = [
       {
         name: "Admin Live Demo",
         liveLink: "https://project-3-admin-xr5l.vercel.app",
-      },
-    ],
-  },
-
-  {
-    slug: "medi-care",
-    bannerImage: projectImg7,
-    title: "Medi Care",
-
-    description: [
-      "A **scalable hospital management web application** built using a **modern full-stack architecture** with **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to handle **secure healthcare workflows** and large-scale data operations efficiently.",
-
-      "Implements **secure RBAC-based authentication** with **JWT access/refresh tokens**, enabling administrators to control user provisioning and permissions across roles such as **doctors**, **nurses**, and **staff** within the healthcare system.",
-
-      "Features a **high-performance data layer** with **multi-layer caching**, **cursor-based pagination**, and **optimized database queries**, while the **React + React Query frontend** provides **real-time data synchronization**, responsive UI, and centralized API error handling.",
-    ],
-
-    techStack: [
-      { img: img3, name: "React.js" },
-      { img: img19, name: "Express.js" },
-      { img: img4, name: "Node.js" },
-      { img: img17, name: "PostgreSQL" },
-      { img: img30, name: "Prisma" },
-      { img: img29, name: "Supabase" },
-      { img: img7, name: "Redux" },
-
-      { img: img9, name: "Tailwind Css" },
-    ],
-
-    features: [
-      "**Full-stack hospital management platform** built with **React**, **TypeScript**, **Express.js**, **Prisma ORM**, and **PostgreSQL**, designed to manage **patients, admissions, doctors, billing, and hospital operations** securely and efficiently.",
-
-      "**Monorepo architecture** with shared **Zod validation schemas**, enabling **cross-layer type safety** between frontend forms and backend APIs while eliminating duplicated validation logic.",
-
-      "**Secure authentication and RBAC system** using **JWT access/refresh tokens**, allowing administrators to provision staff accounts, control permissions, and revoke access dynamically.",
-
-      "**High-performance backend data layer** with **multi-layer caching (memory + Redis)**, **cursor-based pagination**, and optimized database queries to support large hospital datasets.",
-
-      "**Advanced search and filtering system** powered by **PostgreSQL indexing and query optimization**, enabling fast lookup across patients, admissions, and healthcare records.",
-
-      "**React Query data architecture** for **automatic caching, background refetching, and mutation handling**, ensuring consistent real-time UI updates without manual refresh.",
-
-      "**Centralized API communication layer** using **Axios interceptors** for consistent error normalization, authentication handling, and reliable API requests.",
-
-      "**Dynamic hospital data tables** built with **TanStack Table**, supporting **sorting, filtering, and efficient pagination** for managing large datasets.",
-
-      "**Form handling and validation system** using **React Hook Form + Zod**, providing strong client-side validation and improved user input reliability.",
-
-      "**Modular frontend architecture** with reusable hooks, API layers, and feature-based structure to maintain scalability and clean code organization.",
-
-      "**Production deployment setup** using **Vercel (frontend)** and **Render (backend)** with environment configuration and secure API communication.",
-    ],
-
-    impact: [
-      "**Improved operational efficiency** in clinical workflows through a **centralized dashboard** where staff can seamlessly manage patients, appointments, departments, and medical records.",
-
-      "**Enhanced data accuracy and integrity** using **Zod-based validation** across all forms, ensuring clean, validated data at both frontend and backend layers.",
-
-      "**Faster decision-making** supported by **interactive data visualizations** (via ApexCharts), enabling hospitals to analyze patient trends, appointment volume, and department performance in real-time.",
-
-      "**Real-time updates and auto-syncing** with **React Query** eliminate manual refreshes and keep patient data and appointment statuses always up-to-date, improving user satisfaction and response time.",
-
-      "**Role-based security** using **JWT authentication and RBAC** provides safe access levels for admins, doctors, and staff — protecting sensitive medical data from unauthorized use.",
-
-      "**Cross-platform deployment pipeline** using **Vercel and Render** with CI/CD ensures a **production-ready and maintainable environment**, minimizing downtime and deployment friction.",
-
-      "**Increased developer productivity** via a **monorepo setup** with **shared type-safe schemas**, reducing bugs and duplication in API validation and improving code maintainability.",
-
-      "**Optimized performance** on low-end systems through **lazy loading**, **code-splitting**, and compressed assets, ensuring smooth usage even with large hospital datasets.",
-
-      "**Highly scalable system architecture** with **Prisma + PostgreSQL** backend and **modular Redux state management**, ready to support multi-department clinics and growing hospital networks.",
-
-      "**User-friendly experience** through a **minimal yet responsive UI**, helping staff navigate quickly and perform tasks efficiently across both desktop and mobile devices.",
-    ],
-
-    challenges: [
-      "Designing a **monorepo architecture with shared Zod schemas** across frontend and backend, ensuring **cross-layer type safety** while avoiding duplicated validation logic and maintaining consistent API contracts.",
-
-      "Implementing a **secure RBAC authentication system** with **JWT access/refresh tokens**, handling admin-driven user provisioning, permission enforcement, and runtime access revocation across multiple staff roles.",
-
-      "Building a **high-performance data retrieval layer** with **multi-layer caching and cursor-based pagination**, optimizing queries and reducing database load while maintaining data consistency across large hospital datasets.",
-
-      "Managing **complex frontend server-state synchronization** using **React Query**, including cache invalidation, mutation handling, and consistent UI updates across multiple interconnected modules.",
-
-      "Handling **deployment and environment configuration** for a full-stack monorepo application across **Vercel and Render**, ensuring reliable builds, environment isolation, and secure API communication.",
-    ],
-
-    isFullStack: true,
-
-    fullStackCodeLink: [
-       {
-        name: "Project Code",
-        codeLink:
-          "https://github.com/riteshgharti333/hospital_management_app",
-      },
-    ],
-
-    fullStackLiveLink: [
-      {
-        name: "Live Demo",
-        liveLink: "https://hospital-management-app-nine.vercel.app",
       },
     ],
   },
@@ -1237,25 +1240,28 @@ export const projectData = [
 
 export const projectSmData = [
   {
+    slug: "medi-care",
+    title: "Medi Care",
+    bannerImage: projectImg7,
+    desc: "Full-stack hospital management platform with RBAC security, high-performance caching, and scalable React data architecture.",
+    techStack: [
+      "Typescript",
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Redux",
+      "Tailwind CSS",
+      "AWS S3"
+    ],
+  },
+  {
     slug: "international-academy-of-design",
     title: "International Academy of Design",
     bannerImage: projectImg11,
     desc: "Full-stack college website with admin dashboard and dynamic content control",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-    ],
-  },
-  {
-    slug: "star-marketing-invoice",
-    title: "Star Marketing Invoice",
-    bannerImage: projectImg8,
-    desc: "MERN stack invoice management platform for small businesses",
     techStack: [
       "React.js",
       "Express.js",
@@ -1282,6 +1288,22 @@ export const projectSmData = [
       "Cloudinary",
     ],
   },
+  {
+    slug: "star-marketing-invoice",
+    title: "Star Marketing Invoice",
+    bannerImage: projectImg8,
+    desc: "MERN stack invoice management platform for small businesses",
+    techStack: [
+      "React.js",
+      "Express.js",
+      "Node.js",
+      "MongoDB",
+      "mongoose",
+      "Sass",
+      "Cloudinary",
+    ],
+  },
+
   {
     slug: "streamer",
     title: "Streamer",
@@ -1314,22 +1336,7 @@ export const projectSmData = [
       "Swiper",
     ],
   },
-  {
-    slug: "hospital-management",
-    title: "Hospital Management",
-    bannerImage: projectImg7,
-    desc: "Ongoing hospital management system with TypeScript backend",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "PostgreSQL",
-      "Prisma",
-      "Supabase",
-      "Redux",
-      "Tailwind CSS",
-    ],
-  },
+
   {
     slug: "thinker",
     title: "Thinker",

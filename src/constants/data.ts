@@ -47,6 +47,15 @@ const img22 =
 const img23 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg";
 
+const img24 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg";
+
+const img25 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg";
+
+  const img26 = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg"
+          
+
 export const homeIcons1: string[] = [
   img23, // HTML
   img2, // CSS
@@ -64,6 +73,8 @@ export const homeIcons2: string[] = [
   img18, // Next.js
   img8, // Material UI
   img9, // Tailwind CSS
+  img24,
+  img25,
 ];
 
 export const homeIcons3: string[] = [
@@ -80,172 +91,44 @@ export const homeIcons3: string[] = [
   img13, // Postman
 ];
 
-///////////////////
 
-import img from "../assets/images/download.jpg";
-
-export const projects = [
-  {
-    title: "E-Commerce Platform",
-    image: img,
-    desc: "A full-featured online store with cart, checkout, and payment integration.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveLink: "#",
-    codeLink: "#",
-    slug: "netflix-clone",
-  },
-  {
-    title: "Task Management App",
-    image: img,
-    desc: "Productivity application with drag-and-drop task organization and team collaboration.",
-    tech: ["Next.js", "TypeScript", "Firebase", "Tailwind"],
-    liveLink: "#",
-    codeLink: "#",
-  },
-  {
-    title: "Social Media Dashboard",
-    image: img,
-    desc: "Analytics dashboard for tracking social media metrics and engagement.",
-    tech: ["React", "D3.js", "Express", "PostgreSQL"],
-    liveLink: "#",
-    codeLink: "#",
-  },
-  {
-    title: "AI Image Generator",
-    image: img,
-    desc: "Web app that generates custom images using AI based on text prompts.",
-    tech: ["Next.js", "OpenAI", "Cloudinary", "Tailwind"],
-    liveLink: "#",
-    codeLink: "#",
-  },
-  {
-    title: "Fitness Tracker",
-    image: img,
-    desc: "Mobile-first application for tracking workouts and nutrition with progress charts.",
-    tech: ["React Native", "GraphQL", "MongoDB", "Expo"],
-    liveLink: "#",
-    codeLink: "#",
-  },
-  {
-    title: "Real Estate Portal",
-    image: img,
-    desc: "Property listing platform with advanced filters and virtual tours.",
-    tech: ["Next.js", "Mapbox", "Node.js", "PostgreSQL"],
-    liveLink: "#",
-    codeLink: "#",
-  },
-];
 
 /////////////
 
 export const skills = {
   languages: [
-    {
-      name: "C++",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg",
-    },
-    {
-      name: "JavaScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
-    },
-    {
-      name: "TypeScript",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
-    },
-    {
-      name: "HTML5",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg",
-    },
-    {
-      name: "CSS3",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
-    },
-    {
-      name: "Sass",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sass/sass-original.svg",
-    },
+    { name: "C++", icon: img20 },
+    { name: "JavaScript", icon: img21 },
+    { name: "TypeScript", icon: img22 },
+    { name: "HTML5", icon: img23 },
+    { name: "CSS3", icon: img2 },
+    { name: "Sass", icon: img1 },
   ],
   frameworks: [
-    {
-      name: "React.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
-    },
-    {
-      name: "Next.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
-    },
-    {
-      name: "Node.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg",
-    },
-    {
-      name: "Express.js",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg",
-    },
-    {
-      name: "Redux",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redux/redux-original.svg",
-    },
-    {
-      name: "Material UI",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg",
-    },
-    {
-      name: "Tailwind CSS",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-    },
+    { name: "React.js", icon: img3 },
+    { name: "Next.js", icon: img18 },
+    { name: "Node.js", icon: img4 },
+    { name: "Express.js", icon: img19 },
+    { name: "Redux", icon: img7 },
+    { name: "Material UI", icon: img8 },
+    { name: "Tailwind CSS", icon: img9 },
   ],
   tools: [
-    {
-      name: "Git",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
-    },
-    {
-      name: "GitHub",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg",
-    },
-    {
-      name: "VS Code",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
-    },
-    {
-      name: "Postman",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
-    },
-    {
-      name: "NPM",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
-    },
-    {
-      name: "Nodemon",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodemon/nodemon-original.svg",
-    },
+    { name: "Git", icon: img10 },
+    { name: "GitHub", icon: img11 },
+    { name: "VS Code", icon: img12 },
+    { name: "Postman", icon: img13 },
+    { name: "NPM", icon: img6 },
+    { name: "Nodemon", icon: img5 },
   ],
   databases: [
-    {
-      name: "MongoDB",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
-    },
-    {
-      name: "Mongoose",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongoose/mongoose-original.svg",
-    },
-    {
-      name: "Firebase",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg",
-    },
-    {
-      name: "PostgreSQL",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
-    },
-    {
-      name: "Cloudinary",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg",
-    },
-    {
-      name: "Prisma",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg",
-    },
+    { name: "MongoDB", icon: img14 },
+    { name: "Mongoose", icon: img15 },
+    { name: "Firebase", icon: img16 },
+    { name: "AWS S3", icon: img24 },
+    { name: "PostgreSQL", icon: img17 },
+    { name: "Cloudinary", icon: img26 },
+    { name: "Prisma", icon: img25 },
   ],
 };
 
@@ -255,7 +138,7 @@ export const experiences = [
   {
     role: "Full Stack Developer",
     company: "Star Marketing",
-    duration: "Jan 2025 – Present",
+    duration: "Jan 2025 – Sep 2025",
     points: [
       "Delivered **9+ full-stack web apps** using the **MERN stack** with **scalable backend** and clean **UI architecture**.",
       "Developed multiple **admin dashboards**, each handling **1K+ data records** with **real-time validation** and optimized **CRUD performance**.",

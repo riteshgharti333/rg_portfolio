@@ -35,7 +35,7 @@ const About = () => {
       "Tailwind CSS",
     ],
     "Developer Tools": ["Git", "Visual Studio Code", "Postman", "SEO Tools"],
-    Database: ["MongoDB", "Firebase", "Cloudinary", "PostgreSQL"],
+    Database: ["MongoDB", "Firebase", "AWS S3", "Cloudinary", "PostgreSQL"],
   };
 
   // Education data
