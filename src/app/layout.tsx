@@ -5,6 +5,8 @@ import ParticleBackground from "./components/layout/DotGrid";
 import Footer from "./components/layout/Footer";
 import { Toaster } from "sonner";
 
+import SmoothScroll from '../app/components/providers/smooth-scroll';
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
@@ -40,7 +42,9 @@ export default function RootLayout({
         </div>
         <div className="relative z-10 min-h-full">
           <Navbar />
+             <SmoothScroll>
           {children}
+        </SmoothScroll>
           <Footer />
         </div>
       </body>
