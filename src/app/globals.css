@@ -39,3 +39,23 @@ body {
   height: 100%;
   font-family: "Poppins", sans-serif;
 }
+
+
+
+
+:root {
+  --color-void: #000000;
+  --color-void-lighter: #0A0A0A;
+  --color-surface: rgba(255, 255, 255, 0.03);
+  --color-surface-hover: rgba(255, 255, 255, 0.06);
+  --color-accent: #FFFFFF;
+  --color-accent-glow: rgba(255, 255, 255, 0.2);
+  --color-accent-subtle: rgba(255, 255, 255, 0.02);
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.5);
+  --color-text-muted: rgba(255, 255, 255, 0.3);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-medium: rgba(255, 255, 255, 0.12);
+  --font-display: 'Clash Display', 'Poppins', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
