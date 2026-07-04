@@ -12,7 +12,7 @@ import ScrollIndicator from "./components/ui/ScrollIndicator";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="no-scrollbar">
       <ScrollIndicator />
       <HomeBanner />
       <Projects />

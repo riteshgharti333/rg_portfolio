@@ -15,37 +15,9 @@ const Projects = () => {
       id="projects"
       className="relative py-24 bg-[var(--background)] overflow-hidden"
     >
-      {/* Background decoration */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: 400,
-            height: 400,
-            top: "10%",
-            right: "-100px",
-            background:
-              "radial-gradient(circle, rgba(224,32,32,0.06) 0%, transparent 70%)",
-          }}
-          animate={{ scale: [1, 1.1, 1], rotate: [0, -10, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute rounded-full"
-          style={{
-            width: 350,
-            height: 350,
-            bottom: "10%",
-            left: "-80px",
-            background:
-              "radial-gradient(circle, rgba(26,63,168,0.06) 0%, transparent 70%)",
-          }}
-          animate={{ scale: [1, 1.08, 1], rotate: [0, 10, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+     
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 max-w-6xl">
         {/* Header */}
         <TextAnimation
           subtitle="Selected Work"
@@ -54,7 +26,7 @@ const Projects = () => {
         />
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {homeProjectData.map((project, index) => (
             <motion.div
               key={project.slug}

@@ -56,7 +56,7 @@ const ScrollIndicator = () => {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 20 }}
-          className="fixed right-4 md:right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
+          className="fixed right-1 md:right-2 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
         >
           <div className="flex flex-col items-end gap-3">
             {sections.map((section) => {
@@ -66,7 +66,7 @@ const ScrollIndicator = () => {
                 <button
                   key={section.id}
                   onClick={() => scrollTo(section.id)}
-                  className="group flex items-center gap-3"
+                  className="group flex items-center gap-1"
                 >
                   {/* Label */}
                   <span

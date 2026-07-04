@@ -96,3 +96,11 @@ button{
 .animate-scroll-horizontal:hover {
   animation-play-state: paused;
 }
+
+
+
+/* Hide scrollbar for Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  display: none;
+}
+
