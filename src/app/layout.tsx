@@ -4,6 +4,9 @@ import Navbar from "./components/layout/Navbar";
 import ParticleBackground from "./components/layout/DotGrid";
 import Footer from "./components/layout/Footer";
 import { Toaster } from "sonner";
+import { GreenParticleBackground } from "./components/layout/GreenParticleBackground";
+import DarkModeToggle from "./components/ui/DarkModeToggle";
+import MouseGradient from "./components/ui/MouseGradient";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -36,12 +39,14 @@ export default function RootLayout({
       <body className={`${poppins.variable} font-sans antialiased h-full relative`}>
         <Toaster position="top-right" richColors closeButton />
         <div className="fixed inset-0 -z-10 overflow-hidden">
-          <ParticleBackground />
+       
         </div>
         <div className="relative z-10 min-h-full">
+          <MouseGradient />
           <Navbar />
           {children}
           <Footer />
+          <DarkModeToggle />
         </div>
       </body>
     </html>

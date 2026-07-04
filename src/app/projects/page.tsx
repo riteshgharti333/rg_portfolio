@@ -4,54 +4,27 @@ import { projectSmData } from "@/constants/projectData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiSearch } from "react-icons/fi";
+import { FiArrowRight, FiExternalLink } from "react-icons/fi";
+import PageHeading from "../components/ui/PageHeading";
+import CornerBrackets from "../components/ui/CornerBrackets";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      {/* Background Decoration */}
-      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.1)_0%,_transparent_70%)]" />
-      </div>
-
+    <section
+      id="projects"
+      className="py-24 relative overflow-hidden bg-[var(--background)] group"
+    >
+      <CornerBrackets variant="default" />
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, type: "spring" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-10"
-        >
-          <motion.span
-            className="text-sm font-semibold tracking-widest text-green-400 uppercase inline-block"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            My Creative Works
-          </motion.span>
-          <motion.h2
-            className="mt-4 text-4xl md:text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
-              Projects
-            </span>
-          </motion.h2>
-          <motion.div
-            className="mt-6 h-1 w-24 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto rounded-full"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
-          />
-        </motion.div>
+        <PageHeading
+          subtitle="Selected Works"
+          line1="FEATURED"
+          line2="PROJECTS"
+        />
 
-        {/* Projects Grid - Simplified mapping without strict types */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectSmData.map((project, index) => (
             <motion.div
               key={project.slug}
@@ -59,44 +32,65 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.6,
-                delay: index * 0.15,
-                type: "spring",
+                delay: index * 0.12,
+                ease: [0.16, 1, 0.3, 1],
               }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="relative rounded-2xl overflow-hidden group bg-gray-900/80 backdrop-blur-sm border border-gray-800 hover:border-green-500/30 transition-all duration-300 flex flex-col h-full"
+              viewport={{ once: true }}
+              className="group relative flex flex-col border border-[var(--border)] bg-[var(--background)] transition-all duration-400 hover:border-[var(--primary)]"
             >
-              {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              {/* Corner accents */}
+              <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 z-20" />
+              <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 z-20" />
+              <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 z-20" />
+              <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 z-20" />
+
+              {/* Image Container */}
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={project.bannerImage}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/70" />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-[var(--primary)]/0 group-hover:bg-[var(--primary)]/80 transition-all duration-400 flex items-center justify-center">
+                  <span className="text-white font-bold text-sm uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 flex items-center gap-2">
+                    View Project
+                    <FiArrowRight className="text-lg" />
+                  </span>
+                </div>
+
+                {/* Number tag */}
+                <span className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white bg-[var(--primary)] px-2 py-1 z-10">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
               </div>
 
               {/* Content */}
-              <div className="flex-1 p-6 flex flex-col">
-                <Link href={`/projects/${project.slug}`}>
-                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors cursor-pointer">
+              <div className="flex-1 flex flex-col p-6">
+                {/* Title */}
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group/title"
+                >
+                  <h3 className="text-lg font-bold text-[var(--primary)] uppercase tracking-[0.05em] group-hover/title:text-[var(--accent)] transition-colors duration-300">
                     {project.title}
                   </h3>
                 </Link>
 
-                <p className="text-gray-300 mb-6 line-clamp-3">
+                {/* Description */}
+                <p className="text-[var(--muted-foreground)] text-sm mt-3 line-clamp-3 leading-relaxed">
                   {project.desc}
                 </p>
 
                 {/* Tech Stack */}
-                <div className="mb-6">
-                  <div className="text-xs text-gray-400 mb-2">Tech Stack:</div>
-                  <div className="flex flex-wrap gap-2">
+                <div className="mt-5">
+                  <div className="flex flex-wrap gap-1.5">
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full group-hover:bg-gray-700 group-hover:text-green-400 transition-all"
+                        className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[var(--primary)] bg-[var(--secondary)] border border-[var(--border)] group-hover:border-[var(--primary)]/30 group-hover:text-[var(--accent)] transition-all duration-300"
                       >
                         {tech}
                       </span>
@@ -105,20 +99,26 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Buttons - Now fixed at the bottom */}
+              {/* Bottom Link */}
               <div className="px-6 pb-6 mt-auto">
-                <div className="flex gap-3">
-                  <Link
-                    href={`/projects/${project.slug}`}
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
-                  >
-                    <FiSearch className="text-lg" /> <span>Explore More</span>
-                  </Link>
-                </div>
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group/btn relative flex items-center justify-between px-4 py-3 text-xs font-bold uppercase tracking-[0.15em] text-[var(--primary-foreground)] bg-[var(--primary)] overflow-hidden transition-all duration-300 hover:bg-[var(--accent)]"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Explore Project
+                    <FiArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform duration-300" />
+                  </span>
+                  <FiExternalLink className="relative z-10 text-sm" />
+
+                  {/* Hover slash effect */}
+                  <span className="absolute inset-0 bg-[var(--accent)] -translate-x-full group-hover/btn:translate-x-0 transition-transform duration-400 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                </Link>
               </div>
 
-              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.1)_0%,_transparent_70%)]" />
+              {/* Hover glow */}
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 bg-[var(--primary)]/5" />
               </div>
             </motion.div>
           ))}

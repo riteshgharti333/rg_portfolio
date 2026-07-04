@@ -4,145 +4,188 @@ import { homeProjectData } from "@/constants/projectData";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { FiSearch } from "react-icons/fi";
+import { FiArrowRight, FiExternalLink, FiGithub } from "react-icons/fi";
+import ThirdTextAnimation from "../TextAni/ThirdTextAnimation";
+import SecondTextAnimation from "../TextAni/SecondTextAnimation";
+import TextAnimation from "../TextAni/TextAnimation";
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(74,222,128,0.1)_0%,_transparent_70%)]" />
+    <section
+      id="projects"
+      className="relative py-24 bg-[var(--background)] overflow-hidden"
+    >
+      {/* Background decoration */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: 400,
+            height: 400,
+            top: "10%",
+            right: "-100px",
+            background:
+              "radial-gradient(circle, rgba(224,32,32,0.06) 0%, transparent 70%)",
+          }}
+          animate={{ scale: [1, 1.1, 1], rotate: [0, -10, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: 350,
+            height: 350,
+            bottom: "10%",
+            left: "-80px",
+            background:
+              "radial-gradient(circle, rgba(26,63,168,0.06) 0%, transparent 70%)",
+          }}
+          animate={{ scale: [1, 1.08, 1], rotate: [0, 10, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, type: "spring" }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-10"
-        >
-          <motion.span
-            className="text-sm font-semibold tracking-widest text-green-400 uppercase inline-block"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            My Creative Works
-          </motion.span>
-          <motion.h2
-            className="mt-4 text-4xl md:text-5xl font-bold text-white"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">
-              Projects
-            </span>
-          </motion.h2>
-          <motion.div
-            className="mt-6 h-1 w-24 bg-gradient-to-r from-green-400 to-emerald-600 mx-auto rounded-full"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, type: "spring" }}
-          />
-        </motion.div>
+        {/* Header */}
+        <TextAnimation
+          subtitle="Selected Work"
+          line1="FEATURED"
+          line2="PROJECTS"
+        />
 
-        {/* Simplified Projects Grid without strict typing */}
+        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {homeProjectData.map((project, index) => (
-           <motion.div
-  key={project.slug}
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{
-    duration: 0.6,
-    delay: index * 0.15,
-    type: "spring",
-  }}
-  viewport={{ once: true, margin: "-50px" }}
-  className="relative rounded-2xl overflow-hidden group bg-gray-900/80 backdrop-blur-sm border border-gray-800 hover:border-green-500/30 transition-all duration-300 h-full flex flex-col" // Added h-full & flex-col
->
-  {/* Image */}
-  <div className="relative h-56 overflow-hidden">
-    <Image
-      src={project.img}
-      alt={project.title}
-      fill
-      className="object-cover transition-transform duration-500 group-hover:scale-105"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/30 to-black/70" />
-  </div>
+            <motion.div
+              key={project.slug}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="group relative bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/20 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/5 flex flex-col"
+            >
+              {/* Image Container */}
+              <div className="relative h-56 overflow-hidden bg-[var(--muted)]">
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
 
-  {/* Content (flex-1 to fill remaining space) */}
-  <div className="flex-1 p-6 flex flex-col">
-    <Link href={`/projects/${project.slug}`}>
-      <h3 className="text-xl font-bold text-white mb-3 group-hover:text-green-400 transition-colors cursor-pointer">
-        {project.title}
-      </h3>
-    </Link>
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/90 via-[var(--primary)]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                  <div className="flex gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="w-10 h-10 bg-[var(--background)] flex items-center justify-center text-[var(--primary)] hover:bg-[var(--accent)] hover:text-white transition-all duration-300"
+                    >
+                      <FiExternalLink className="text-lg" />
+                    </Link>
+                    <Link
+                      href={`/projects/${project.slug}`}
+                      className="w-10 h-10 bg-[var(--background)] flex items-center justify-center text-[var(--primary)] hover:bg-[var(--accent)] hover:text-white transition-all duration-300"
+                    >
+                      <FiGithub className="text-lg" />
+                    </Link>
+                  </div>
+                </div>
 
-    <p className="text-gray-300 mb-6 line-clamp-3"> {/* Removed flex-1 here */}
-      {project.description}
-    </p>
+                {/* Corner accent */}
+                <div className="absolute top-0 right-0 w-12 h-12 overflow-hidden">
+                  <div
+                    className="absolute top-0 right-0 w-4 h-4 bg-[var(--accent)]"
+                    style={{ clipPath: "polygon(100% 0, 0 0, 100% 100%)" }}
+                  />
+                </div>
+              </div>
 
-    {/* Tech Stack */}
-    <div className="mb-6">
-      <div className="text-xs text-gray-400 mb-2">Tech Stack:</div>
-      <div className="flex flex-wrap gap-2">
-        {project.techStack.map((tech) => (
-          <span
-            key={tech}
-            className="px-3 py-1 bg-gray-800 text-gray-300 text-xs font-medium rounded-full group-hover:bg-gray-700 group-hover:text-green-400 transition-all"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </div>
+              {/* Content */}
+              <div className="flex-1 p-6 flex flex-col">
+                {/* Title */}
+                <Link href={`/projects/${project.slug}`}>
+                  <h3 className="text-xl font-bold text-[var(--accent)] mb-3 group-hover:text-[var(--primary)] transition-colors duration-300 tracking-tight uppercase">
+                    {project.title}
+                  </h3>
+                </Link>
 
-    {/* Button (mt-auto pushes it to the bottom) */}
-    <div className="flex gap-3 mt-auto pt-4"> {/* Added pt-4 for spacing */}
-      <Link
-        href={`/projects/${project.slug}`}
-        className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white rounded-lg transition-all"
-      >
-        <FiSearch className="text-lg" />
-        <span>View Details</span>
-      </Link>
-    </div>
-  </div>
-</motion.div>
+                {/* Description */}
+                <p className="text-[var(--muted-foreground)] text-sm leading-relaxed mb-6 line-clamp-2">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="mb-6">
+                  <div className="text-xs font-bold uppercase tracking-wider text-[var(--muted-foreground)] mb-3">
+                    TECH STACK:
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {project.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 text-xs font-bold uppercase tracking-wider border border-[var(--border)] text-[var(--accent)] group-hover:border-[var(--primary)]/20 group-hover:text-[var(--primary)] transition-all duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* View Project Link */}
+                <div className="mt-auto pt-4 border-t border-[var(--border)]">
+                  <Link
+                    href={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--primary)] hover:text-[var(--accent)] transition-colors duration-300 group/link"
+                  >
+                    VIEW DETAILS
+                    <FiArrowRight className="group-hover/link:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
+        {/* View All Button */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: homeProjectData.length * 0.1 + 0.3, duration: 0.6 }}
+          transition={{ delay: 0.3, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="text-center mt-16"
         >
-          <Link href="/projects">
-            <button className="relative group cursor-pointer px-8 py-4 bg-transparent border-2 border-green-500/30 hover:border-green-500 text-white font-medium rounded-full transition-all duration-500 overflow-hidden">
-              <span className="relative z-10 flex items-center gap-2">
-                Explore More Projects
-                <motion.span
-                  initial={{ x: -5 }}
-                  animate={{ x: 5 }}
-                  transition={{
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    duration: 1,
-                  }}
-                >
-                  →
-                </motion.span>
+          <Link
+            href="/projects"
+            className="group relative inline-flex items-center px-12 py-5 text-white font-bold text-sm uppercase tracking-[0.1em] overflow-hidden"
+          >
+            {/* Background */}
+            <span className="absolute inset-0 bg-[var(--primary)] transition-colors duration-300 group-hover:bg-[var(--background)]" />
+
+            {/* Corner brackets */}
+            <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)] group-hover:border-[var(--primary)] group-hover:w-30 group-hover:h-6 transition-all duration-300" />
+            <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)] group-hover:border-[var(--primary)] group-hover:w-30 group-hover:h-4 transition-all duration-300" />
+            <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)] group-hover:border-[var(--primary)] group-hover:w-30 group-hover:h-6 transition-all duration-300" />
+            <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)] group-hover:border-[var(--primary)] group-hover:w-30 group-hover:h-6 transition-all duration-300" />
+
+            {/* Text wrapper */}
+            <span className="relative z-10 block h-[1.2em] overflow-hidden">
+              {/* Default */}
+              <span className="flex items-center gap-3 transition-transform duration-400 group-hover:-translate-y-full">
+                EXPLORE MORE PROJECTS
+                <FiArrowRight className="text-lg" />
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-green-500/10 to-emerald-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <span className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-green-500/50 transition-all duration-500 delay-100" />
-            </button>
+
+              {/* Same text slides up */}
+              <span className="absolute top-full left-0 flex items-center gap-3 transition-transform duration-400 group-hover:-translate-y-full text-[var(--accent)]">
+                EXPLORE MORE PROJECTS
+                <FiArrowRight className="text-lg" />
+              </span>
+            </span>
           </Link>
         </motion.div>
       </div>

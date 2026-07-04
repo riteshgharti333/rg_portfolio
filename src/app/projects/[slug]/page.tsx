@@ -1,8 +1,14 @@
 "use client";
 
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import {
+  FiGithub,
+  FiExternalLink,
+  FiArrowLeft,
+  FiArrowRight,
+} from "react-icons/fi";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projectData } from "@/constants/projectData";
 import React from "react";
@@ -14,12 +20,12 @@ const BoldableText = ({ text }: { text: string }) => {
     <>
       {parts.map((part, i) =>
         i % 2 === 1 ? (
-          <span key={i} className="text-green-400 font-bold">
+          <span key={i} className="text-[var(--accent)] font-bold">
             {part}
           </span>
         ) : (
           <span key={i}>{part}</span>
-        )
+        ),
       )}
     </>
   );
@@ -40,175 +46,305 @@ export default function ProjectPage({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="py-20 px-4 sm:px-6 lg:px-8 min-h-screen"
+      className="py-24 px-4 sm:px-6 lg:px-8 min-h-screen bg-[var(--background)]"
     >
-      <div className="max-w-4xl mx-auto space-y-8">
+      <div className="max-w-4xl mx-auto space-y-12">
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          <Link
+            href="/#projects"
+            className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-300"
+          >
+            <FiArrowLeft className="group-hover:-translate-x-1 transition-transform duration-300" />
+            Back to Projects
+          </Link>
+        </motion.div>
+
         {/* Banner Image */}
-        <div className="rounded-xl overflow-hidden shadow-lg border border-gray-700">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="relative border border-[var(--border)] overflow-hidden group"
+        >
           <Image
             src={project.bannerImage}
             alt={project.title}
             width={1200}
             height={600}
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
           />
-        </div>
+          {/* Overlay corner accents */}
+          <span className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[var(--accent)] z-10" />
+          <span className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[var(--accent)] z-10" />
+          <span className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[var(--accent)] z-10" />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[var(--accent)] z-10" />
+        </motion.div>
 
-        {/* Project Title with Gradient */}
-        <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-          {project.title}
-        </h1>
-
-        {project.isFullStack ? (
-          <div className="">
-            <div className="flex gap-4">
-              {project.fullStackCodeLink.map((item, index) => {
-                return (
-                  <motion.a
-                    key={index}
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={item.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
-                  >
-                    <FiGithub className="text-lg" />
-                    <span>{item.name}</span>
-                  </motion.a>
-                );
-              })}
-            </div>
-            <div className="flex gap-4 mt-3">
-              {project.fullStackLiveLink.map((item, index) => (
-                <motion.a
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={item.liveLink}
-                  key={index}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center cursor-pointer justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
-                >
-                  <FiExternalLink className="text-lg" />
-                  <span>{item.name}</span>
-                </motion.a>
-              ))}
-            </div>
+        {/* Project Title & Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <div className="flex items-center gap-3 mb-3">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              PROJECT
+            </span>
+            <span className="w-8 h-[2px] bg-[var(--primary)]" />
           </div>
-        ) : (
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            {project.githubLink && (
-              <motion.a
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg text-white transition-colors"
-              >
-                <FiGithub className="text-lg" />
-                <span>View Code</span>
-              </motion.a>
-            )}
 
-            {project.liveLink && (
-              <motion.a
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                href={project.liveLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white transition-colors"
-              >
-                <FiExternalLink className="text-lg" />
-                <span>Live Demo</span>
-              </motion.a>
+          <h1 className="text-3xl sm:text-4xl font-bold text-[var(--primary)] uppercase tracking-[0.03em]">
+            {project.title}
+          </h1>
+
+          {/* Links */}
+          <div className="flex flex-col gap-3 mt-6">
+            {project.isFullStack ? (
+              <>
+                {/* Code Links Row */}
+                <div className="flex flex-wrap gap-3">
+                  {project.fullStackCodeLink.map((item, index) => (
+                    <motion.a
+                      key={index}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={item.codeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative flex items-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300"
+                    >
+                      <FiGithub className="text-sm" />
+                      <span>{item.name}</span>
+                      <span className="absolute top-0 right-0 w-0 h-0 border-t-[6px] border-r-[6px] border-t-[var(--accent)] border-r-transparent opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+                    </motion.a>
+                  ))}
+                </div>
+
+                {/* Live Links Row */}
+                <div className="flex flex-wrap gap-3">
+                  {project.fullStackLiveLink.map((item, index) => (
+                    <motion.a
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={item.liveLink}
+                      key={index}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative flex items-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-white bg-[var(--primary)] hover:bg-[var(--accent)] transition-all duration-300"
+                    >
+                      <FiExternalLink className="text-sm" />
+                      <span>{item.name}</span>
+                      <FiArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    </motion.a>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Code & Live single project */}
+                <div className="flex flex-wrap gap-3">
+                  {project.githubLink && (
+                    <motion.a
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={project.githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative flex items-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-[var(--foreground)] border border-[var(--border)] hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300"
+                    >
+                      <FiGithub className="text-sm" />
+                      <span>View Code</span>
+                    </motion.a>
+                  )}
+                  {project.liveLink && (
+                    <motion.a
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.98 }}
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group/btn relative flex items-center gap-2 px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-white bg-[var(--primary)] hover:bg-[var(--accent)] transition-all duration-300"
+                    >
+                      <FiExternalLink className="text-sm" />
+                      <span>Live Demo</span>
+                      <FiArrowRight className="text-sm group-hover/btn:translate-x-1 transition-transform duration-300" />
+                    </motion.a>
+                  )}
+                </div>
+              </>
             )}
           </div>
-        )}
+        </motion.div>
 
         {/* Description */}
-        <div className="space-y-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="space-y-4"
+        >
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              01
+            </span>
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+              Overview
+            </h2>
+          </div>
           {project.description.map((paragraph, index) => (
-            <p key={index} className="text-gray-300 leading-relaxed">
+            <p
+              key={index}
+              className="text-[var(--foreground)]/80 leading-relaxed"
+            >
               <BoldableText text={paragraph} />
             </p>
           ))}
-        </div>
+        </motion.div>
 
         {/* Features */}
-        <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Key Features
-          </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+        >
+          <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)]" />
+          <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
+
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              02
+            </span>
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+              Key Features
+            </h2>
+          </div>
           <ul className="space-y-3">
             {project.features.map((feature, index) => (
               <motion.li
                 key={index}
                 whileHover={{ x: 5 }}
-                className="flex items-start"
+                className="flex items-start text-[var(--foreground)]/80"
               >
-                <span className="text-green-400 mr-2">▹</span>
-                <span className="text-gray-300">
+                <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
+                  ▹
+                </span>
+                <span>
                   <BoldableText text={feature} />
                 </span>
               </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Impact */}
-        <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">Impact</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+        >
+          <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)]" />
+          <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)]" />
+
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              03
+            </span>
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+              Impact
+            </h2>
+          </div>
           <ul className="space-y-3">
             {project.impact.map((item, index) => (
               <motion.li
                 key={index}
                 whileHover={{ x: 5 }}
-                className="flex items-start"
+                className="flex items-start text-[var(--foreground)]/80"
               >
-                <span className="text-green-400 mr-2">▹</span>
-                <span className="text-gray-300">
+                <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
+                  ▹
+                </span>
+                <span>
                   <BoldableText text={item} />
                 </span>
               </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Challenges */}
-        <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">
-            Challenges Overcome
-          </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+        >
+          <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)]" />
+          <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
+
+          <div className="flex items-center gap-3 mb-5">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              04
+            </span>
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+              Challenges Overcome
+            </h2>
+          </div>
           <ul className="space-y-3">
             {project.challenges.map((challenge, index) => (
               <motion.li
                 key={index}
                 whileHover={{ x: 5 }}
-                className="flex items-start"
+                className="flex items-start text-[var(--foreground)]/80"
               >
-                <span className="text-green-400 mr-2">▹</span>
-                <span className="text-gray-300">
+                <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
+                  ▹
+                </span>
+                <span>
                   <BoldableText text={challenge} />
                 </span>
               </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Tech Stack */}
-        <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
-          <h2 className="text-xl font-semibold text-white mb-4">Tech Stack</h2>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
+          viewport={{ once: true }}
+          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+        >
+          <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)]" />
+          <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)]" />
+
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+              05
+            </span>
+            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+              Tech Stack
+            </h2>
+          </div>
           <div className="flex flex-wrap gap-4">
             {project.techStack.map((tech, index) => (
               <motion.div
                 key={index}
-                whileHover={{ scale: 1.05 }}
-                className="flex flex-col items-center"
+                whileHover={{ y: -3 }}
+                className="group/tech flex flex-col items-center"
               >
-                <div className="w-16 h-16 bg-gray-700 rounded-lg flex items-center justify-center p-2">
+                <div className="w-16 h-16 border border-[var(--border)] flex items-center justify-center p-2 bg-[var(--muted)] group-hover/tech:border-[var(--primary)] transition-all duration-300">
                   <Image
                     src={tech.img}
                     alt={tech.name}
@@ -217,13 +353,33 @@ export default function ProjectPage({
                     className="object-contain"
                   />
                 </div>
-                <span className="text-gray-300 mt-2 text-sm">{tech.name}</span>
+                <span className="text-[var(--foreground)]/70 mt-2 text-xs font-bold uppercase tracking-[0.1em] group-hover/tech:text-[var(--primary)] transition-colors">
+                  {tech.name}
+                </span>
               </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Links */}
+        {/* Bottom Navigation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="pt-8 border-t border-[var(--border)] flex justify-center"
+        >
+          <Link
+            href="/#projects"
+            className="group relative inline-flex items-center px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white bg-[var(--primary)] hover:bg-[var(--accent)] transition-all duration-300"
+          >
+            <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--accent)]" />
+            <span className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-[var(--accent)]" />
+            <span className="flex items-center gap-2">
+              <FiArrowLeft className="group-hover:-translate-x-1 transition-transform duration-300" />
+              All Projects
+            </span>
+          </Link>
+        </motion.div>
       </div>
     </motion.div>
   );

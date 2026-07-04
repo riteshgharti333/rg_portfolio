@@ -31,31 +31,68 @@
 }
 
 body {
-  background: #0a0a0a;
+  /* background: #0a0a0a; */
 }
 
 html,
 body {
   height: 100%;
   font-family: "Poppins", sans-serif;
+  /* background: #000; */
 }
 
-
-
-
+/* In your global CSS file */
 :root {
-  --color-void: #000000;
-  --color-void-lighter: #0A0A0A;
-  --color-surface: rgba(255, 255, 255, 0.03);
-  --color-surface-hover: rgba(255, 255, 255, 0.06);
-  --color-accent: #FFFFFF;
-  --color-accent-glow: rgba(255, 255, 255, 0.2);
-  --color-accent-subtle: rgba(255, 255, 255, 0.02);
-  --color-text-primary: #FFFFFF;
-  --color-text-secondary: rgba(255, 255, 255, 0.5);
-  --color-text-muted: rgba(255, 255, 255, 0.3);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
-  --color-border-medium: rgba(255, 255, 255, 0.12);
-  --font-display: 'Clash Display', 'Poppins', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --primary: #1a3fa8;
+  --primary-foreground: #ffffff;
+  --secondary: #e8eeff;
+  --secondary-foreground: #1a3fa8;
+  --accent: #e02020;
+  --accent-foreground: #ffffff;
+  --muted: #f0f2ff;
+  --muted-foreground: #6b7280;
+  --border: rgba(26, 63, 168, 0.12);
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+.dark {
+  --primary: #0c43db;
+  --primary-foreground: #ffffff;
+  --secondary: #1a1a2e;
+  --secondary-foreground: #e8eeff;
+  --accent: #f00505;
+  --accent-foreground: #ffffff;
+  --muted: #1a1a2e;
+  --muted-foreground: #f7f7f7;
+  --border: rgba(59, 110, 255, 0.2);
+  --background: #0a0a0a;
+  --foreground: #f0f0f0;
+}
+
+body {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background);
+}
+
+button{
+  cursor: pointer;
+}
+
+@keyframes scroll-horizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-scroll-horizontal {
+  animation: scroll-horizontal 35s linear infinite;
+}
+
+.animate-scroll-horizontal:hover {
+  animation-play-state: paused;
 }
