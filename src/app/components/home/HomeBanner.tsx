@@ -1,18 +1,24 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useMotionValue, useSpring, animate } from "framer-motion";
+import { motion,animate } from "framer-motion";
 import CTAButtons from "../ui/CTAButtons";
 import MusicEqualizer from "../ui/MusicEqualizer";
+import SplitType from "split-type";
+import gsap from "gsap";
 
 /* ─── constants ─── */
+
 const ROLES = [
   "Full Stack Developer",
-  "React Specialist",
-  "Node.js Engineer",
-  "UI/UX Craftsman",
+  "Frontend Developer",
+  "Backend Developer",
+  "MERN Stack Developer",
+  "API Developer",
+  "Performance Optimizer",
+  "SEO Specialist",
 ];
-const NAME_CHARS = "RITESH GHARTI".split("");
+
 const STATS = [
   { end: 20, suffix: "+", label: "Projects\nCompleted" },
   { end: 2, suffix: "+", label: "Years of\nExperience" },
@@ -73,25 +79,38 @@ function useTypewriter(words: string[], speed = 85, pause = 2200) {
   return display;
 }
 
+
 function useCountUp(end: number, duration = 1.8, delay = 0) {
   const [val, setVal] = useState(0);
-  const ref = useRef(false);
+  const controlsRef = useRef<any>(null);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
-    if (ref.current) return;
-    ref.current = true;
+    // Reset state when component mounts
+    setVal(0);
+    hasStartedRef.current = false;
 
-    const t = setTimeout(() => {
-      const controls = animate(0, end, {
+    const timeout = setTimeout(() => {
+      // Prevent double animation in StrictMode
+      if (hasStartedRef.current) return;
+      hasStartedRef.current = true;
+
+      controlsRef.current = animate(0, end, {
         duration,
         ease: [0.16, 1, 0.3, 1],
-        onUpdate: (v) => setVal(Math.round(v)),
+        onUpdate: (latest: number) => {
+          setVal(Math.round(latest));
+        },
       });
-      return controls.stop;
-    }, delay);
+    }, delay * 1000);
 
-    return () => clearTimeout(t);
-  }, [end, duration, delay]);
+    return () => {
+      clearTimeout(timeout);
+      if (controlsRef.current) {
+        controlsRef.current.stop();
+      }
+    };
+  }, [end, duration, delay]); // Re-run if props change
 
   return val;
 }
@@ -110,14 +129,14 @@ function StatCard({
   delay: number;
   color: string;
 }) {
-  const val = useCountUp(end, 1.6, delay);
+  const val = useCountUp(end, 2.5, delay);
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
-        delay: delay / 1000 + 1.4,
+        delay: delay + 1.4,
         duration: 0.6,
         ease: [0.16, 1, 0.3, 1],
       }}
@@ -130,7 +149,7 @@ function StatCard({
         {val}
         {suffix}
       </span>
-      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-center leading-tight whitespace-pre-line text-gray-500">
+      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-center leading-tight whitespace-pre-line text-[var(--muted-foreground)]">
         {label}
       </span>
       <motion.div
@@ -143,95 +162,87 @@ function StatCard({
   );
 }
 
-function MagneticButton({
-  children,
-  variant = "primary",
-  href = "#",
-}: {
-  children: React.ReactNode;
-  variant?: "primary" | "accent" | "outline";
-  href?: string;
-}) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 300, damping: 25 });
-  const sy = useSpring(y, { stiffness: 300, damping: 25 });
-  const ref = useRef<HTMLAnchorElement>(null);
-
-  const onMove = (e: React.MouseEvent) => {
-    const r = ref.current?.getBoundingClientRect();
-    if (!r) return;
-    x.set((e.clientX - r.left - r.width / 2) * 0.25);
-    y.set((e.clientY - r.top - r.height / 2) * 0.25);
-  };
-
-  const onLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const variants = {
-    primary: "bg-primary text-white border-none",
-    accent: "bg-accent text-white border-none",
-    outline: "bg-transparent text-primary border-2 border-primary",
-  };
-
-  return (
-    <motion.a
-      ref={ref}
-      href={href}
-      style={{ x: sx, y: sy }}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      whileTap={{ scale: 0.96 }}
-      className={`relative overflow-hidden px-8 py-3.5 font-bold text-sm tracking-widest uppercase cursor-pointer select-none inline-flex items-center gap-2 transition-shadow duration-300 hover:shadow-2xl ${variants[variant]}`}
-    >
-      {children}
-    </motion.a>
-  );
-}
 
 /* ─── main ─── */
 const HomeBanner = () => {
   const role = useTypewriter(ROLES);
   const [mounted, setMounted] = useState(false);
+  const nameRef = useRef<HTMLDivElement>(null);
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => setMounted(true), 100);
   }, []);
 
-  return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center">
-      {/* Background geometric shapes */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-       
+  // GSAP SplitType animation for name
+  useEffect(() => {
+    if (!nameRef.current) return;
 
-        {/* Floating dots */}
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              width: i % 2 === 0 ? 8 : 5,
-              height: i % 2 === 0 ? 8 : 5,
-              background:
-                i % 3 === 0 ? "#1a3fa8" : i % 3 === 1 ? "#e02020" : "#6b7280",
-              top: `${15 + i * 13}%`,
-              left: `${5 + i * 15}%`,
-            }}
-            animate={{ y: [0, -18, 0], opacity: [0.5, 1, 0.5] }}
-            transition={{
-              duration: 3 + i * 0.7,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.4,
-            }}
-          />
-        ))}
-      </div>
+    const nameElement = nameRef.current;
+    
+    // Use SplitType to split text into characters
+    const split = new SplitType(nameElement, { 
+      types: 'chars,words',
+      tagName: 'span'
+    });
+
+    // Set initial state - all chars invisible and shifted down
+    gsap.set(split.chars, {
+      opacity: 0,
+      y: 100,
+      rotateX: -90,
+      transformOrigin: "50% 0%"
+    });
+
+    // Animate each character with stagger
+    gsap.to(split.chars, {
+      opacity: 1,
+      y: 0,
+      rotateX: 0,
+      duration: 0.8,
+      stagger: {
+        each: 0.04,
+        from: "start"
+      },
+      ease: "back.out(1.2)",
+      delay: 0.3
+    });
+
+    return () => {
+      split.revert();
+    };
+  }, []);
+
+  // GSAP animation for stats
+  useEffect(() => {
+    if (!statsRef.current) return;
+
+    const statElements = statsRef.current.querySelectorAll('.stat-item');
+    
+    gsap.fromTo(statElements, 
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.8
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "back.out(1.4)",
+        delay: 1.8
+      }
+    );
+  }, []);
+
+  return (
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-center" id="home">
+     
 
       {/* Main content */}
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 py-20 flex flex-col items-center text-center">
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-2 sm:px-6 py-20 flex flex-col items-center text-center">
         {/* Status pill */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -248,40 +259,36 @@ const HomeBanner = () => {
           <span className="relative z-10 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] bg-clip-text text-transparent">
             Available for work
           </span>
-
-          <span className="relative z-10 w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full bg-[var(--accent)] opacity-75" />
+            <span className="relative inline-flex h-2 w-2 bg-[var(--accent)]" />
+          </span>
         </motion.div>
 
-        {/* Giant name */}
-        <div className="mb-4 overflow-visible leading-none">
-          <div className="flex flex-wrap justify-center gap-[0.02em]">
-            {NAME_CHARS.map((char, i) =>
-              char === " " ? (
-                <span key={i} className="w-[0.35em]" />
-              ) : (
-                <div key={i} className="overflow-hidden">
-                  <motion.span
-                    initial={{ y: "110%", opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{
-                      delay: 0.2 + i * 0.045,
-                      duration: 0.65,
-                      ease: [0.16, 1, 0.3, 1],
-                    }}
-                    className="inline-block font-black leading-none select-none"
-                    style={{
-                      fontSize: "clamp(3.2rem, 9.5vw, 8.5rem)",
-                      color: i < 6 ? "#1a3fa8" : "transparent",
-                      WebkitTextStroke: i < 6 ? "none" : "2.5px #e02020",
-                      letterSpacing: "-0.01em",
-                    }}
-                  >
-                    {char}
-                  </motion.span>
-                </div>
-              ),
-            )}
-          </div>
+        {/* Giant name with GSAP character animation */}
+        <div
+          ref={nameRef}
+          className="font-black leading-none select-none text-center mb-6"
+          style={{
+            fontSize: "clamp(3.2rem, 9.5vw, 8.5rem)",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          {/* Line 1 */}
+          <span className="text-[var(--primary)]" style={{ display: "inline-block" }}>RITESH</span>
+          {/* Desktop gap / Mobile break */}
+          <span className="hidden sm:inline">&nbsp;</span>
+          <br className="sm:hidden" />
+          {/* Line 2 */}
+          <span
+            style={{
+              WebkitTextStroke: "2.5px var(--accent)",
+              color: "transparent",
+              display: "inline-block"
+            }}
+          >
+            GHARTI
+          </span>
         </div>
 
         {/* Animated underline - Music Equalizer Bars (Two-way) */}
@@ -311,32 +318,30 @@ const HomeBanner = () => {
           </span>
         </motion.div>
 
-        {/* Description */}
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.6 }}
           className="text-sm md:text-[15px] leading-relaxed max-w-xl mb-10 text-[var(--muted-foreground)]"
         >
-          Passionate about creating{" "}
+          I build{" "}
           <span className="font-bold text-[var(--primary)]">
-            modern, responsive
-          </span>
-          , and{" "}
-          <span className="font-bold text-[var(--primary)]">
-            high-performance
+            fast, scalable
           </span>{" "}
-          web applications. Specializing in{" "}
+          and{" "}
+          <span className="font-bold text-[var(--primary)]">SEO-optimized</span>{" "}
+          full-stack web applications with{" "}
           <span className="font-bold text-[var(--accent)]">
-            secure backend systems
-          </span>
-          ,{" "}
+            modern frontend experiences
+          </span>{" "}
+          and{" "}
           <span className="font-bold text-[var(--accent)]">
-            intuitive interfaces
+            secure backend architectures
           </span>
-          , and{" "}
+          . From intuitive user interfaces to reliable APIs, I transform ideas
+          into{" "}
           <span className="font-bold text-[var(--primary)]">
-            scalable digital solutions
+            production-ready digital products
           </span>
           .
         </motion.p>
@@ -345,23 +350,44 @@ const HomeBanner = () => {
         <CTAButtons />
 
         {/* ── Tech Stack Scrolling Animation ── */}
-        {/* ── Tech Stack Scroll ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full mb-12 overflow-hidden py-4"
+          transition={{ delay: 3.15, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full mb-12 overflow-hidden py-4 border-y border-[var(--border)] relative"
         >
+          {/* Gradient fade edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
+
+          {/* Scrolling track */}
           <div className="flex gap-8 animate-scroll-horizontal whitespace-nowrap">
             {[...TECH_STACK, ...TECH_STACK, ...TECH_STACK].map((tech, i) => (
-              <span
+              <div
                 key={i}
-                className="text-lg font-bold uppercase tracking-wider flex items-center gap-3"
-                style={{ color: i % 2 === 0 ? "#1a3fa8" : "#e02020" }}
+                className="flex items-center gap-8 group cursor-default"
               >
-                {tech}
-                <span className="text-gray-300 font-light">•</span>
-              </span>
+                {/* Tech name */}
+                <span
+                  className="text-sm md:text-base font-black uppercase tracking-[0.05em] transition-all duration-300 group-hover:scale-110"
+                  style={{
+                    color: i % 2 === 0 ? "var(--primary)" : "transparent",
+                    WebkitTextStroke:
+                      i % 2 === 0 ? "none" : "1.5px var(--accent)",
+                  }}
+                >
+                  {tech}
+                </span>
+
+                {/* Separator diamond */}
+                <span
+                  className="w-1.5 h-1.5 rotate-45 opacity-40"
+                  style={{
+                    backgroundColor:
+                      i % 2 === 0 ? "var(--accent)" : "var(--primary)",
+                  }}
+                />
+              </div>
             ))}
           </div>
         </motion.div>
@@ -380,17 +406,21 @@ const HomeBanner = () => {
           <div className="flex-1 h-px bg-gradient-to-r from-gray-300 to-transparent" />
         </motion.div>
 
-        {/* Stats */}
-        <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-8">
+        {/* Stats with GSAP animation */}
+        <div 
+          ref={statsRef}
+          className="w-full grid grid-cols-2 sm:grid-cols-4 gap-8"
+        >
           {STATS.map((s, i) => (
-            <StatCard
-              key={s.label}
-              end={s.end}
-              suffix={s.suffix}
-              label={s.label}
-              delay={i * 120}
-              color={i % 2 === 0 ? "#1a3fa8" : "#e02020"}
-            />
+            <div key={s.label} className="stat-item">
+              <StatCard
+                end={s.end}
+                suffix={s.suffix}
+                label={s.label}
+                delay={i * 0.12}
+                color={i % 2 === 0 ? "var(--primary)" : "var(--accent)"}
+              />
+            </div>
           ))}
         </div>
       </div>

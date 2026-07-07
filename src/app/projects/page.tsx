@@ -10,12 +10,8 @@ import CornerBrackets from "../components/ui/CornerBrackets";
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="py-24 relative overflow-hidden bg-[var(--background)] group"
-    >
-      <CornerBrackets variant="default" />
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Section Header */}
         <PageHeading
           subtitle="Selected Works"
@@ -45,12 +41,13 @@ const Projects = () => {
               <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)] opacity-0 group-hover:opacity-100 group-hover:w-5 group-hover:h-5 transition-all duration-300 z-20" />
 
               {/* Image Container */}
-              <div className="relative h-52 overflow-hidden">
+              <div className="relative w-full overflow-hidden bg-[var(--background)]">
                 <Image
                   src={project.bannerImage}
                   alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
+                  width={500}
+                  height={300}
+                  className="w-full h-auto object-contain transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 {/* Overlay on hover */}
@@ -60,11 +57,6 @@ const Projects = () => {
                     <FiArrowRight className="text-lg" />
                   </span>
                 </div>
-
-                {/* Number tag */}
-                <span className="absolute top-3 left-3 text-[10px] font-mono font-bold text-white bg-[var(--primary)] px-2 py-1 z-10">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
               </div>
 
               {/* Content */}

@@ -46,7 +46,7 @@ export default function ProjectPage({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="py-24 px-4 sm:px-6 lg:px-8 min-h-screen bg-[var(--background)]"
+      className="py-24 px-2 sm:px-4 sm:px-6 lg:px-8 min-h-screen bg-[var(--background)]"
     >
       <div className="max-w-4xl mx-auto space-y-12">
         {/* Back Button */}
@@ -56,7 +56,7 @@ export default function ProjectPage({
           transition={{ delay: 0.2 }}
         >
           <Link
-            href="/#projects"
+            href="/projects"
             className="group inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)] hover:text-[var(--accent)] transition-colors duration-300"
           >
             <FiArrowLeft className="group-hover:-translate-x-1 transition-transform duration-300" />
@@ -200,7 +200,7 @@ export default function ProjectPage({
           {project.description.map((paragraph, index) => (
             <p
               key={index}
-              className="text-[var(--foreground)]/80 leading-relaxed"
+              className="text-[var(--muted-foreground)] leading-relaxed"
             >
               <BoldableText text={paragraph} />
             </p>
@@ -213,7 +213,7 @@ export default function ProjectPage({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.5 }}
           viewport={{ once: true }}
-          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+          className="relative border border-[var(--border)] p-2 sm:p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
         >
           <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)]" />
           <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
@@ -231,7 +231,7 @@ export default function ProjectPage({
               <motion.li
                 key={index}
                 whileHover={{ x: 5 }}
-                className="flex items-start text-[var(--foreground)]/80"
+                className="flex items-start text-[var(--muted-foreground)]"
               >
                 <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
                   ▹
@@ -243,80 +243,83 @@ export default function ProjectPage({
             ))}
           </ul>
         </motion.div>
-
         {/* Impact */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          viewport={{ once: true }}
-          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
-        >
-          <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)]" />
-          <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)]" />
+        {project.impact && project.impact.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative border border-[var(--border)] p-2 sm:p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+          >
+            <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)]" />
+            <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)]" />
 
-          <div className="flex items-center gap-3 mb-5">
-            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
-              03
-            </span>
-            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-              Impact
-            </h2>
-          </div>
-          <ul className="space-y-3">
-            {project.impact.map((item, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ x: 5 }}
-                className="flex items-start text-[var(--foreground)]/80"
-              >
-                <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
-                  ▹
-                </span>
-                <span>
-                  <BoldableText text={item} />
-                </span>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+                03
+              </span>
+              <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+                Impact
+              </h2>
+            </div>
+            <ul className="space-y-3">
+              {project.impact.map((item, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  className="flex items-start text-[var(--muted-foreground)]"
+                >
+                  <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
+                    ▹
+                  </span>
+                  <span>
+                    <BoldableText text={item} />
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
 
         {/* Challenges */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.5 }}
-          viewport={{ once: true }}
-          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
-        >
-          <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)]" />
-          <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
+        {project.challenges && project.challenges.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="relative border border-[var(--border)] p-2 sm:p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+          >
+            <span className="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-[var(--accent)]" />
+            <span className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
 
-          <div className="flex items-center gap-3 mb-5">
-            <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
-              04
-            </span>
-            <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
-              Challenges Overcome
-            </h2>
-          </div>
-          <ul className="space-y-3">
-            {project.challenges.map((challenge, index) => (
-              <motion.li
-                key={index}
-                whileHover={{ x: 5 }}
-                className="flex items-start text-[var(--foreground)]/80"
-              >
-                <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
-                  ▹
-                </span>
-                <span>
-                  <BoldableText text={challenge} />
-                </span>
-              </motion.li>
-            ))}
-          </ul>
-        </motion.div>
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-[10px] font-mono font-bold text-[var(--accent)] bg-[var(--muted)] px-2 py-1">
+                04
+              </span>
+              <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)]">
+                Challenges Overcome
+              </h2>
+            </div>
+            <ul className="space-y-3">
+              {project.challenges.map((challenge, index) => (
+                <motion.li
+                  key={index}
+                  whileHover={{ x: 5 }}
+                  className="flex items-start text-[var(--muted-foreground)]"
+                >
+                  <span className="text-[var(--accent)] mr-3 mt-0.5 flex-shrink-0">
+                    ▹
+                  </span>
+                  <span>
+                    <BoldableText text={challenge} />
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
 
         {/* Tech Stack */}
         <motion.div
@@ -324,7 +327,7 @@ export default function ProjectPage({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           viewport={{ once: true }}
-          className="relative border border-[var(--border)] p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
+          className="relative border border-[var(--border)] p-4 sm:p-6 bg-[var(--background)] hover:border-[var(--primary)]/50 transition-all duration-300"
         >
           <span className="absolute top-0 right-0 w-3 h-3 border-t-2 border-r-2 border-[var(--accent)]" />
           <span className="absolute bottom-0 left-0 w-3 h-3 border-b-2 border-l-2 border-[var(--accent)]" />
@@ -337,23 +340,25 @@ export default function ProjectPage({
               Tech Stack
             </h2>
           </div>
-          <div className="flex flex-wrap gap-4">
+
+          {/* Grid layout */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
             {project.techStack.map((tech, index) => (
               <motion.div
                 key={index}
                 whileHover={{ y: -3 }}
-                className="group/tech flex flex-col items-center"
+                className="group/tech flex flex-col items-center gap-2"
               >
-                <div className="w-16 h-16 border border-[var(--border)] flex items-center justify-center p-2 bg-[var(--muted)] group-hover/tech:border-[var(--primary)] transition-all duration-300">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 border border-[var(--border)] flex items-center justify-center p-2 bg-[var(--muted)] group-hover/tech:border-[var(--primary)] transition-all duration-300">
                   <Image
                     src={tech.img}
                     alt={tech.name}
-                    width={40}
-                    height={40}
+                    width={36}
+                    height={36}
                     className="object-contain"
                   />
                 </div>
-                <span className="text-[var(--foreground)]/70 mt-2 text-xs font-bold uppercase tracking-[0.1em] group-hover/tech:text-[var(--primary)] transition-colors">
+                <span className="text-[var(--foreground)]/70 text-[10px] sm:text-xs font-bold uppercase tracking-[0.1em] group-hover/tech:text-[var(--primary)] transition-colors text-center leading-tight">
                   {tech.name}
                 </span>
               </motion.div>
@@ -369,7 +374,7 @@ export default function ProjectPage({
           className="pt-8 border-t border-[var(--border)] flex justify-center"
         >
           <Link
-            href="/#projects"
+            href="/projects"
             className="group relative inline-flex items-center px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] text-white bg-[var(--primary)] hover:bg-[var(--accent)] transition-all duration-300"
           >
             <span className="absolute top-0 left-0 w-2 h-2 border-t border-l border-[var(--accent)]" />

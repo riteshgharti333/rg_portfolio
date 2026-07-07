@@ -44,9 +44,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 bg-[var(--background)] overflow-hidden"
+      className="relative py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Section Header */}
         <TextAnimation subtitle="GET IN TOUCH" line1="CONTACT" line2="ME" />
 
@@ -60,7 +60,7 @@ const Contact = () => {
         >
           <form
             onSubmit={handleSubmit}
-            className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/5 p-10 relative group"
+            className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/5 p-5 sm:p-10 relative group"
           >
             {/* Corner brackets */}
             <CornerBrackets variant="default" />

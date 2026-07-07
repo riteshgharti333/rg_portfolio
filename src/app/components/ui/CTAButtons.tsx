@@ -9,11 +9,11 @@ interface ButtonProps {
 }
 
 // 1. Venetian Blind Button
-export const VenetianBlindButton: React.FC<ButtonProps> = ({ 
-  href, 
-  icon, 
-  text, 
-  className = "" 
+export const VenetianBlindButton: React.FC<ButtonProps> = ({
+  href,
+  icon,
+  text,
+  className = "",
 }) => {
   return (
     <motion.div
@@ -24,7 +24,7 @@ export const VenetianBlindButton: React.FC<ButtonProps> = ({
     >
       <a
         href={href}
-        className={`group relative inline-flex items-center px-6 py-3 font-bold text-xs uppercase tracking-[0.15em] overflow-hidden ${className}`}
+        className={`group relative inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 font-bold text-xs uppercase tracking-[0.15em] overflow-hidden ${className}`}
       >
         <span className="absolute inset-0 bg-[#1a3fa8] border border-[#1a3fa8]" />
         {/* Horizontal blinds opening */}
@@ -49,11 +49,11 @@ export const VenetianBlindButton: React.FC<ButtonProps> = ({
 };
 
 // 2. Magnetic Corner Button
-export const MagneticCornerButton: React.FC<ButtonProps> = ({ 
-  href, 
-  icon, 
-  text, 
-  className = "" 
+export const MagneticCornerButton: React.FC<ButtonProps> = ({
+  href,
+  icon,
+  text,
+  className = "",
 }) => {
   return (
     <motion.div
@@ -64,7 +64,7 @@ export const MagneticCornerButton: React.FC<ButtonProps> = ({
     >
       <a
         href={href}
-        className={`group relative inline-flex items-center px-6 py-3 font-bold text-xs uppercase tracking-[0.12em] text-[#e02020] hover:text-white overflow-hidden ${className}`}
+        className={`group relative inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 font-bold text-xs uppercase tracking-[0.12em] text-[#e02020] hover:text-white overflow-hidden ${className}`}
       >
         <span className="absolute inset-0 border-2 border-transparent" />
         {/* Four L-shaped corners that move inward */}
@@ -86,11 +86,11 @@ export const MagneticCornerButton: React.FC<ButtonProps> = ({
 };
 
 // 3. Radial Sweep Button
-export const RadialSweepButton: React.FC<ButtonProps> = ({ 
-  href, 
-  icon, 
-  text, 
-  className = "" 
+export const RadialSweepButton: React.FC<ButtonProps> = ({
+  href,
+  icon,
+  text,
+  className = "",
 }) => {
   return (
     <motion.div
@@ -101,7 +101,9 @@ export const RadialSweepButton: React.FC<ButtonProps> = ({
     >
       <a
         href={href}
-        className={`group relative inline-flex items-center px-6 py-3 font-bold text-xs uppercase tracking-[0.15em] text-white overflow-hidden ${className}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`group relative inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 font-bold text-xs uppercase tracking-[0.15em] text-white overflow-hidden ${className}`}
       >
         <span className="absolute inset-0 bg-[#1a3fa8] border border-[#1a3fa8]" />
         {/* Radial sweep that fills like a clock */}
@@ -124,24 +126,16 @@ const CTAButtons: React.FC = () => {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.0, duration: 0.55 }}
-      className="flex flex-wrap items-center justify-center gap-3 mb-12"
+      className="flex flex-wrap items-center justify-center gap-4 mb-12"
     >
-      <VenetianBlindButton 
-        href="#contact" 
-        icon="✉" 
-        text="Contact Me" 
-      />
-      
-      <MagneticCornerButton 
-        href="#projects" 
-        icon="◈" 
-        text="View Projects" 
-      />
-      
-      <RadialSweepButton 
-        href="/ritesh_resume.pdf" 
-        icon="↓" 
-        text="Download Resume" 
+      <VenetianBlindButton href="#contact" icon="✉" text="Contact Me" />
+
+      <MagneticCornerButton href="#projects" icon="◈" text="View Projects" />
+
+      <RadialSweepButton
+        href="/ritesh_resume.pdf"
+        icon="👁"
+        text="View Resume"
       />
     </motion.div>
   );

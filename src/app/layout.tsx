@@ -1,12 +1,12 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/layout/Navbar";
-import ParticleBackground from "./components/layout/DotGrid";
 import Footer from "./components/layout/Footer";
 import { Toaster } from "sonner";
-import { GreenParticleBackground } from "./components/layout/GreenParticleBackground";
 import DarkModeToggle from "./components/ui/DarkModeToggle";
 import MouseGradient from "./components/ui/MouseGradient";
+import ScrollbarWrapper from "./ScrollbarWrapper";
+import BG from "./components/layout/BG";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -15,13 +15,13 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Ritesh Gharti Portfolio",
-  description: "Explore the professional portfolio of Ritesh – a full-stack developer passionate about building modern, scalable web applications using the MERN stack. Showcasing real-world projects, production-ready code, and a deep commitment to clean design and performance.",
+  title: "Ritesh Gharti | Full Stack Developer",
+  description:
+    "Explore the professional portfolio of Ritesh – a full-stack developer passionate about building modern, scalable web applications using the MERN stack. Showcasing real-world projects, production-ready code, and a deep commitment to clean design and performance.",
   icons: {
-    icon: "/logo.svg"
+    icon: "/logo.svg",
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -29,21 +29,89 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <head>
+        {/* Prevent dark mode flash - runs before page render */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  
+                  if (theme === 'dark' || (!theme && systemDark)) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {
+                  // Fallback to system preference
+                  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.classList.add('dark');
+                  }
+                }
+              })();
+            `,
+          }}
+        />
+
+        {/* Prevent white flash by setting initial background */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              html {
+                scrollbar-width: none !important;
+              }
+              html::-webkit-scrollbar {
+                width: 0 !important;
+                height: 0 !important;
+                display: none !important;
+              }
+              
+              /* Set initial background to prevent white flash */
+              html body {
+                background-color: #0a0a0a;
+              }
+              html:not(.dark) body {
+                background-color: #ffffff;
+              }
+              
+              /* Prevent transitions on initial load */
+              .preload * {
+                transition: none !important;
+                animation: none !important;
+              }
+            `,
+          }}
+        />
+
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
         />
       </head>
-      <body className={`${poppins.variable} font-sans antialiased h-full relative`}>
+      <body
+        className={`${poppins.variable} font-sans antialiased h-full relative preload`}
+      >
+        {/* Script to remove preload class after page loads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.addEventListener('load', function() {
+                document.body.classList.remove('preload');
+              });
+            `,
+          }}
+        />
+
         <Toaster position="top-right" richColors closeButton />
-        <div className="fixed inset-0 -z-10 overflow-hidden">
-       
-        </div>
+        <div className="fixed inset-0 -z-10 overflow-hidden"></div>
         <div className="relative z-10 min-h-full">
+          <BG />
           <MouseGradient />
           <Navbar />
+          <ScrollbarWrapper />
           {children}
           <Footer />
           <DarkModeToggle />

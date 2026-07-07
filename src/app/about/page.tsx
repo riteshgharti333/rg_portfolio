@@ -71,10 +71,8 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 relative bg-[var(--background)] group">
-      <CornerBrackets variant="default" />
-
-      <div className="container mx-auto px-4 max-w-6xl">
+    <section id="about" className="py-24 relative">
+      <div className="container mx-auto px-2 sm:px-4 max-w-6xl">
         <PageHeading subtitle="Who I Am" line1="About" line2="me" />
 
         {/* Hero Summary - Split Layout */}
@@ -103,7 +101,7 @@ const About = () => {
               <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-[var(--accent)]" />
 
               <div className="p-6 md:p-8">
-                <p className="text-sm leading-relaxed text-[var(--foreground)]">
+                <p className="text-sm leading-relaxed text-[var(--muted-foreground)]">
                   Hi, I&apos;m{" "}
                   <span className="font-bold text-[var(--primary)]">
                     Ritesh Gharti
@@ -203,14 +201,14 @@ const About = () => {
             </h3>
           </div>
 
-          <div className="relative pl-8 md:pl-12">
+          <div className="relative pl-4 md:pl-12">
             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[var(--accent)] via-[var(--primary)] to-[var(--border)]" />
             <div className="absolute left-[-5px] top-0 w-3 h-3 bg-[var(--accent)] rotate-45" />
 
             <div className="relative border border-[var(--border)] bg-[var(--background)] hover:border-[var(--primary)] transition-all duration-300 group">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--accent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="p-6 md:p-8">
+              <div className="p-3 md:p-8">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-5">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
@@ -225,13 +223,13 @@ const About = () => {
                   </div>
 
                   <div className="flex gap-4 ml-6 md:ml-0">
-                    <div className="flex items-center gap-1.5 text-sm text-[var(--muted-foreground)]">
+                    <div className="flex flex-wrap items-center gap-1.5 text-sm text-[var(--muted-foreground)]">
                       <FiStar className="text-[var(--accent)]" />
                       <span className="font-bold text-[var(--foreground)]">
                         {education.grade}
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 text-sm text-[var(--muted-foreground)]">
+                    <div className="flex flex-wrap items-center gap-1.5 text-sm text-[var(--muted-foreground)]">
                       <FiCalendar className="text-[var(--accent)]" />
                       <span>{education.duration}</span>
                     </div>
@@ -502,13 +500,13 @@ const About = () => {
                 {
                   icon: FiGithub,
                   label: "GitHub",
-                  value: "github/ritesh",
+                  value: "github/riteshgharti",
                   href: githubLink,
                 },
                 {
                   icon: FiLinkedin,
                   label: "LinkedIn",
-                  value: "in/ritesh",
+                  value: "in/riteshgharti",
                   href: linkedinLink,
                 },
               ].map((item, i) => (

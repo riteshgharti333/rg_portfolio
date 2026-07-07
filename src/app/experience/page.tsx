@@ -75,10 +75,9 @@ const Experience = () => {
     <section
       ref={sectionRef}
       id="experience"
-      className="relative py-24 bg-[var(--background)] overflow-hidden group"
+      className="relative py-24 overflow-hidden"
     >
-      <CornerBrackets variant="default" />
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 max-w-5xl relative z-10">
         <PageHeading
           subtitle="Career Timeline"
           line1="Work"

@@ -35,7 +35,7 @@ const img17 =
 const img18 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
 const img19 =
-  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original-wordmark.svg";
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg";
 
 const img20 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg";
@@ -53,8 +53,8 @@ const img24 =
 const img25 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg";
 
-  const img26 = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg"
-          
+const img26 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg";
 
 export const homeIcons1: string[] = [
   img23, // HTML
@@ -90,8 +90,6 @@ export const homeIcons3: string[] = [
   img12, // VS Code
   img13, // Postman
 ];
-
-
 
 /////////////
 
@@ -140,11 +138,11 @@ export const experiences = [
     company: "Star Marketing",
     duration: "Jan 2025 – Sep 2025",
     points: [
-      "Delivered **9+ full-stack web apps** using the **MERN stack** with **scalable backend** and clean **UI architecture**.",
-      "Developed multiple **admin dashboards**, each handling **1K+ data records** with **real-time validation** and optimized **CRUD performance**.",
-      "Achieved **100% SEO Lighthouse scores** and **90% client satisfaction** across all live deployments.",
-      "Spearheaded project delivery using **CI/CD (GitHub Actions)** and **image optimization**, enhancing overall **development efficiency**.",
-      "Drove **40–50% revenue growth** in development services through **agile pipelines** and **client-driven enhancements**.",
+      "Delivered **9+ web applications independently**, including **full-stack**, **frontend**, and **industry-specific** solutions across **healthcare, education, marketing, printing, taxi, and wedding** domains.",
+      "Engineered **performance optimizations** using **Redis caching**, **lazy loading**, and **image compression**, significantly improving application speed and user experience.",
+      "Streamlined deployments with **CI/CD (GitHub Actions)** across **Vercel**, **Render**, and **cPanel**, ensuring reliable and efficient release workflows.",
+      "Maintained **90% client satisfaction** across all live deployments through **iterative feedback**, **agile development**, and high-quality delivery.",
+      "Contributed to an estimated **40–50% revenue growth** by delivering **scalable**, **client-focused** web solutions with rapid turnaround times.",
     ],
   },
   {
@@ -160,7 +158,7 @@ export const experiences = [
   {
     role: "Software Development Engineer Intern",
     company: "Codefeast",
-    duration: "Sep 2023 – Oct 2023",
+    duration: "Sep 2023 – Nov 2023",
     points: [
       "Integrated the **Instamojo payment system** on the backend, ensuring **reliable transaction flow** and seamless communication between the **frontend** and **payment gateway**.",
       "Built a **responsive admin dashboard** for **course management** using **React.js** and **modular architecture**.",
@@ -170,7 +168,7 @@ export const experiences = [
   {
     role: "Frontend Developer",
     company: "Udagosh Welfare Society",
-    duration: "March 2023 - April 2023",
+    duration: "March 2023 - May 2023",
     points: [
       "Developed responsive and user-friendly web interfaces using **React.js**, **JavaScript**, and **CSS**.",
       "Built **reusable UI components** and optimized application structure to improve code **maintainability** and **scalability**.",

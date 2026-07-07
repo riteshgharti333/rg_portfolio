@@ -19,13 +19,15 @@ const ScrollIndicator = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      
+
       // Show after scrolling past hero
       setIsVisible(scrollY > 300);
 
       // Find active section
-      const sectionElements = sections.map((s) => document.getElementById(s.id));
-      
+      const sectionElements = sections.map((s) =>
+        document.getElementById(s.id),
+      );
+
       for (let i = sectionElements.length - 1; i >= 0; i--) {
         const el = sectionElements[i];
         if (el) {
@@ -43,6 +45,11 @@ const ScrollIndicator = () => {
   }, []);
 
   const scrollTo = (id: string) => {
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
@@ -61,7 +68,7 @@ const ScrollIndicator = () => {
           <div className="flex flex-col items-end gap-3">
             {sections.map((section) => {
               const isActive = activeSection === section.id;
-              
+
               return (
                 <button
                   key={section.id}

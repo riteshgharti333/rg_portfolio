@@ -57,7 +57,7 @@ body {
 }
 
 .dark {
-  --primary: #0c43db;
+  --primary: #0057ff;
   --primary-foreground: #ffffff;
   --secondary: #1a1a2e;
   --secondary-foreground: #e8eeff;
@@ -76,7 +76,7 @@ body {
   background-color: var(--background);
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -85,22 +85,14 @@ button{
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-33.333%);
+    transform: translateX(-33.33%);
   }
 }
 
 .animate-scroll-horizontal {
-  animation: scroll-horizontal 35s linear infinite;
+  animation: scroll-horizontal 10s linear infinite;
 }
 
 .animate-scroll-horizontal:hover {
   animation-play-state: paused;
 }
-
-
-
-/* Hide scrollbar for Chrome, Edge, Safari */
-::-webkit-scrollbar {
-  display: none;
-}
-

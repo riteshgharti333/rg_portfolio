@@ -35,7 +35,7 @@ const MasonryExperience = () => {
             end: "top center",
             scrub: 1.5,
           },
-        }
+        },
       );
 
       // Parallax number
@@ -54,7 +54,7 @@ const MasonryExperience = () => {
               end: "top center",
               scrub: 1,
             },
-          }
+          },
         );
       }
     });
@@ -85,9 +85,7 @@ const MasonryExperience = () => {
               color: "var(--primary)",
               opacity: 0.06,
               fontFamily: "Poppins, sans-serif",
-              ...(idx % 2 === 0
-                ? { right: "-200px" }
-                : { left: "-200px" }),
+              ...(idx % 2 === 0 ? { right: "-200px" } : { left: "-200px" }),
             }}
           >
             {String(idx + 1).padStart(2, "0")}
@@ -134,7 +132,7 @@ const MasonryExperience = () => {
                 {exp.points.map((point, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 text-sm text-[var(--foreground)]/75 leading-relaxed group/point"
+                    className="flex items-start gap-3 text-sm text-[var(--muted-foreground)] leading-relaxed group/point"
                   >
                     {/* Custom bullet */}
                     <span className="mt-1 w-5 h-5 border border-[var(--accent)] flex items-center justify-center shrink-0 group-hover/point:bg-[var(--accent)] transition-colors duration-200">

@@ -22,7 +22,6 @@ import {
   phoneNo,
 } from "@/constants/linksData";
 import CornerBrackets from "../ui/CornerBrackets";
-import ThirdTextAnimation from "../TextAni/ThirdTextAnimation";
 import TextAnimation from "../TextAni/TextAnimation";
 
 const About = () => {
@@ -30,7 +29,7 @@ const About = () => {
     <section id="about" className="relative py-24  overflow-hidden">
       {/* Background decoration */}
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Section Header */}
         <TextAnimation subtitle="GET TO KNOW ME" line1="ABOUT" line2="ME" />
 
@@ -53,7 +52,7 @@ const About = () => {
               <div className="h-full bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/30 transition-all duration-500 hover:shadow-2xl hover:shadow-[var(--primary)]/5 p-8 relative group">
                 {/* Corner brackets - inside card */}
 
-                <CornerBrackets variant="default" />
+                <CornerBrackets variant="swapped" />
 
                 <div className="flex flex-col items-center">
                   <div className="relative w-32 h-32 border-2 border-[var(--border)] mb-4 overflow-hidden">
@@ -161,7 +160,7 @@ const About = () => {
                       style={{ color: stat.color }}
                     />
                     <span
-                      className="text-3xl font-black"
+                      className="text-2xl sm:text-3xl font-black"
                       style={{
                         color:
                           index % 2 === 0 ? "var(--accent)" : "var(--primary)",

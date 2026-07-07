@@ -19,7 +19,7 @@ const MusicEqualizer = () => {
   }, []);
 
   return (
-    <div className="w-full flex justify-center mb-8">
+    <div className="w-full flex justify-center my-5">
       <div className="relative h-8 w-80 flex items-center justify-center gap-1 overflow-hidden">
         {bars.map((bar, i) => (
           <motion.div

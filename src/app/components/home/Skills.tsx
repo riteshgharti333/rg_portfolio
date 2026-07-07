@@ -3,16 +3,15 @@
 import { skills } from "@/constants/data";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import SecondTextAnimation from "../TextAni/SecondTextAnimation";
 import TextAnimation from "../TextAni/TextAnimation";
 
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative py-24 bg-[var(--background)] overflow-hidden"
+      className="relative py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Header */}
 
         <TextAnimation
@@ -31,7 +30,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/20 p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--primary)]/5"
           >
-            <h3 className="text-lg font-bold uppercase tracking-wider text-[var(--primary)] mb-8 flex items-center gap-3">
+            <h3 className="text-md sm:text-lg font-bold uppercase tracking-wider text-[var(--primary)] mb-8 flex items-center gap-3">
               <span className="w-2 h-2 bg-[var(--primary)]" />
               LANGUAGES
             </h3>
@@ -50,7 +49,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--accent)]/20 p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--accent)]/5"
           >
-            <h3 className="text-lg font-bold uppercase tracking-wider text-[var(--accent)] mb-8 flex items-center gap-3">
+            <h3 className="text-md  sm:text-lg font-bold uppercase tracking-wider text-[var(--accent)] mb-8 flex items-center gap-3">
               <span className="w-2 h-2 bg-[var(--accent)]" />
               FRAMEWORKS & LIBRARIES
             </h3>
@@ -69,7 +68,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--primary)]/20 p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--primary)]/5"
           >
-            <h3 className="text-lg font-bold uppercase tracking-wider text-[var(--primary)] mb-8 flex items-center gap-3">
+            <h3 className="text-md  sm:text-lg font-bold uppercase tracking-wider text-[var(--primary)] mb-8 flex items-center gap-3">
               <span className="w-2 h-2 bg-[var(--primary)]" />
               DEVELOPER TOOLS
             </h3>
@@ -88,7 +87,7 @@ const Skills = () => {
             viewport={{ once: true }}
             className="bg-[var(--background)] border border-[var(--border)] hover:border-[var(--accent)]/20 p-8 transition-all duration-500 hover:shadow-xl hover:shadow-[var(--accent)]/5"
           >
-            <h3 className="text-lg font-bold uppercase tracking-wider text-[var(--accent)] mb-8 flex items-center gap-3">
+            <h3 className="text-md sm:text-lg font-bold uppercase tracking-wider text-[var(--accent)] mb-8 flex items-center gap-3">
               <span className="w-2 h-2 bg-[var(--accent)]" />
               DATABASES & CLOUD
             </h3>

@@ -38,28 +38,35 @@ const img28 =
 const img29 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg";
 
+const img22 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg";
+
 const img30 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg";
 
 const img31 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg";
+const img18 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
 
-import projectImg1 from "../assets/images/projectImgs/abhimanyu.jpeg";
-import projectImg2 from "../assets/images/projectImgs/bk.jpeg";
-import projectImg3 from "../assets/images/projectImgs/bsprinter.jpeg";
-import projectImg4 from "../assets/images/projectImgs/building.jpeg";
-import projectImg5 from "../assets/images/projectImgs/codefeast.jpeg";
-import projectImg6 from "../assets/images/projectImgs/global.jpeg";
-import projectImg7 from "../assets/images/projectImgs/hospital.png";
+import projectImg1 from "../assets/images/projectImgs/Abhimanyu-Holiday.jpeg";
+import projectImg3 from "../assets/images/projectImgs/BS-Printe.jpeg";
+import projectImg5 from "../assets/images/projectImgs/Codefeas.jpeg";
+import projectImg6 from "../assets/images/projectImgs/Affordable-Taxi-Car-Rental-Services-Book-Now.jpeg";
+import projectImg7 from "../assets/images/projectImgs/MediCare--Hospital-Management-System-Healthcare-Platform.jpeg";
 import projectImg8 from "../assets/images/projectImgs/invoice.png";
-import projectImg9 from "../assets/images/projectImgs/star.jpeg";
-import projectImg10 from "../assets/images/projectImgs/streamer.jpeg";
-import projectImg11 from "../assets/images/projectImgs/thenad.png";
-import projectImg12 from "../assets/images/projectImgs/tk.jpeg";
+import projectImg9 from "../assets/images/projectImgs/Star-Marketing-Top-Ranked-SEO-Digital-Marketing-Web-Software-App-Development-Star-Marketin.jpeg";
+import projectImg11 from "../assets/images/projectImgs/International-Academy-of-Design-Premier-Design-Professional-Education-in-India-International-Academy-of-Design.jpeg";
+import projectImg12 from "../assets/images/projectImgs/TK-Production-Film-Best-Photography-Cinematography-Services-TK-Production-Fil.jpeg";
+import projectImg13 from "../assets/images/projectImgs/51855740-09e0-45c3-912b-ccd41a0b650d-1024572.jpeg";
 
-import projectImg13 from "../assets/images/projectImgs/trade.jpg";
+import projectImg14 from "../assets/images/projectImgs/AI-Vault-Discover-200-Curated-AI-Tools-Director.jpeg";
+import projectImg15 from "../assets/images/projectImgs/Cherry-Diary-Travel-Journa.jpeg";
+import projectImg16 from "../assets/images/projectImgs/FitterCall-Free-Online-Fitness-Health-Calculator.jpeg";
 
-import projectImg14 from "../assets/images/projectImgs/thinker.png";
+import projectImg17 from "../assets/images/projectImgs/Twipra-Technology-Web-Development-Digital-Agenc.jpeg";
+
+import projectImg18 from "../assets/images/projectImgs/style-ai-albe-vercel-ap.jpeg";
 
 export const homeProjectData = [
   {
@@ -78,7 +85,7 @@ export const homeProjectData = [
       "Supabase",
       "Redux",
       "Tailwind CSS",
-      "AWS S3"
+      "AWS S3",
     ],
   },
   {
@@ -112,57 +119,6 @@ export const homeProjectData = [
       "Sass",
       "Tailwind CSS",
       "Cloudinary",
-    ],
-  },
-  {
-    slug: "star-marketing-invoice",
-    title: "Star Marketing Invoice",
-    img: projectImg8,
-    description:
-      "MERN stack invoice management system for businesses with PDF generation and financial reporting.",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-    ],
-  },
-
-  {
-    slug: "streamer",
-    title: "Streamer",
-    img: projectImg10,
-    description:
-      "Movie streaming platform with Stripe subscriptions, Firebase storage, and role-based admin dashboard.",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Redux",
-      "Firebase",
-    ],
-  },
-  {
-    slug: "tk-production-film",
-    title: "TK Production Film",
-    img: projectImg12,
-    description:
-      "Wedding agency platform with dynamic galleries, drag-and-drop admin, and Cloudinary media storage.",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-      "Swiper",
     ],
   },
 ];
@@ -349,123 +305,15 @@ export const projectData = [
 
     fullStackCodeLink: [
       {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/Collage_project_frontend",
-      },
-      {
-        name: "Backend Code",
-        codeLink: "https://github.com/riteshgharti333/Collage_project_backend",
-      },
-      {
-        name: "Admin Dashboard Code",
-        codeLink: "https://github.com/riteshgharti333/Collage-project-admin",
+        name: "Project Code",
+        codeLink: "https://github.com/orgs/INAD-ORG/repositories",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontend Live Demo",
+        name: "Live Demo",
         liveLink: "https://project-6-eta.vercel.app",
-      },
-      {
-        name: "Admin Live Demo",
-        liveLink: "https://project6-admin.vercel.app",
-      },
-    ],
-  },
-
-  {
-    slug: "star-marketing-invoice",
-    bannerImage: projectImg8,
-    title: "Star Marketing Invoice",
-    description: [
-      "**Star Marketing Invoice** is a **full-stack invoice management platform** built using the **MERN stack (MongoDB, Express, React, Node.js)**, designed for **small to medium businesses** to handle their **complete billing workflow** — from **product management** to **invoice generation** and **report tracking**.",
-      "The platform is **fully responsive**, enabling users to manage their invoicing system across all devices with ease. Businesses can **create, store, and manage invoices**, track **billing history**, and monitor **company-wide financial reports** in real time.",
-      "Built with a focus on **clean UI**, **robust functionality**, and **scalability**, the system empowers clients to streamline their **daily operations**, reduce manual effort, and gain **data-driven insights** into business performance.",
-    ],
-
-    techStack: [
-      { img: img3, name: "React.js" },
-      { img: img19, name: "Express.js" },
-      { img: img4, name: "Node.js" },
-      { img: img14, name: "MongoDB" },
-      { img: img15, name: "mongoose" },
-      { img: img1, name: "Sass" },
-      { img: img28, name: "Cloudinary" },
-    ],
-
-    features: [
-      "**Full-stack invoice management system** built using the **MERN stack**, designed for **small and medium-sized businesses** to manage the **entire billing lifecycle** from **product handling** to **invoice tracking** and **financial reporting**.",
-
-      "**Dynamic PDF invoice generation** that allows businesses to **create downloadable, shareable invoices** with **real-time data insertion**, including client details, itemized billing, tax calculations, and total summaries.",
-
-      "**One-click invoice delivery**, enabling users to **send PDF invoices via email directly from the platform**, streamlining communication and payment cycles with clients.",
-
-      "**Centralized billing dashboard** where users can **view, filter, and manage all invoices**, monitor outstanding payments, and track **billing history** efficiently.",
-
-      "**Advanced React Table integration** for displaying and managing invoices, clients, products, and transaction history — with features like **sorting**, **filtering**, and **inline actions** for a seamless data experience.",
-
-      "**Optimized financial logic using custom algorithms** to handle complex **mathematical conditions**, such as multi-level tax, discounts, and subtotals — ensuring **accurate billing and calculations** every time.",
-
-      "**Robust search and filter functionality** allowing users to quickly find invoices, products, or clients using **multi-field keyword search, date ranges, and custom filters**.",
-
-      "**Fully responsive and user-friendly design** focused on **clarity, speed, and ease of use**, making it accessible for non-technical users on both desktop and mobile devices.",
-
-      "**Scalable and clean architecture** with reusable components, modular structure, and DRY code practices to support **future enhancements** and **easy maintenance**.",
-
-      "**Real-time reporting and analytics section** offering businesses **insights into sales, revenues, and billing performance**, helping in informed decision-making and financial planning.",
-    ],
-
-    impact: [
-      "**Streamlined billing workflows** for small and medium businesses through a **centralized invoicing platform**, reducing manual tasks and improving financial accuracy.",
-
-      "**Faster client communication** with **one-click PDF invoice delivery via email**, helping businesses **get paid quicker** and maintain a consistent payment cycle.",
-
-      "**Improved financial clarity and control** via a **real-time dashboard** that tracks invoices, outstanding payments, and billing history in one unified interface.",
-
-      "**Professional-grade PDF invoices** with **dynamic, real-time data** provide a **shareable, client-ready format** for seamless business operations.",
-
-      "**Accurate billing calculations** achieved using **custom financial algorithms** that handle **multi-level tax, discounts, and subtotal logic**, ensuring error-free invoicing.",
-
-      "**Increased operational efficiency** via **robust search and filter tools**, enabling users to quickly locate invoices, clients, or products using advanced multi-field criteria.",
-
-      "**Empowered decision-making** through a **dedicated analytics section**, giving businesses insights into **sales performance**, **revenue trends**, and overall billing health.",
-
-      "**Greater accessibility** through a **fully responsive, user-friendly UI** that supports smooth invoice management on desktop, tablet, or mobile — ideal for business owners on the move.",
-
-      "**Scalability and long-term maintainability** enabled by a **modular architecture** and **DRY component structure**, supporting new features and future growth without refactoring.",
-
-      "**Reduced learning curve for teams** through a **clean, intuitive interface** built specifically for **non-technical users**, ensuring adoption across various roles in the business.",
-    ],
-
-    challenges: [
-      "Architecting a **robust and flexible invoice generation engine** capable of handling **complex billing logic** including multi-level tax calculations, dynamic discounts, subtotals, and real-time total updates — all while maintaining financial accuracy.",
-
-      "Designing a **modular Mongoose schema** for entities like invoices, clients, products, and transactions to support **scalable data relationships**, **advanced search filters**, and **real-time financial analytics**.",
-
-      "Implementing **PDF generation and automated email delivery** with real-time data binding, requiring precise formatting, dynamic styling, and **secure one-click delivery flows** to ensure professional communication and timely payments.",
-
-      "Balancing **performance and interactivity** in the dashboard by integrating **real-time data updates**, **intuitive visualizations**, and **responsive UI components** that support seamless access across desktop and mobile devices.",
-    ],
-
-    isFullStack: true,
-
-    fullStackCodeLink: [
-      {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/star_marketing_invoice",
-      },
-      {
-        name: "Backend Code",
-        codeLink:
-          "https://github.com/riteshgharti333/star_marketing_invoice_backend",
-      },
-    ],
-
-    fullStackLiveLink: [
-      {
-        name: "Frontend Live Demo",
-        liveLink: "https://project-7-theta.vercel.app",
       },
     ],
   },
@@ -547,142 +395,16 @@ export const projectData = [
 
     fullStackCodeLink: [
       {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/star_marketing_frontend",
-      },
-      {
-        name: "Backend Code",
-        codeLink: "https://github.com/riteshgharti333/star_marketing_backend",
-      },
-      {
-        name: "Admin Dashboard Code",
-        codeLink: "https://github.com/riteshgharti333/star_marketing_admin",
+        name: "Project Code",
+        codeLink: "https://github.com/orgs/Star-Marketing-ORG/repositories",
       },
     ],
 
     fullStackLiveLink: [
       {
-        name: "Frontend Live Demo",
-        liveLink: "https://star-marketing-site-88e8.vercel.app",
-      },
-      {
-        name: "Admin Live Demo",
-        liveLink: "https://project9-admin.vercel.app",
-      },
-    ],
-  },
-
-  {
-    slug: "streamer",
-    bannerImage: projectImg10,
-    title: "Streamer",
-
-    description: [
-      "A **full-stack movie streaming platform** with an integrated **admin dashboard**, built using the **MERN stack**, **Redux Toolkit**, **Firebase**, and **Material UI (MUI)** — designed to manage over **1,000+ dynamic content entries** with seamless **real-time updates** and **role-based access control (RBAC)**.",
-      "Features include **subscription billing with Stripe**, **dynamic chart visualizations**, and **skeleton loaders** to improve **perceived performance by 30%**, enhancing the user experience during data fetching and rendering.",
-      "Deployed via **CI/CD pipelines** to **Vercel** and **Render** with **zero-downtime updates**, ensuring a **production-ready**, **scalable**, and **high-performance deployment workflow**.",
-    ],
-
-    techStack: [
-      { img: img3, name: "React.js" },
-      { img: img19, name: "Express.js" },
-      { img: img4, name: "Node.js" },
-      { img: img14, name: "MongoDB" },
-      { img: img15, name: "mongoose" },
-      { img: img1, name: "Sass" },
-      { img: img7, name: "Redux" },
-      { img: img16, name: "Firebase" },
-    ],
-
-    features: [
-      "**Full-stack movie streaming platform** built using the **MERN stack**, **Firebase**, **Redux Toolkit**, and **Material UI (MUI)** — developed to manage **1,000+ dynamic movie entries** with seamless performance and scalability.",
-
-      "**Admin dashboard with role-based access control (RBAC)** to manage **movies**, **users**, **subscriptions**, **categories**, and **media** — featuring dynamic CRUD operations and real-time updates.",
-
-      "**Stripe-based subscription billing system** integrated for **secure payments**, **automated billing cycles**, and **tier-based content access** — empowering revenue generation and access control.",
-
-      "**Global state management using Redux Toolkit**, streamlining **auth handling**, **UI states**, **user sessions**, and **admin actions** across the entire app with optimized reducers and slices.",
-
-      "**Real-time analytics and platform metrics** powered by **Chart.js**, including **total revenue**, **user engagement**, **content views**, and **subscription insights** — all accessible via the admin panel.",
-
-      "**Full-featured authentication flow** including **JWT-secured login**, **signup**, **forgot password**, **password update**, **profile management**, and **Firebase session handling** for persistent user access.",
-
-      "**Search functionality and multi-category support**, allowing users to **filter movies** by **genre**, **keywords**, and **tags** for faster discovery and browsing.",
-
-      "**Media storage integration with Firebase**, enabling **high-quality video/image uploads**, real-time database sync, and optimized delivery via CDN with secure access controls.",
-
-      "**Skeleton loaders and lazy loading strategies** implemented using **MUI** to **improve perceived performance by 30%**, ensuring smooth data transitions and rendering.",
-
-      "**Responsive Material UI-based admin and user dashboards**, designed for **clarity**, **usability**, and **mobile accessibility**, ensuring a premium user experience for both content managers and viewers.",
-
-      "**CI/CD pipelines configured with Vercel (frontend) and Render (backend)** for **zero-downtime deployments**, automatic environment builds, and seamless production workflows.",
-    ],
-
-    impact: [
-      "**Enabled scalable content delivery** by managing over **1,000+ dynamic movie entries**, allowing the platform to support growing libraries without performance drops.",
-
-      "**Boosted monetization** through **secure Stripe-based subscription billing**, enabling recurring revenue and controlled access to premium content tiers.",
-
-      "**Empowered content teams** with a **role-based admin dashboard**, streamlining daily tasks like movie uploads, category management, and subscription tracking — all in real time.",
-
-      "**Enhanced user retention** by offering a **personalized and smooth content browsing experience**, supported by filters, category tagging, and instant search capabilities.",
-
-      "**Increased trust and user security** with a **robust authentication system** (JWT + Firebase sessions), ensuring secure logins, persistent sessions, and recovery features.",
-
-      "**Improved platform decisions** with **real-time analytics dashboards**, allowing admins to monitor revenue, user engagement, and viewership trends for content planning.",
-
-      "**Accelerated UI responsiveness** with **skeleton loaders** and **lazy loading**, reducing bounce rates and increasing engagement on slow or unstable connections.",
-
-      "**Delivered a consistent cross-device experience** through **fully responsive user and admin panels** built with Material UI — optimized for mobile, tablet, and desktop views.",
-
-      "**Reduced deployment friction** and **ensured high uptime** with a fully automated **CI/CD workflow** across Vercel and Render, allowing smooth feature rollouts and safe production updates.",
-
-      "**Optimized global state management** using Redux Toolkit, maintaining stable app behavior and performance as user sessions and content interactions scale.",
-    ],
-
-    challenges: [
-      "Integrating a **subscription-based payment system using Stripe**, requiring secure handling of webhooks, tier-based access logic, and syncing billing events with user roles in real time.",
-
-      "Building a **robust role-based admin system** that allowed fine-grained control over movies, users, and subscriptions — while enforcing strict **access permissions and data isolation** across roles.",
-
-      "Managing and rendering **1,000+ media-heavy movie entries** with efficient pagination, lazy loading, and optimized Firebase storage access — without compromising app performance.",
-
-      "Designing a **real-time analytics dashboard** using Chart.js, including dynamic data visualization for revenue, engagement, and platform metrics — all while maintaining responsive UI and backend performance.",
-
-      "Ensuring **secure and persistent authentication** using a hybrid approach with **JWT tokens and Firebase session handling**, requiring tight coordination between frontend, backend, and third-party auth layers.",
-
-      "Deploying the project via **CI/CD pipelines across Vercel and Render**, handling environment-specific builds and secrets for frontend-backend communication, while ensuring zero-downtime rollouts.",
-
-      "Creating a **scalable category and tagging system** for movies with dynamic filters and search — requiring optimized MongoDB queries and frontend state synchronization for fast UX.",
-
-      "Maintaining **consistent and accessible UI design** across both user and admin panels using Material UI, while customizing components to match mobile-first design needs without bloating performance.",
-    ],
-
-    isFullStack: true,
-
-    fullStackCodeLink: [
-      {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/streamer_frontend",
-      },
-      {
-        name: "Backend Code",
-        codeLink: "https://github.com/riteshgharti333/streamer_backend",
-      },
-      {
-        name: "Admin Dashboard Code",
-        codeLink: "https://github.com/riteshgharti333/streamer_admin_dashboard",
-      },
-    ],
-
-    fullStackLiveLink: [
-      {
-        name: "Frontend Live Demo",
-        liveLink: "https://streamer-frontend.vercel.app",
-      },
-      {
-        name: "Admin Live Demo",
-        liveLink: "https://streamer-admin-dashboard.vercel.app",
+        name: "Live Demo",
+        liveLink:
+          "https://star-marketing-site-3az877j8u-riteshgharti333s-projects.vercel.app/",
       },
     ],
   },
@@ -789,100 +511,46 @@ export const projectData = [
 
     fullStackLiveLink: [
       {
-        name: "Frontend Live Demo",
+        name: "Live Demo",
         liveLink: "https://project3-new-frontend.vercel.app",
-      },
-      {
-        name: "Admin Live Demo",
-        liveLink: "https://project-3-admin-xr5l.vercel.app",
       },
     ],
   },
 
   {
-    slug: "thinker",
-    bannerImage: projectImg14,
-    title: "Thinker",
+    slug: "twipra-technologies",
+    bannerImage: projectImg17,
+    title: "Twipra Technologies",
 
     description: [
-      "A **full-stack blog application** designed for **multi-user content publishing**, allowing users to **create, update, and manage blog posts** through complete **CRUD functionality** — built with a focus on **responsive design**, **clean architecture**, and **engaging UX**.",
-      "Implemented **RESTful APIs** for user and blog management with **JWT-based authentication**, supporting **secure signup**, **login**, and **password recovery**, ensuring **data privacy** and smooth session handling across the platform.",
-      "Developed over **15+ reusable React components and pages**, integrated **Cloudinary** for efficient image handling, and deployed the **backend on Render** for a stable and scalable production setup.",
+      "A **leading IT service company** based in Bangladesh, providing **web development, app development, AI solutions, cloud services, digital marketing, graphics design, and server management** to businesses and enterprises.",
+
+      "Built with a **modern full-stack architecture** using **Next.js**, **TypeScript**, **Node.js**, and **Express.js**, delivering high-performance, scalable, and secure digital solutions for clients across diverse industries.",
     ],
 
     techStack: [
-      { img: img3, name: "React.js" },
+      { img: img18, name: "Next.js" },
       { img: img19, name: "Express.js" },
       { img: img4, name: "Node.js" },
-      { img: img14, name: "MongoDB" },
-      { img: img15, name: "mongoose" },
-      { img: img1, name: "Sass" },
-      { img: img28, name: "Cloudinary" },
+      { img: img22, name: "TypeScript" },
+      { img: img9, name: "Tailwind CSS" },
     ],
 
     features: [
-      "**Full-featured multi-user blog platform** built with the **MERN stack**, enabling users to **create, read, update, and delete (CRUD)** blog posts in a dynamic, real-time environment.",
+      "**Best-in-class design** with **90+ scores on Google PageSpeed Insights** - achieving **100 Accessibility, 100 SEO, 100 Best Practices, and 92 Performance** for optimal user experience.",
 
-      "**Protected content ownership logic** ensures that **only the original author** can **edit or delete their own posts**, safeguarding against unauthorized modifications and preserving data integrity.",
+      "**Advanced company admin dashboard** built to manage **employee details, company data and projects** with a secure and intuitive interface.",
 
-      "**JWT-based authentication system** for secure **signup**, **login**, and **password recovery**, enabling persistent, protected sessions with token-based access control.",
+      "**Full-service technology company** providing end-to-end **web and app development**, **AI-powered solutions**, **cloud services**, **digital marketing**, **graphics design**, and **server management** for businesses of all sizes.",
 
-      "**RESTful API structure** for managing **users**, **blogs**, and **media**, using modular routes, proper HTTP methods, and scalable design patterns.",
+      "**Secure authentication and data protection** using **Cookies, and encryption protocols**, ensuring client data privacy and security.",
 
-      "**Cloudinary integration** for image upload and optimization, enabling **high-performance media handling** with automatic compression and delivery via CDN.",
+      "**Scalable backend infrastructure** with **Node.js, Express.js, and PostgreSQL**, designed to handle high traffic loads and complex business logic.",
 
-      "**Mobile-first responsive design** crafted with **React** and **Tailwind CSS**, ensuring **seamless usability** across desktops, tablets, and mobile devices.",
-
-      "**Build reusable components and pages** following **DRY principles**, allowing for easy expansion, maintainability, and reduced code duplication.",
-
-      "**Real-time dashboard updates** allow users to **edit, delete, or preview** their own blog posts instantly, with intuitive feedback and UI animations.",
-
-      "**Backend deployed on Render**, providing **production-level performance**, auto-scaling, and high availability for user traffic.",
+      "**CI/CD deployment pipeline** with automated testing, staging environments, and production deployments for rapid and reliable delivery.",
     ],
 
-    impact: [
-      "**Empowered individual content creators** with a secure and intuitive platform to **manage their blogs independently**, helping foster user ownership and creativity.",
-
-      "**Enhanced user experience across all devices** through a **mobile-first responsive UI**, increasing engagement and reducing bounce rates on smartphones and tablets.",
-
-      "**Streamlined content publishing workflows** with real-time dashboard updates and feedback mechanisms, allowing creators to **edit or preview posts instantly** without delay.",
-
-      "**Reduced maintenance overhead** and accelerated development using a **component-driven architecture**, enabling easy scaling and feature rollouts.",
-
-      "**Delivered stable, production-ready performance** using Render’s backend hosting, ensuring **reliability under real traffic** without compromising on speed.",
-
-      "**Strengthened security posture** across the platform through **JWT-based session control** and structured API routes, guarding against unauthorized access and common vulnerabilities.",
-
-      "**Supported long-term scalability** with a modular **RESTful backend**, laying the groundwork for future feature integrations like comments, likes, and content categories.",
-
-      "**Created a developer-friendly codebase** following **best practices (DRY, modular routing, separation of concerns)**, simplifying collaboration, debugging, and onboarding.",
-    ],
-
-    challenges: [
-      "Designing a **JWT-based authentication system** that supports secure login, signup, and password recovery — while ensuring **persistent sessions**, token expiration handling, and protection against unauthorized access to user-specific routes.",
-
-      "Building a **responsive, real-time blog dashboard** that updates post actions (edit, delete) instantly — requiring efficient state management, conditional rendering, and smooth UX feedback without reloading the page.",
-    ],
-
-    isFullStack: true,
-
-    fullStackCodeLink: [
-      {
-        name: "Frontend Code",
-        codeLink: "https://github.com/riteshgharti333/thinker_frontend",
-      },
-      {
-        name: "Backend Code",
-        codeLink: "https://github.com/riteshgharti333/thinker_backend",
-      },
-    ],
-
-    fullStackLiveLink: [
-      {
-        name: "Frontend Live Demo",
-        liveLink: "https://thinker-frontend-4jyh.vercel.app",
-      },
-    ],
+    liveLink: "http://twipratech.com",
   },
 
   {
@@ -899,6 +567,8 @@ export const projectData = [
     techStack: [
       { img: img3, name: "React.js" },
       { img: img1, name: "Sass" },
+      { img: img19, name: "Express.js" },
+      { img: img4, name: "Node.js" },
     ],
 
     features: [
@@ -975,8 +645,6 @@ export const projectData = [
 
       "Designing a **selective data persistence strategy** that stores critical metrics like **LTP**, **LTQ**, and **volume** at fixed intervals — balancing **database load** with the need for **accurate historical analytics**.",
     ],
-
-    githubLink: "https://github.com/riteshgharti333/Trade-Dad-App-Backend",
   },
 
   {
@@ -1047,7 +715,7 @@ export const projectData = [
     ],
 
     githubLink: "https://github.com/riteshgharti333/Abhimanyu-Holidays",
-    liveLink: "https://abhimanyuholidays.com",
+    liveLink: "https://project-8-rho.vercel.app/",
   },
   {
     slug: "global-india-travel",
@@ -1122,43 +790,7 @@ export const projectData = [
     ],
 
     githubLink: "https://github.com/riteshgharti333/Global-India-Travel",
-    liveLink: "https://globalindiatravels.com",
-  },
-
-  {
-    slug: "bk-welfare-society",
-    bannerImage: projectImg2,
-    title: "BK Welfare Society",
-    description: [
-      "A **community-centric platform** designed to showcase **individual achievements** and **social contributions**, focused on **accessibility**, **clarity**, and **visual storytelling**.",
-      "Built with a **mobile-first approach**, ensuring **high readability**, **responsive design**, and **inclusive user experience** across all demographics, including **non-tech-savvy users**.",
-    ],
-    techStack: [
-      { img: img3, name: "React.js" },
-      { img: img2, name: "CSS3" },
-      { img: img1, name: "Sass" },
-      { img: img25, name: "React Router" },
-    ],
-    features: [
-      "**Dynamic achievement showcase** using a custom-built image carousel",
-      "**Dedicated content sections** for Employment, Youth Initiatives, and Government Schemes",
-      "**Accessibility-first typography** for **legibility across age groups**",
-      "**Fully responsive layout** adapting to **all screen sizes and devices**",
-      "**Smooth client-side routing** using React Router with structured navigation",
-    ],
-    impact: [
-      "**Increased public engagement** through impactful visual storytelling",
-      "**Enhanced accessibility** for elderly users with **clear typography** and **scalable layouts**",
-      "**Consistent cross-device experience** tested on **20+ screen resolutions**",
-      "**Faster information discovery** via **clean layout** and **content hierarchy**",
-    ],
-    challenges: [
-      "Designing a **modern yet accessible UI** for **elderly and non-technical audiences**",
-      "Creating a **minimal yet informative content structure** with clear visual hierarchy",
-      "Maintaining **visual consistency and performance** across varied device types",
-    ],
-    githubLink: "https://github.com/riteshgharti333/BK-Welfare-Society",
-    liveLink: "https://www.bkwelfaresociety.com",
+    liveLink: "https://project-5-jet.vercel.app",
   },
 
   {
@@ -1204,37 +836,150 @@ export const projectData = [
     ],
 
     githubLink: "https://github.com/riteshgharti333/bs-printers",
-    liveLink: "https://bsprinters.co.in",
+    liveLink: "https://project-2-riteshgharti333s-projects.vercel.app",
   },
 
   {
-    slug: "kilaniya-construction",
-    bannerImage: projectImg4,
-    title: "Kilaniya Building Construction & Design (Incomplete)",
+    slug: "fittercall",
+    bannerImage: projectImg16,
+    title: "FitterCall",
+
     description: [
-      "A **clean, content-focused platform** showcasing architectural projects and construction services — emphasizing **structural clarity**, **material authenticity**, and **project transparency** through minimalist design.",
-      "Currently in progress — focusing on **core functionality** for project displays while maintaining **load speed** and **accessibility** as top priorities.",
+      "A **comprehensive health and fitness platform** that provides **all-in-one calculator tools** for tracking and optimizing personal health metrics, including **BMI, BMR, Body Fat Percentage, TDEE, Ideal Weight, Macro Nutrients, Waist-to-Hip Ratio, and Water Intake**.",
+
+      "Built with **Next.js**, **TypeScript**, and **Tailwind CSS**, delivering a **fast, responsive, and user-friendly interface** for fitness enthusiasts and health-conscious individuals to monitor their fitness journey.",
     ],
+
     techStack: [
-      { img: img3, name: "React.js" },
-      { img: img2, name: "CSS3" },
-      { img: img1, name: "Sass" },
-      { img: img25, name: "React Router" },
+      { img: img18, name: "Next.js" },
+      { img: img22, name: "TypeScript" },
+      { img: img9, name: "Tailwind CSS" },
     ],
+
     features: [
-      "**Project showcase** with **grid-based layouts** highlighting construction phases from foundation to finishing",
-      "**Service categorization** for residential/commercial/renovation work with **minimalist filtering**",
+      "**BMI Calculator** - Calculate your Body Mass Index to determine if you're underweight, normal, overweight, or obese with instant results and health recommendations.",
+
+      "**BMR Calculator** - Estimate your Basal Metabolic Rate to understand how many calories your body burns at rest, essential for weight management planning.",
+
+      "**Body Fat Percentage Calculator** - Determine your body fat vs. lean mass ratio for better fitness tracking and body composition analysis.",
+
+      "**TDEE Calculator** - Find out your Total Daily Energy Expenditure based on activity level to plan calorie intake for weight loss, gain, or maintenance.",
+
+      "**Ideal Weight Calculator** - Discover your ideal weight based on height, age, and gender with healthy weight range recommendations.",
+
+      "**Macro Nutrient Calculator** - Calculate optimal protein, carbs, and fat intake percentages for your specific diet and fitness goals.",
+
+      "**Waist-to-Hip Ratio Calculator** - Measure fat distribution patterns to understand health risks associated with body shape and obesity.",
+
+      "**Water Intake Calculator** - Get personalized daily water consumption recommendations for optimal hydration based on weight, activity, and climate.",
+
+      "**Modern, responsive UI** with clean design and smooth animations, ensuring seamless experience across desktop, tablet, and mobile devices.",
+
+      "**Instant calculations with visual feedback** - Results displayed with color-coded indicators and progress bars for easy interpretation of health metrics.",
     ],
-    impact: [
-      "**Improved client comprehension** of complex builds through **structured visual storytelling**",
-      "**Streamlined project updates** using **lightweight** content modules",
+    // githubLink: "https://github.com/riteshgharti333/bs-printers",
+    liveLink: "https://fitter-call.vercel.app",
+  },
+  {
+    slug: "chery-diary",
+    bannerImage: projectImg15,
+    title: "Chery Diary",
+
+    description: [
+      "A **blog web application** designed for sharing **stories, thoughts, and personal experiences** in a clean and engaging platform.",
+
+      "Built with **Next.js**, **TypeScript**, and **Tailwind CSS**, delivering a **fast, SEO-friendly, and responsive** blogging experience for content creators and readers.",
     ],
-    challenges: [
-      "Balancing **technical construction details** with **client-friendly presentation**",
+
+    techStack: [
+      { img: img18, name: "Next.js" },
+      { img: img22, name: "TypeScript" },
+      { img: img9, name: "Tailwind CSS" },
     ],
-    githubLink:
-      "https://github.com/riteshgharti333/Kilaniya-Building-Construction-Design",
-    liveLink: "https://project4-five-ashen.vercel.app",
+
+    features: [
+      "**Beautiful blog interface** with a clean, minimal design focused on content readability and user experience.",
+
+      "**Blog post management** - Create, edit, and publish blog posts with rich text formatting and media embedding.",
+
+      "**Category and tag system** for organizing content and improving discoverability of posts.",
+
+      "**Search functionality** to quickly find specific posts by title, content, or tags.",
+
+      "**Responsive design** ensuring seamless reading experience across desktop, tablet, and mobile devices.",
+
+      "**SEO optimized** with meta tags, Open Graph images, and structured data for better search engine visibility.",
+
+      "**Fast page loads** with Next.js SSG and ISR for optimal performance and user experience.",
+    ],
+    liveLink: "https://blog-doc-eight.vercel.app",
+  },
+  {
+    slug: "ai-fashion-assistant",
+    bannerImage: projectImg18,
+    title: "AI Fashion Assistant",
+
+    description: [
+      "An **AI-powered fashion styling platform** that generates **personalized outfit recommendations** across multiple styles including **Casual Everyday, Streetwear, Minimal, Smart Casual, Aesthetic, and Party wear**.",
+
+      "Built with **Next.js**, **TypeScript**, and **Tailwind CSS**, delivering a **modern, interactive, and visually appealing** fashion discovery experience powered by AI.",
+    ],
+
+    techStack: [
+      { img: img18, name: "Next.js" },
+      { img: img22, name: "TypeScript" },
+      { img: img9, name: "Tailwind CSS" },
+    ],
+
+    features: [
+      "**AI-powered outfit generation** - Get personalized fashion recommendations based on style preferences and occasions.",
+
+      "**6 style categories** - Casual Everyday, Streetwear, Minimal/Clean, Smart Casual/Office, Aesthetic/Trendy, and Party/Night Out.",
+
+      "**Interactive style explorer** - Browse and discover outfits with detailed descriptions and styling tips.",
+
+      "**AI prompt-based suggestions** - Generate outfits using natural language prompts like 'Suggest comfortable casual outfits for everyday wear'.",
+
+      "**Modern, visually-rich UI** with beautiful imagery and smooth animations for an immersive fashion experience.",
+
+      "**Responsive design** optimized for all devices, making fashion inspiration accessible anywhere.",
+    ],
+
+    liveLink: "https://style-ai-albe.vercel.app",
+  },
+  {
+    slug: "ai-vault",
+    bannerImage: projectImg14,
+    title: "AI Vault",
+
+    description: [
+      "A **comprehensive AI tools collection** that curates and organizes **hundreds of AI tools** in one platform for easy access, discovery, and comparison.",
+
+      "Built with **Next.js**, **TypeScript**, and **Tailwind CSS**, delivering a **fast, searchable, and organized** directory of AI-powered tools and resources.",
+    ],
+
+    techStack: [
+      { img: img18, name: "Next.js" },
+      { img: img22, name: "TypeScript" },
+      { img: img9, name: "Tailwind CSS" },
+    ],
+
+    features: [
+      "**Curated collection of AI tools** - Discover hundreds of AI tools across multiple categories including text, image, video, audio, and analytics.",
+
+      "**Advanced search and filtering** - Quickly find tools by category, use case, pricing model, or popularity.",
+
+      "**Detailed tool profiles** with descriptions, features, pricing, use cases, and direct links to each tool.",
+
+      "**Category-based browsing** - Explore tools organized by functionality like content creation, design, development, marketing, and more.",
+
+      "**User ratings and reviews** - Community-driven feedback to help users choose the best AI tools.",
+
+      "**Regular updates** with new AI tools and technologies added continuously to keep the collectio1n current.",
+
+      "**Clean, organized interface** with intuitive navigation for seamless tool discovery and research.",
+    ],
+    liveLink: "https://ai-vault-git-main-riteshgharti333s-projects.vercel.app/",
   },
 ];
 
@@ -1254,7 +999,7 @@ export const projectSmData = [
       "Supabase",
       "Redux",
       "Tailwind CSS",
-      "AWS S3"
+      "AWS S3",
     ],
   },
   {
@@ -1288,36 +1033,18 @@ export const projectSmData = [
       "Cloudinary",
     ],
   },
-  {
-    slug: "star-marketing-invoice",
-    title: "Star Marketing Invoice",
-    bannerImage: projectImg8,
-    desc: "MERN stack invoice management platform for small businesses",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-    ],
-  },
 
   {
-    slug: "streamer",
-    title: "Streamer",
-    bannerImage: projectImg10,
-    desc: "Full-stack movie platform with Stripe subscriptions and admin dashboard",
+    slug: "twipra-technologies",
+    title: "Twipra Technologies",
+    bannerImage: projectImg17,
+    desc: "Leading service company in Bangladesh providing web, app, AI, digital marketing, editing, and server solutions.",
     techStack: [
-      "React.js",
-      "Express.js",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
       "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Redux",
-      "Firebase",
+      "Express.js",
     ],
   },
   {
@@ -1335,36 +1062,6 @@ export const projectSmData = [
       "Cloudinary",
       "Swiper",
     ],
-  },
-
-  {
-    slug: "thinker",
-    title: "Thinker",
-    bannerImage: projectImg14,
-    desc: "Full-stack blog application with JWT authentication",
-    techStack: [
-      "React.js",
-      "Express.js",
-      "Node.js",
-      "MongoDB",
-      "mongoose",
-      "Sass",
-      "Cloudinary",
-    ],
-  },
-  {
-    slug: "codefeast",
-    title: "Codefeast",
-    bannerImage: projectImg5,
-    desc: "Ed-tech platform with payment integration and admin dashboard",
-    techStack: ["React.js", "Sass"],
-  },
-  {
-    slug: "trade-dad",
-    title: "Trade Dad",
-    bannerImage: projectImg13,
-    desc: "Real-time trading app backend with Upstox SDK integration",
-    techStack: ["Express.js", "Node.js", "MongoDB", "mongoose"],
   },
   {
     slug: "abhimanyu-holidays",
@@ -1386,25 +1083,56 @@ export const projectSmData = [
     desc: "Comprehensive travel booking platform with multiple services",
     techStack: ["React.js", "CSS3", "Sass", "React Router", "Swiper"],
   },
+
   {
-    slug: "bk-welfare-society",
-    title: "BK Welfare Society",
-    bannerImage: projectImg2,
-    desc: "Community platform showcasing achievements and initiatives",
-    techStack: ["React.js", "CSS3", "Sass", "React Router"],
+    slug: "codefeast",
+    title: "Codefeast",
+    bannerImage: projectImg5,
+    desc: "Ed-tech platform with payment integration and admin dashboard",
+    techStack: ["React.js", "Sass", "Node.js", "Express.js"],
   },
+  {
+    slug: "trade-dad",
+    title: "Trade Dad",
+    bannerImage: projectImg13,
+    desc: "Real-time trading app backend with Upstox SDK integration",
+    techStack: ["Express.js", "Node.js", "MongoDB", "mongoose"],
+  },
+  {
+    slug: "fittercall",
+    title: "FitterCall",
+    bannerImage: projectImg16,
+    desc: "Comprehensive health and fitness platform providing all-in-one calculators including BMI, BMR, Body Fat Percentage, TDEE, Ideal Weight, Macro Nutrients, Waist-to-Hip Ratio, and Water Intake calculators.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    slug: "chery-diary",
+    title: "Chery Diary",
+    bannerImage: projectImg15,
+    desc: "Blog web application for sharing stories, thoughts, and personal experiences.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+
+  {
+    slug: "ai-fashion-assistant",
+    title: "AI Fashion Assistant",
+    bannerImage: projectImg18,
+    desc: "AI-powered fashion styling platform that generates personalized outfit recommendations across Casual Everyday, Streetwear, Minimal, Smart Casual, Aesthetic, and Party wear styles.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    slug: "ai-vault",
+    title: "AI Vault",
+    bannerImage: projectImg14,
+    desc: "Collection of many AI tools curated in one platform for easy access and discovery.",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+
   {
     slug: "bs-printers",
     title: "BS Printers",
     bannerImage: projectImg3,
     desc: "Modern printing platform with product showcase",
-    techStack: ["React.js", "CSS3", "Sass", "React Router"],
-  },
-  {
-    slug: "kilaniya-construction",
-    title: "Kilaniya Building Construction & Design",
-    bannerImage: projectImg4,
-    desc: "In-progress construction company website",
     techStack: ["React.js", "CSS3", "Sass", "React Router"],
   },
 ];

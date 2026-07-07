@@ -121,7 +121,7 @@ const Navbar = () => {
                       <span className={`text-[10px] font-mono transition-colors duration-300 ${
                         pathname === item.path 
                           ? "text-[var(--accent)]" 
-                          : "text-[var(--muted-foreground)]/50 group-hover:text-[var(--accent)]"
+                          : "text-[var(--muted-foreground)] group-hover:text-[var(--accent)]"
                       }`}>
                         {String(index + 1).padStart(2, "0")}
                       </span>

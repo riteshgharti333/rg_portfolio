@@ -10,7 +10,6 @@ import {
   FiShield,
 } from "react-icons/fi";
 import CornerBrackets from "../ui/CornerBrackets";
-import FourthTextAnimation from "../TextAni/FourthTextAnimation";
 import TextAnimation from "../TextAni/TextAnimation";
 
 const servicesData = [
@@ -62,9 +61,9 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="relative py-24 bg-[var(--background)] overflow-hidden"
+      className="relative py-24 overflow-hidden"
     >
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10">
         {/* Section Header */}
         <TextAnimation subtitle="WHAT I DO" line1="MY" line2="SERVICES" />
         
