@@ -56,6 +56,12 @@ const img25 =
 const img26 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-plain.svg";
 
+const img27 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg";
+
+const img28 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg";
+
 export const homeIcons1: string[] = [
   img23, // HTML
   img2, // CSS
@@ -118,8 +124,10 @@ export const skills = {
     { name: "Postman", icon: img13 },
     { name: "NPM", icon: img6 },
     { name: "Nodemon", icon: img5 },
+    { name: "Vitest", icon: img27 },
   ],
   databases: [
+    { name: "Supabase", icon: img28 },
     { name: "MongoDB", icon: img14 },
     { name: "Mongoose", icon: img15 },
     { name: "Firebase", icon: img16 },

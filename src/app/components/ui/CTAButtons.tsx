@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import { HiMail, HiBriefcase, HiEye } from "react-icons/hi";
 
 // Types
 interface ButtonProps {
   href: string;
-  icon: string | React.ReactNode;
+  icon: React.ReactNode;
   text: string;
   className?: string;
 }
@@ -119,7 +120,7 @@ export const RadialSweepButton: React.FC<ButtonProps> = ({
   );
 };
 
-// 4. Combined CTA Buttons Component (default export)
+// 4. Combined CTA Buttons Component
 const CTAButtons: React.FC = () => {
   return (
     <motion.div
@@ -128,13 +129,21 @@ const CTAButtons: React.FC = () => {
       transition={{ delay: 1.0, duration: 0.55 }}
       className="flex flex-wrap items-center justify-center gap-4 mb-12"
     >
-      <VenetianBlindButton href="#contact" icon="✉" text="Contact Me" />
+      <VenetianBlindButton
+        href="#contact"
+        icon={<HiMail />}
+        text="Contact Me"
+      />
 
-      <MagneticCornerButton href="#projects" icon="◈" text="View Projects" />
+      <MagneticCornerButton
+        href="#projects"
+        icon={<HiBriefcase />}
+        text="View Projects"
+      />
 
       <RadialSweepButton
         href="/ritesh_resume.pdf"
-        icon="👁"
+        icon={<HiEye />}
         text="View Resume"
       />
     </motion.div>

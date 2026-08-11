@@ -17,7 +17,40 @@ const poppins = Poppins({
 export const metadata = {
   title: "Ritesh Gharti | Full Stack Developer",
   description:
-    "Explore the professional portfolio of Ritesh – a full-stack developer passionate about building modern, scalable web applications using the MERN stack. Showcasing real-world projects, production-ready code, and a deep commitment to clean design and performance.",
+    "Explore the professional portfolio of Ritesh – a full-stack developer passionate about building modern, scalable web applications using the MERN stack.",
+  keywords: [
+    "full-stack developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "PostgreSQL",
+    "MERN stack",
+    "web development",
+    "portfolio",
+    "Ritesh Gharti",
+  ],
+  authors: [{ name: "Ritesh Gharti" }],
+  creator: "Ritesh Gharti",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://rgdev-portfolio-six.vercel.app",
+    siteName: "Ritesh Gharti Portfolio",
+    title: "Ritesh Gharti | Full Stack Developer",
+    description:
+      "Full-stack developer passionate about building modern, scalable web applications using the MERN stack.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ritesh Gharti | Full Stack Developer",
+    description:
+      "Full-stack developer passionate about building modern, scalable web applications.",
+  },
   icons: {
     icon: "/logo.svg",
   },
@@ -84,6 +117,16 @@ export default function RootLayout({
               }
             `,
           }}
+        />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://rgdev-portfolio-six.vercel.app" />
+
+        {/* Preconnect to external resources */}
+        <link
+          rel="preconnect"
+          href="https://cdn.jsdelivr.net"
+          crossOrigin="anonymous"
         />
 
         <link

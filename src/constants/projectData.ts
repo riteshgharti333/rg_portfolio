@@ -49,6 +49,9 @@ const img31 =
 const img18 =
   "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg";
 
+const img32 =
+  "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitest/vitest-original.svg";
+
 import projectImg1 from "../assets/images/projectImgs/Abhimanyu-Holiday.jpeg";
 import projectImg3 from "../assets/images/projectImgs/BS-Printe.jpeg";
 import projectImg5 from "../assets/images/projectImgs/Codefeas.jpeg";
@@ -67,6 +70,7 @@ import projectImg16 from "../assets/images/projectImgs/FitterCall-Free-Online-Fi
 import projectImg17 from "../assets/images/projectImgs/Twipra-Technology-Web-Development-Digital-Agenc.jpeg";
 
 import projectImg18 from "../assets/images/projectImgs/style-ai-albe-vercel-ap.jpeg";
+import projectImg19 from "../assets/images/projectImgs/Invoice-Ready-Manage-Your-Invoices-Easil.jpeg";
 
 export const homeProjectData = [
   {
@@ -407,6 +411,55 @@ export const projectData = [
           "https://star-marketing-site-3az877j8u-riteshgharti333s-projects.vercel.app/",
       },
     ],
+  },
+
+  {
+    slug: "invoice-ready",
+    bannerImage: projectImg19,
+    title: "Invoice Ready",
+
+    description: [
+      "A **full-stack invoice and quotation management system** built for freelancers, agencies, and small teams who need a **self-hosted billing solution** with enterprise-grade features.",
+
+      "Built as a **TypeScript monorepo** with **React + Vite frontend**, **Express + Prisma backend**, and **shared Zod validation schemas**, delivering a type-safe and scalable billing platform.",
+    ],
+
+    techStack: [
+      { img: img22, name: "TypeScript" },
+      { img: img3, name: "React.js" },
+      { img: img19, name: "Express.js" },
+      { img: img4, name: "Node.js" },
+      { img: img17, name: "PostgreSQL" },
+      { img: img30, name: "Prisma" },
+      { img: img9, name: "Tailwind Css" },
+      { img: img31, name: "AWS S3" },
+      { img: img32, name: "Vitest" },
+
+    ],
+
+    features: [
+      "**Complete billing workflow** with **invoice CRUD, quotation management, customer portal, service catalog, and payment tracking** — all in one unified dashboard.",
+
+      "**Automated PDF generation and delivery** using **PDFKit** with **30-minute caching system**. Send invoices and quotations via **email** and **WhatsApp** with one click.",
+
+      "**Smart notification scheduler** that runs daily background checks for **due reminders** and **overdue alerts**, with **multi-channel delivery** through email and WhatsApp Graph API.",
+
+      "**Role-based access control** with **JWT authentication** using **HTTP-only cookies** and **Authorization header fallback**. **Admin** and **User** roles for secure operations.",
+
+      "**Revenue analytics dashboard** with **ApexCharts** visualization for **total revenue, outstanding payments, invoice status distribution, and payment method breakdown**.",
+
+      "**Auto-overdue detection** that automatically updates invoice statuses based on due dates, eliminating manual tracking and ensuring accurate financial records.",
+
+      "**Quote-to-invoice conversion** with one-click workflow — approved quotations carry over all line items automatically, reducing double data entry.",
+
+      "**Type-safe architecture** with **shared Zod schemas** across frontend and backend, ensuring **58+ validated API endpoints** with consistent data contracts.",
+
+      "**Advanced search and filtering** across **10 Prisma models** with **cmdk command palette** (Ctrl+K) for instant navigation and quick actions.",
+
+      "**Self-hosted deployment** with **npm workspaces monorepo**, supporting **17+ frontend routes** and complete customization for your business needs.",
+    ],
+
+    liveLink: "https://invoice-ready-lemon.vercel.app",
   },
 
   {
@@ -1031,6 +1084,25 @@ export const projectSmData = [
       "Sass",
       "Tailwind CSS",
       "Cloudinary",
+    ],
+  },
+
+  {
+    slug: "invoice-ready",
+    title: "Invoice Ready",
+    bannerImage: projectImg19,
+    desc: "Full-stack billing platform with automated PDF generation, email & WhatsApp notifications, role-based access, and real-time revenue analytics dashboard.",
+    techStack: [
+      "TypeScript",
+      "React.js",
+      "Vite",
+      "Express.js",
+      "Node.js",
+      "PostgreSQL",
+      "Prisma",
+      "Zustand",
+      "Tailwind CSS",
+      "Vitest",
     ],
   },
 
