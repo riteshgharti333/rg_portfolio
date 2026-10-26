@@ -275,7 +275,7 @@ const About = () => {
               </span>
               <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted-foreground)] flex items-center gap-2">
                 <FaBriefcase className="text-[var(--accent)]" />
-                Technical Skills
+                Experience
               </h3>
             </div>
             <MasonryExperience />
