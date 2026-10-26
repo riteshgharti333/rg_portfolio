@@ -4,14 +4,42 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Code2, Layers, Zap } from "lucide-react";
 import * as THREE from "three";
+import type { IconType } from "react-icons";
 import {
   SiReact, SiNextdotjs, SiJavascript, SiTypescript,
   SiNodedotjs, SiMongodb, SiTailwindcss, SiPostgresql,
   SiFirebase, SiGit,
 } from "react-icons/si";
+import type { ReactNode } from "react";
+
+/* ── TYPES ────────────────────────────────────────────────── */
+interface Skill {
+  icon: IconType;
+  name: string;
+  color: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+}
+
+interface ThreeSceneProps {
+  containerRef: React.RefObject<HTMLDivElement | null>;
+}
+
+interface MagneticBtnProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface SkillPillProps {
+  skill: Skill;
+  index: number;
+}
 
 /* ── DATA ─────────────────────────────────────────────────── */
-const skills = [
+const skills: Skill[] = [
   { icon: SiReact,       name: "React",      color: "#61DAFB" },
   { icon: SiNextdotjs,   name: "Next.js",    color: "#FFFFFF" },
   { icon: SiJavascript,  name: "JavaScript", color: "#F7DF1E" },
@@ -24,14 +52,14 @@ const skills = [
   { icon: SiGit,         name: "Git",        color: "#F1502F" },
 ];
 
-const STATS = [
+const STATS: Stat[] = [
   { value: "50+", label: "Projects Shipped" },
   { value: "5+",  label: "Years Building"   },
   { value: "30+", label: "Happy Clients"    },
 ];
 
 /* ── THREE.JS SCENE ───────────────────────────────────────── */
-function ThreeScene({ containerRef }) {
+function ThreeScene({ containerRef }: ThreeSceneProps) {
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -41,7 +69,7 @@ function ThreeScene({ containerRef }) {
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
     el.appendChild(renderer.domElement);
 
@@ -88,12 +116,19 @@ function ThreeScene({ containerRef }) {
     scene.add(wire);
 
     /* orbiting rings */
-    const rings = [];
-    [
+    interface RingData {
+      r: number;
+      tube: number;
+      rot: [number, number, number];
+      color: number;
+      speed: number;
+    }
+    const rings: THREE.Mesh[] = [];
+    ([
       { r: 11, tube: 0.06, rot: [Math.PI/2, 0, 0],          color: 0x0ea5e9, speed:  0.004 },
       { r: 13, tube: 0.04, rot: [Math.PI/4, Math.PI/6, 0],  color: 0x38bdf8, speed: -0.006 },
       { r: 15, tube: 0.03, rot: [-Math.PI/5, Math.PI/3, 0], color: 0x7dd3fc, speed:  0.003 },
-    ].forEach((d) => {
+    ] as RingData[]).forEach((d) => {
       const geo  = new THREE.TorusGeometry(d.r, d.tube, 4, 120);
       const mat  = new THREE.MeshBasicMaterial({ color: d.color, transparent: true, opacity: 0.45 });
       const mesh = new THREE.Mesh(geo, mat);
@@ -156,13 +191,13 @@ function ThreeScene({ containerRef }) {
 
     /* mouse tilt */
     let mx = 0, my = 0;
-    const onMM = (e) => {
-      mx = (e.clientX / innerWidth  - 0.5) * 2;
-      my = (e.clientY / innerHeight - 0.5) * 2;
+    const onMM = (e: MouseEvent) => {
+      mx = (e.clientX / window.innerWidth  - 0.5) * 2;
+      my = (e.clientY / window.innerHeight - 0.5) * 2;
     };
     window.addEventListener("mousemove", onMM);
 
-    let t = 0, raf;
+    let t = 0, raf: number;
     const tick = () => {
       raf = requestAnimationFrame(tick);
       t += 0.012;
@@ -171,7 +206,7 @@ function ThreeScene({ containerRef }) {
       crystal.rotation.y = t * 0.25;
       crystal.rotation.x = Math.sin(t * 0.18) * 0.3;
       wire.rotation.copy(crystal.rotation);
-      rings.forEach((r) => { r.rotation.z += r.userData.speed; });
+      rings.forEach((r) => { r.rotation.z += r.userData.speed as number; });
       halo.rotation.y = t * 0.04;
       scene.rotation.y += (mx * 0.25 - scene.rotation.y) * 0.04;
       scene.rotation.x += (-my * 0.15 - scene.rotation.x) * 0.04;
@@ -201,8 +236,8 @@ function ThreeScene({ containerRef }) {
 }
 
 /* ── MAGNETIC BUTTON ──────────────────────────────────────── */
-function MagneticBtn({ children, className }) {
-  const ref = useRef(null);
+function MagneticBtn({ children, className }: MagneticBtnProps) {
+  const ref = useRef<HTMLButtonElement>(null);
   const x   = useMotionValue(0);
   const y   = useMotionValue(0);
   const sx  = useSpring(x, { stiffness: 200, damping: 18 });
@@ -213,7 +248,9 @@ function MagneticBtn({ children, className }) {
       ref={ref}
       style={{ x: sx, y: sy }}
       onMouseMove={(e) => {
-        const r = ref.current.getBoundingClientRect();
+        const el = ref.current;
+        if (!el) return;
+        const r = el.getBoundingClientRect();
         x.set((e.clientX - r.left - r.width  / 2) * 0.35);
         y.set((e.clientY - r.top  - r.height / 2) * 0.35);
       }}
@@ -226,7 +263,7 @@ function MagneticBtn({ children, className }) {
 }
 
 /* ── SKILL PILL ───────────────────────────────────────────── */
-function SkillPill({ skill, index }) {
+function SkillPill({ skill, index }: SkillPillProps) {
   const Icon = skill.icon;
   return (
     <motion.div
@@ -235,7 +272,7 @@ function SkillPill({ skill, index }) {
       transition={{ delay: 0.85 + index * 0.045, duration: 0.4, ease: "backOut" }}
       whileHover={{ scale: 1.1, y: -3 }}
       className="group flex items-center gap-2 rounded-full border border-white/[0.07] bg-white/[0.03] px-3.5 py-1.5 backdrop-blur-sm transition-all duration-300 cursor-default"
-      style={{ "--ac": skill.color }}
+      style={{ "--ac": skill.color } as React.CSSProperties}
     >
       <Icon style={{ color: skill.color, fontSize: "13px" }} />
       <span className="text-[11px] font-medium tracking-wide text-white/50 group-hover:text-white/80 transition-colors">
@@ -247,7 +284,7 @@ function SkillPill({ skill, index }) {
 
 /* ── BANNER ───────────────────────────────────────────────── */
 export default function Banner() {
-  const sceneRef = useRef(null);
+  const sceneRef = useRef<HTMLDivElement>(null);
 
   /* cursor glow */
   const cx = useMotionValue(-400);
@@ -256,10 +293,10 @@ export default function Banner() {
   const gy = useSpring(cy, { stiffness: 70, damping: 20 });
 
   useEffect(() => {
-    const mv = (e) => { cx.set(e.clientX); cy.set(e.clientY); };
+    const mv = (e: MouseEvent) => { cx.set(e.clientX); cy.set(e.clientY); };
     window.addEventListener("mousemove", mv);
     return () => window.removeEventListener("mousemove", mv);
-  }, []);
+  }, [cx, cy]);
 
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#050608] text-white">
@@ -269,8 +306,8 @@ export default function Banner() {
         className="pointer-events-none fixed z-50 rounded-full"
         style={{
           width: 520, height: 520,
-          x: useTransform(gx, v => v - 260),
-          y: useTransform(gy, v => v - 260),
+          x: useTransform(gx, (v: number) => v - 260),
+          y: useTransform(gy, (v: number) => v - 260),
           background: "radial-gradient(circle, rgba(14,165,233,0.065) 0%, transparent 65%)",
         }}
       />
@@ -292,8 +329,6 @@ export default function Banner() {
         {/* vertical accent lines */}
         <div className="absolute inset-y-0 left-[55%] w-px bg-gradient-to-b from-transparent via-white/[0.04] to-transparent hidden lg:block" />
       </div>
-
- 
 
       {/* ── MAIN ── */}
       <div className="relative z-10 flex flex-1 flex-col lg:flex-row">
