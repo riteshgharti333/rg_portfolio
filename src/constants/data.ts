@@ -142,9 +142,24 @@ export const skills = {
 
 export const experiences = [
   {
+  role: "Tech Lead / Software Engineer",
+  company: "Twipra Technology",
+  duration: "Jan 2026 – Present",
+  points: [
+    "Owned **end-to-end delivery** of client products, from **scoping** and **architecture** to **launch** and **handover**.",
+    "Directed **technical design** and **technology decisions**, balancing **scalability**, **performance**, and **client budget**.",
+    "Built the company's **full-stack platform** with public pages for **services**, **blogs**, and **company details**.",
+    "Engineered **backend APIs** and **database** systems powering the platform and its **admin dashboard**.",
+    "Developed an **admin dashboard** to manage **client leads** and company applications in one place.",
+    "Authored **project proposals**, **cost estimates**, and **technical documentation** to define scope for clients.",
+    "Represented **engineering** in **client meetings**, explaining **architecture**, **feasibility**, and **effort estimates**.",
+    "Led **project planning** and technical execution, turning client requirements into structured, deliverable work.",
+  ],
+},
+  {
     role: "Full Stack Developer",
     company: "Star Marketing",
-    duration: "Jan 2025 – Sep 2025",
+    duration: "Jan 2025 – Dec 2025",
     points: [
       "Delivered **9+ web applications independently**, including **full-stack**, **frontend**, and **industry-specific** solutions across **healthcare, education, marketing, printing, taxi, and wedding** domains.",
       "Engineered **performance optimizations** using **Redis caching**, **lazy loading**, and **image compression**, significantly improving application speed and user experience.",
